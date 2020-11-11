@@ -178,6 +178,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "safe-space"
+    }
+  },
+  "defaultProject": "safe-space",
+  "cli": {
+    "analytics": "751a8d9b-5e6a-443f-b03d-5b68252e2b3b"
+  }
 }
