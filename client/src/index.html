@@ -8,8 +8,26 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- This was added Nov 12th during 11:30 group -->
+  <link rel="stylesheet" href="/node_modules/angular-material/angular-material.css">
+
 </head>
-<body class="mat-typography">
+  <!-- This was added Nov 12th during 11:30 group -->
+<body ng-app="safe-space" class="mat-typography">
+  <div ng-controller="app-root">
+  </div>
   <app-root></app-root>
+
+  <!-- This was added Nov 12th during 11:30 group -->
+  <script src="/node_modules/angular/angular.js"></script>
+  <script src="/node_modules/angular-aria/angular-aria.js"></script>
+  <script src="/node_modules/angular-animate/angular-animate.js"></script>
+  <script src="/node_modules/angular-messages/angular-messages.js"></script>
+  <script src="/node_modules/angular-material/angular-material.js"></script>
+  <script>
+    // Include app dependency on ngMaterial
+    angular.module('YourApp', ['ngMaterial', 'ngMessages'])
+      .controller("YourController", YourController);
+  </script>
 </body>
 </html>
