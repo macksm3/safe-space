@@ -6,7 +6,12 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "start": "npm run build --prefix /client && npm run build --prefix /server && npm run start:prod --prefix /server"
-  
+    "build:client": "cd client && ng build --prod --output-path=../dist/client",
+    "build:server": "cd server && npm run webpack",
+    "build": "concurrently \" npm run build:server \" \" npm run build:client \" ",
+    "start:client": " cd client && npm start",
+    "start:server": " cd server && npm start",
+    "start": "concurrently \" npm run start:server \" \" npm run start:client \" ",
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 } 
