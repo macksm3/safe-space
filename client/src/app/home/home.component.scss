@@ -1,13 +1,16 @@
 .intro-card {
     text-align: center;
-    max-width: 250px;
+    max-width: 350px;
     margin: 20px;
     background-color: "secondary";
     border: solid;
-    padding: 100px;
-    border-radius: 50em;
+    padding: 150px;
+    border-radius: 50%;
 }
 
+.safe-space {
+    font-size: 3rem;
+}
 mat-grid-tile {
     background: lightblue;
   }
