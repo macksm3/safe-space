@@ -16,10 +16,14 @@
                     <button mat-raised-button>Log In</button>
                     <button mat-raised-button>Sign Up</button>
                 <br>
-                    <button mat-icon-button color="primary" aria-label="about us"><mat-icon>info</mat-icon></button>
+                <!-- Nov 13 MWE add link to button component with anchor tag -->
+                    <button mat-icon-button color="primary" aria-label="about us"><mat-icon><a routerLink="./about.component" routerLinkActive="active">info</a></mat-icon></button>
                 </mat-card-actions>
             </mat-card>
         </div>
     </mat-grid-tile>
 
 </mat-grid-list>
+
+<!-- add this to inform Angular to update the application view with the component for the selected route -->
+<router-outlet></router-outlet>
