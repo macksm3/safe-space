@@ -1,16 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+
 .intro-card {
-    text-align: center;
-    max-width: 350px;
-    margin: 20px;
-    background-color: "secondary";
-    border: solid;
-    padding: 150px;
-    border-radius: 50%;
+  text-align: center;
+  background: transparent;
+  background: url("https://i.ibb.co/vmjNnQV/white-circle.png") no-repeat;
+  background-size: 100%;
+  padding: 80px 100px 100px 100px;
+  color: #1E344B;
+  font-weight: 800;
 }
 
-.safe-space {
-    font-size: 3rem;
+div.alien {
+    background: transparent;
+    background-image: url('https://i.ibb.co/vc6kVxY/5.png');
+    height: 100px;
 }
-mat-grid-tile {
-    background: lightblue;
+
+mat-card-title {
+  font-family: 'Open Sans', sans-serif;
+}
+
+mat-card-actions {
+  padding: 0;
+  margin: 0;
+
+  button.mat-raised-button {
+    background-color: #6EBE44;
   }
+}
+
+h1.safe-space {
+  font-size: 3rem;
+  line-height: normal;
+  font-family: 'Audiowide', cursive;
+  color: #1E344B;
+  margin: 0;
+}
+
+p {
+  color: white;
+  margin: 20px;
+}
+
+mat-grid-tile {
+  background-image: url('https://i.ibb.co/XLdTXMc/background-ADFFE3-1-E344-B.png');
+}
