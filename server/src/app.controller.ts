@@ -11,7 +11,7 @@ export class AppController {
   //   response.sendFile(path.resolve('../client/dist/safe-space/index.html'))
   // }
 
-  @Get()
+  @Get("/test-api")
   testApi(): string {
     // Some api data, can be an object also
     return 'my great api';
