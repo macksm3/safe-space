@@ -1,1 +1,23 @@
-<p>about works!</p>
+<div class="background" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="mat-elevation-z0 about-card" #square (window:resize)="0"
+        [ngStyle]="{'height.px': square.offsetWidth }">
+        <h1 class="safe-space">Safe Space</h1>
+        <mat-card-title class="about"><i>about us</i></mat-card-title>
+        <mat-card-content>
+            <p>արդյունաբերության համար նախատեսված մոդելային տեքստ է: Սկսած 1500-ականներիցը հանդիսացել
+                է տպագրական արդյունաբերության ստանդարտ մոդելային տեքստ, ինչը մի անհայտ տպագրիչի կողմից տարբեր
+                տառատեսակների օրինակների գիրք ստեղծելու ջանքերի արդյունք է: Այս տեքստը ոչ միայն կարողացել է գոյատևել
+                հինգ դարաշրջան, այլև ներառվել է էլեկտրոնային տպագրության մեջ` մնալով էապես անփոփո</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <br>
+            <!-- Nov 13 MWE need to add link to button component with anchor tag -->
+            <button mat-fab color="primary">
+                <mat-icon>keyboard_arrow_left</mat-icon>
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</div>
+
+<!-- add this to inform Angular to update the application view with the component for the selected route -->
+<!-- <router-outlet></router-outlet> -->
