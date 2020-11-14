@@ -1,19 +1,22 @@
 {
-  "name": "server",
-  "version": "0.0.1",
+  "name": "safe-space",
+  "version": "1.0.0",
+  "engines": {
+    "node": "12.x",
+    "npm": "6.x"
+  },
   "description": "",
   "author": "",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "start": "npm run build --prefix ./client && npm run build --prefix ./server && npm run start:prod --prefix ./server",
+    "start": "npm start --prefix server",
     "build:client": "cd client && ng build --prod --output-path=../dist/client",
     "build:server": "cd server && npm run webpack",
     "build": "concurrently \" npm run build:server \" \" npm run build:client \" ",
     "start:client": " cd client && npm start",
     "start:server": " cd server && npm start",
     "start:dev": "npm run start:server & npm run start:client",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "npm install --prefix client && npm run build --prefix client && npm run prestart:prod --prefix server"
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
