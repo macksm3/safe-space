@@ -6,15 +6,17 @@
   background: transparent;
   background: url("https://i.ibb.co/vmjNnQV/white-circle.png") no-repeat;
   background-size: 100%;
-  padding: 80px 100px 100px 100px;
+  padding: 80px;
+  width: 260px;
   color: #1E344B;
   font-weight: 800;
 }
 
 div.alien {
-    background: transparent;
-    background-image: url('https://i.ibb.co/vc6kVxY/5.png');
-    height: 100px;
+  background: transparent;
+  background-image: url('https://i.ibb.co/vc6kVxY/5.png');
+  background-size: 100%;
+  height: 50px;
 }
 
 mat-card-title {
@@ -22,8 +24,8 @@ mat-card-title {
 }
 
 mat-card-actions {
-  padding: 0;
-  margin: 0;
+  padding: 10px;
+  // margin: 0;
 
   button.mat-raised-button {
     background-color: #6EBE44;
@@ -43,6 +45,8 @@ p {
   margin: 20px;
 }
 
-mat-grid-tile {
+div.background {
   background-image: url('https://i.ibb.co/XLdTXMc/background-ADFFE3-1-E344-B.png');
+  width: 100vw;
+  height: 100vh;
 }

@@ -1,29 +1,23 @@
-<mat-grid-list cols="1" rows="1">
-    <mat-grid-tile>
-        <div>
-            <mat-card class="mat-elevation-z0 intro-card" #square (window:resize)="0" [ngStyle]="{'height.px': square.offsetWidth }">
-                <mat-card-title class="welcome"><i>welcome to</i></mat-card-title>
-                <br>
-                <mat-card-content>
-                    <h1 class="safe-space">SAFE</h1>
-                    <h1 class="safe-space">SPACE</h1>
-                    <i>Helping you safely expand your orbit.</i>
-
-
-                </mat-card-content>
-                <br>
-                <mat-card-actions>
-                    <app-auth-button></app-auth-button>
-                    <button mat-raised-button>ABOUT</button>
-                <br>
-                <!-- Nov 13 MWE need to add link to button component with anchor tag -->
-                    <button mat-icon-button color="primary" aria-label="about us"><mat-icon>info</mat-icon></button>
-                </mat-card-actions>
-            </mat-card>
-        </div>
-    </mat-grid-tile>
-
-</mat-grid-list>
+<div class="background" fxLayout="column" fxLayoutAlign="center center">
+    <mat-card class="mat-elevation-z0 intro-card" #square (window:resize)="0"
+        [ngStyle]="{'height.px': square.offsetWidth }">
+        <mat-card-title class="welcome"><i>welcome to</i></mat-card-title>
+        <mat-card-content>
+            <h1 class="safe-space">SAFE</h1>
+            <h1 class="safe-space">SPACE</h1>
+            <i>Helping you safely expand your orbit.</i>
+        </mat-card-content>
+        <mat-card-actions>
+            <app-auth-button></app-auth-button>
+            <button mat-raised-button>ABOUT</button>
+            <br>
+            <!-- Nov 13 MWE need to add link to button component with anchor tag -->
+            <button mat-icon-button color="primary" aria-label="about us">
+                <mat-icon>info</mat-icon>
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</div>
 
 <!-- add this to inform Angular to update the application view with the component for the selected route -->
-<!-- <router-outlet></router-outlet> -->
+<router-outlet></router-outlet>
