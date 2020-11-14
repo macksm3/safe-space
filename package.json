@@ -13,7 +13,7 @@
     "start": "npm start --prefix server",
     "build:client": "cd client && ng build --prod --output-path=../dist/client",
     "build:server": "cd server && npm run webpack",
-    "build": "concurrently \" npm run build:server \" \" npm run build:client \" ",
+    "build": "npm run build:server && npm run build:client",
     "start:client": " cd client && npm start",
     "start:server": " cd server && npm start",
     "start:dev": "npm run start:server & npm run start:client",
