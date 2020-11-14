@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AuthModule } from '@auth0/auth0-angular';
-// import { FlexLayoutModule } from '@angular/flex-layout';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent, AuthButtonComponent } from './app.component';
@@ -28,7 +28,7 @@ import { AboutComponent } from './about/about.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     GlobalModule,
-    // FlexLayoutModule
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
