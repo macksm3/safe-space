@@ -17,7 +17,7 @@
                     <button mat-raised-button>Sign Up</button>
                 <br>
                 <!-- Nov 13 MWE need to add link to button component with anchor tag -->
-                    <button mat-icon-button color="primary" aria-label="about us"><mat-icon>info</mat-icon></button>
+                    <button routerLink="/about" mat-icon-button color="primary" aria-label="about us"><mat-icon>info</mat-icon></button>
                 </mat-card-actions>
             </mat-card>
         </div>
@@ -26,4 +26,4 @@
 </mat-grid-list>
 
 <!-- add this to inform Angular to update the application view with the component for the selected route -->
-<!-- <router-outlet></router-outlet> -->
+<router-outlet></router-outlet>
