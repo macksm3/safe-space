@@ -13,7 +13,6 @@ export class HomeComponent implements OnInit {
 
   constructor(
     // Nov 13 MWE inject instance of ActivatedRoute to constructor
-    // private route: ActivatedRoute,
   ) { }
 
   // Nov 13 MWE update this method to access the ActivatedRoute
