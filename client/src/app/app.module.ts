@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import { GlobalModule } from './global.module';
 import { AboutComponent } from './about/about.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { AboutComponent } from './about/about.component';
     FooterComponent,
     HomeComponent,
     AboutComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
