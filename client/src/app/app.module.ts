@@ -10,6 +10,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import { GlobalModule } from './global.module';
 import { AboutComponent } from './about/about.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HeaderComponent } from './header/header.component';
+import { ExploreComponent } from './explore/explore.component';
+import { ConnectComponent } from './connect/connect.component';
+import { ResourcesComponent } from './resources/resources.component';
+import { NewhampshireComponent } from './newhampshire/newhampshire.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +24,12 @@ import { AboutComponent } from './about/about.component';
     FooterComponent,
     HomeComponent,
     AboutComponent,
+    PageNotFoundComponent,
+    HeaderComponent,
+    ExploreComponent,
+    ConnectComponent,
+    ResourcesComponent,
+    NewhampshireComponent,
   ],
   imports: [
     BrowserModule,
