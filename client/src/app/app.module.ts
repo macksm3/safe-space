@@ -16,6 +16,7 @@ import { ExploreComponent } from './explore/explore.component';
 import { ConnectComponent } from './connect/connect.component';
 import { ResourcesComponent } from './resources/resources.component';
 import { NewhampshireComponent } from './newhampshire/newhampshire.component';
+import { TableComponent } from './table/table.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { NewhampshireComponent } from './newhampshire/newhampshire.component';
     ConnectComponent,
     ResourcesComponent,
     NewhampshireComponent,
+    TableComponent,
   ],
   imports: [
     BrowserModule,
