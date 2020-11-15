@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 
 // Nov 13 MWE define routes in Routes array
 const routes: Routes = [
+  { path: '',   redirectTo: '/home', pathMatch: 'full' }, // redirect to home page
   { path: 'about', component: AboutComponent },
   { path: 'home', component: HomeComponent },
   { path: '**', component: HomeComponent}
