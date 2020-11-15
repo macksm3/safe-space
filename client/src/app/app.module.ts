@@ -20,6 +20,7 @@ import { ResourcesComponent } from './resources/resources.component';
 import { NewhampshireComponent } from './newhampshire/newhampshire.component';
 import { TableComponent } from './table/table.component';
 
+
 // Adding Angular Material Module (also added to imports below)
 import { AngularMaterialModule } from './angular-material.module';
 
