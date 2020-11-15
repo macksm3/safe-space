@@ -11,13 +11,13 @@
             <app-auth-button></app-auth-button>
             <button mat-raised-button>ABOUT</button>
             <br>
-            <!-- Nov 13 MWE need to add link to button component with anchor tag -->
-            <button mat-icon-button color="primary" aria-label="about us">
+            <!-- Nov 13 MWE need to add routerLink to button -->
+            <button routerLink="/about" mat-icon-button color="primary" aria-label="about us">
                 <mat-icon>info</mat-icon>
             </button>
         </mat-card-actions>
     </mat-card>
 </div>
 
-<!-- add this to inform Angular to update the application view with the component for the selected route -->
+<!--Do we need this here? ... add this to inform Angular to update the application view with the component for the selected route -->
 <router-outlet></router-outlet>
