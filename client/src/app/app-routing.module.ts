@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 // using guidelines: https://angular.io/guide/router
 // Nov 13 MWE import modules needed for routing
 import { AboutComponent } from './about/about.component';
+import { ExploreComponent } from './explore/explore.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: '',   redirectTo: '/home', pathMatch: 'full' }, // redirect to home page
   { path: 'about', component: AboutComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'explore', component: ExploreComponent },
   { path: '**', component: PageNotFoundComponent}
 ];
 
