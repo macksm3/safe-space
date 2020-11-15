@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+
+// added custom elements schema for use with tables
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AuthModule } from '@auth0/auth0-angular';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -16,6 +18,11 @@ import { ExploreComponent } from './explore/explore.component';
 import { ConnectComponent } from './connect/connect.component';
 import { ResourcesComponent } from './resources/resources.component';
 import { NewhampshireComponent } from './newhampshire/newhampshire.component';
+import { TableComponent } from './table/table.component';
+
+
+// Adding Angular Material Module (also added to imports below)
+import { AngularMaterialModule } from './angular-material.module';
 
 @NgModule({
   declarations: [
@@ -30,6 +37,7 @@ import { NewhampshireComponent } from './newhampshire/newhampshire.component';
     ConnectComponent,
     ResourcesComponent,
     NewhampshireComponent,
+    TableComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,9 +48,12 @@ import { NewhampshireComponent } from './newhampshire/newhampshire.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     GlobalModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    AngularMaterialModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  // added with Angular Material Model for us with tables
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
