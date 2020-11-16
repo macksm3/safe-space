@@ -1,61 +1,75 @@
 div.background {
-    background-image: url('https://i.ibb.co/XLdTXMc/background-ADFFE3-1-E344-B.png');
-    width: 100vw;
+    background: url('https://i.ibb.co/XLdTXMc/background-ADFFE3-1-E344-B.png') center center fixed;
+    background-size: cover;
     height: 100vh;
-}
-
-mat-card-title {
-    font-family: 'Open Sans', sans-serif;
+    min-height: 100%;
+    padding: 50px 100px;
+    margin-bottom: -32px;
 }
 
 div.flex-item {
-    background-image: url("https://i.ibb.co/stHsGHp/6.png");
+    background: url("https://i.ibb.co/dbPWybn/3.png") no-repeat;
     background-size: 100%;
-    height: 150px;
-    width: 150px;
+    height: 200px;
+    width: 200px;
+    @media (min-width: 1200px) {
+        padding-top: 70px;
+    }
 }
 
 div.flex-item:nth-of-type(2){
     background-image: url("https://i.ibb.co/VxD6hvD/4.png");
-    // height: 130px;
-    // width: 130px;
+    margin-top: 10px;
+    @media (min-width: 700px) {
+        margin-top: 0px;
+    }
 }
 
 div.flex-item:nth-of-type(3){
     background-image: url("https://i.ibb.co/sqQTLX9/2.png");
-    // height: 100px;
-    // width: 10px;
+    margin-top: 10px;
+    @media (min-width: 700px) {
+        margin-top: 30px;
+    }
+    @media (min-width: 950px) {
+        margin-top: 0px;
+    }
 }
 
 div.flex-item:nth-of-type(4){
-    background-image: url("https://i.ibb.co/q1D4mm3/9.png");
+    background-image: url("https://i.ibb.co/LRLN05k/5.png");
+    margin-top: 10px;
+    @media (min-width: 700px) {
+        margin-top: 30px;
+    }
+    @media (min-width: 960px) {
+        margin-top: 0px;
+    }
 }
 
+div.flex-item:nth-of-type(5){
+    background-image: url("https://i.ibb.co/HTw1YsY/8.png");
+    margin-top: 10px;
+    margin-right: 50px;
+    @media (min-width: 700px) {
+        margin-top: 30px;
+        margin-right: 50px;
+    }
+    @media (min-width: 951px) {
+        margin-top: 20px;
+    }
+    @media (min-width: 960px) {
+        margin-right: 0px;
+        margin-top: 0px;
+    }
+}
 h1.safe-space {
     font-size: 1rem;
-    line-height: normal;
     font-family: 'Audiowide', cursive;
     color: #ffffff;
     text-align: center;
-    // margin: 0;
+    padding: 0px 20px;
+    @media (min-width: 960px) {
+        margin-bottom: 80px;
+    }
 }
-
-// .nh {
-//     padding-bottom: 400px;
-// }
-
-// .me {
-//     padding-bottom: 500px;
-// }
-
-// .ny {
-//     padding-bottom: 200px;
-// }
-
-// .vt {
-//     padding-top: 300px;
-// }
-
-// .ma {
-//     padding-top: 200px;
-// }
