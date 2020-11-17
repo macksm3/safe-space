@@ -23,6 +23,7 @@ import { TableComponent } from './table/table.component';
 
 // Adding Angular Material Module (also added to imports below)
 import { AngularMaterialModule } from './angular-material.module';
+import { FormComponent } from './form/form.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { AngularMaterialModule } from './angular-material.module';
     ResourcesComponent,
     NewhampshireComponent,
     TableComponent,
+    FormComponent,
   ],
   imports: [
     BrowserModule,
