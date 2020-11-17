@@ -1,23 +1,25 @@
-<div class="background" fxLayout="row" fxLayoutAlign="center center">
+<div class="background" fxLayout="column" fxLayoutAlign="center center">
+    <app-header class="head-margin" title="About Us"></app-header>
     <mat-card class="mat-elevation-z0 about-card" #square (window:resize)="0"
         [ngStyle]="{'height.px': square.offsetWidth }">
-        <h1 class="safe-space">Safe Space</h1>
+        <h1 class="safe-space">SAFE SPACE</h1>
         <mat-card-title class="about"><i>about us</i></mat-card-title>
         <mat-card-content>
-            <p>արդյունաբերության համար նախատեսված մոդելային տեքստ է: Սկսած 1500-ականներիցը հանդիսացել
-                է տպագրական արդյունաբերության ստանդարտ մոդելային տեքստ, ինչը մի անհայտ տպագրիչի կողմից տարբեր
-                տառատեսակների օրինակների գիրք ստեղծելու ջանքերի արդյունք է: Այս տեքստը ոչ միայն կարողացել է գոյատևել
-                հինգ դարաշրջան, այլև ներառվել է էլեկտրոնային տպագրության մեջ` մնալով էապես անփոփո</p>
+            <p>The LGBTQ communtiy has long faced social issues, discrimination and emotional challenges. Chances are,
+                you or someone you know is currently enduring these hardships and may not know where or how to reach out
+                to others in the community. Safe Space is here to answer that call. Rather than scouring the web for
+                local communities and social media groups, you can sign up for your FREE Safe Space account where you
+                can find out lots of information about your community, find helpful resources, and even connect on video
+                chat with others. We also offer information on LGBTQ friendly, safe and local coffee shops and
+                restaurants. So, what are you waiting for? Join us and help us make the LGBTQ community a Safe Space!
+            </p>
         </mat-card-content>
         <mat-card-actions>
+            <app-auth-button></app-auth-button>
             <br>
-            <!-- Nov 13 MWE need to add link to button component with anchor tag -->
-            <button routerLink="/home" mat-fab color="primary">
-                <mat-icon>keyboard_arrow_left</mat-icon>
+            <button routerLink="/home" mat-icon-button color="primary" aria-label="about us">
+                <mat-icon>home</mat-icon>
             </button>
         </mat-card-actions>
     </mat-card>
-</div>
-
-<!-- add this to inform Angular to update the application view with the component for the selected route -->
-<!-- <router-outlet></router-outlet> -->
+</div>ƒ
