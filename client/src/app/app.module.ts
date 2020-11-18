@@ -27,6 +27,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { AngularMaterialModule } from './angular-material.module';
 import { UserFormComponent } from './userform/userform.component';
 import { MatSelectModule } from '@angular/material/select';
+import { ResourceFormComponent } from './resource-form/resource-form.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { MatSelectModule } from '@angular/material/select';
     NewhampshireComponent,
     TableComponent,
     UserFormComponent,
+    ResourceFormComponent,
   ],
   imports: [
     BrowserModule,

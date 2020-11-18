@@ -10,6 +10,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { TableComponent } from './table/table.component';
 import { UserFormComponent } from './userform/userform.component';
 import { ConnectComponent } from './connect/connect.component';
+import { ResourceFormComponent } from './resource-form/resource-form.component';
 
 
 // Nov 13 MWE define routes in Routes array
@@ -20,7 +21,8 @@ const routes: Routes = [
   { path: 'table', component: TableComponent },
   { path: 'explore', component: ExploreComponent },
   { path: 'connect', component: ConnectComponent },
-  { path: 'form', component: UserFormComponent },
+  { path: 'userform', component: UserFormComponent },
+  { path: 'resourceform', component: ResourceFormComponent },
   { path: '**', component: PageNotFoundComponent}
 ];
 
