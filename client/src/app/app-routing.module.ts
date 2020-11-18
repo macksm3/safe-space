@@ -8,6 +8,8 @@ import { ExploreComponent } from './explore/explore.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { TableComponent } from './table/table.component';
+import { UserFormComponent } from './userform/userform.component';
+import { ConnectComponent } from './connect/connect.component';
 
 
 // Nov 13 MWE define routes in Routes array
@@ -17,6 +19,8 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'table', component: TableComponent },
   { path: 'explore', component: ExploreComponent },
+  { path: 'connect', component: ConnectComponent },
+  { path: 'form', component: UserFormComponent },
   { path: '**', component: PageNotFoundComponent}
 ];
 
