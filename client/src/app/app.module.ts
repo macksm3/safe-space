@@ -20,10 +20,11 @@ import { ResourcesComponent } from './resources/resources.component';
 import { NewhampshireComponent } from './newhampshire/newhampshire.component';
 import { TableComponent } from './table/table.component';
 
+import { TestApiComponent } from './test-api/test-api.component';
+
 
 // Adding Angular Material Module (also added to imports below)
 import { AngularMaterialModule } from './angular-material.module';
-import { TestApiComponent } from './test-api/test-api.component';
 
 @NgModule({
   declarations: [
