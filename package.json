@@ -19,6 +19,13 @@
     "start:server": " cd server && npm start",
     "start:dev": "npm run start:server & npm run start:client",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "install": "npm install --prefix client && npm install --prefix server"
+    "postinstall": "npm install --prefix client && npm install --prefix server"
+  },
+  "dependencies": {
+    "@nestjs/mongoose": "^7.1.0",
+    "mongoose": "^5.10.15"
+  },
+  "devDependencies": {
+    "@types/mongoose": "^5.10.1"
   }
 }
