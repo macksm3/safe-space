@@ -1,7 +1,7 @@
 import {Entity, ObjectID, ObjectIdColumn, Column} from "typeorm"; 
 
 @Entity() 
-export class Student {  
+export class Member {  //  Member will be the Collection name in Mongo 
 
    @ObjectIdColumn() 
    id: ObjectID; 

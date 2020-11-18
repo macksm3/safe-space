@@ -1,8 +1,11 @@
 require('dotenv').config();
 
 module.exports = {
+   // "url": process.env.MONGODB_URI,
+   "ssl": true,
+   "authSource": "admin",
    "type": "mongodb",
-   "host": "localhost",
+   "host": process.env.database,
    "database": "safe-space",
    "port": 27017, 
    "synchronize": true,
