@@ -1,0 +1,33 @@
+// Space between logo and Nav-Links
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+mat-toolbar {
+  font-family: 'Audiowide', cursive;
+  background-color: #1E344B;
+
+  // Logo 
+  span {
+    font-size: 30px
+  }
+
+  // Nav Links
+  button {
+    font-family: 'Audiowide', cursive;
+    font-size: 16px;
+    text-transform: lowercase;
+    color: #ADFFE3;
+    border-radius: 0;
+  }
+
+  button:hover {
+    background-color: #ADFFE3;
+    color: #1E344B;
+    opacity: 50%;
+  }
+
+  button:last-of-type {
+      border-radius: 50%;
+  }
+}
