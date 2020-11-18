@@ -1,0 +1,37 @@
+<br>
+<br>
+
+<div class="formContainer" fxLayoutAlign="center center" flxLayout="flex-container" fxLayout="row wrap" fxLayout.sm="row wrap" fxLayout.xs="row wrap"
+    fxLayoutAlign="center center" fxLayoutGap="50px">
+<!-- username entry -->
+    <mat-form-field appearance="fill" class="flex-item">
+      <mat-label>Username</mat-label>
+      <input matNativeControl placeholder = "username" matInput required>
+    </mat-form-field>
+    <br>
+    <!-- email entry - autofilled from login? -->
+    <mat-form-field appearance="fill" class="flex-item">
+        <mat-label>Email</mat-label>
+        <input matNativeControl placeholder = "email" matInput required [formControl]="email">
+        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <br>  
+    <!-- preferred pronoun entry with dropdown menu -->
+    <mat-form-field appearance="fill" class="flex-item">
+      <mat-label>Preferred Pronoun</mat-label>
+      <mat-select required>
+        <mat-option placeholder="Select One" value="option">she/her/hers</mat-option>
+        <mat-option placeholder="Select One" value="option">he/him/his</mat-option>
+        <mat-option placeholder="Select One" value="option">they/them/theirs</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <!-- location entry -->
+    <mat-form-field appearance="fill" class="flex-item">
+        <mat-label>Location</mat-label>
+        <input matNativeControl placeholder = "location" matInput required>
+      </mat-form-field>  
+</div>
+
+
+
