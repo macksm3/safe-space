@@ -28,6 +28,7 @@ import { AngularMaterialModule } from './angular-material.module';
 import { UserFormComponent } from './userform/userform.component';
 import { MatSelectModule } from '@angular/material/select';
 import { ResourceFormComponent } from './resource-form/resource-form.component';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { ResourceFormComponent } from './resource-form/resource-form.component';
     TableComponent,
     UserFormComponent,
     ResourceFormComponent,
+    NavComponent,
   ],
   imports: [
     BrowserModule,
