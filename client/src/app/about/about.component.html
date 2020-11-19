@@ -1,7 +1,6 @@
-<div class="background" fxLayout="column" fxLayoutAlign="center center">
-    <app-header class="head-margin" title="About Us"></app-header>
-    <mat-card class="mat-elevation-z0 about-card" #square (window:resize)="0"
-        [ngStyle]="{'height.px': square.offsetWidth }">
+<app-header title="About Us"></app-header>
+<div fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="mat-elevation-z0 about-card" #square (window:resize)="0" [ngStyle]="{'height.px': square}">
         <h1 class="safe-space">SAFE SPACE</h1>
         <mat-card-title class="about"><i>about us</i></mat-card-title>
         <mat-card-content>
@@ -15,11 +14,11 @@
             </p>
         </mat-card-content>
         <mat-card-actions>
-            <app-auth-button></app-auth-button>
+            <app-home-login-button></app-home-login-button>
             <br>
-            <button routerLink="/home" mat-icon-button color="primary" aria-label="about us">
+            <button class="btnColor" routerLink="/home" mat-icon-button aria-label="home">
                 <mat-icon>home</mat-icon>
             </button>
         </mat-card-actions>
     </mat-card>
-</div>ƒ
+</div>

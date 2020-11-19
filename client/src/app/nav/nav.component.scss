@@ -19,16 +19,11 @@ mat-toolbar {
     font-size: 16px;
     text-transform: lowercase;
     color: #ADFFE3;
-    border-radius: 0;
   }
 
   button:hover {
     background-color: #ADFFE3;
     color: #1E344B;
     opacity: 50%;
-  }
-
-  button:last-of-type {
-      border-radius: 50%;
   }
 }

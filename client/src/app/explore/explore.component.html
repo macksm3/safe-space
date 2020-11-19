@@ -1,5 +1,13 @@
-<app-nav></app-nav>
-<app-header class="title" title={Welcome!}></app-header>
+
+<!-- <div class="planetsContainer" fxLayoutAlign="center center" flxLayout="flex-container" fxLayout="row wrap"
+    fxLayout.sm="row wrap" fxLayout.xs="row wrap" fxLayoutAlign="center center" fxLayoutGap="50px"> -->
+
+
+    
+<div fxLayout="column" fxLayoutAlign="center center">
+    <app-header class="title" title=Welcome!></app-header>
+    <h3 *ngIf="user" class="neon">{{ user.name }}</h3>
+</div>
 <div class="planetsContainer" fxLayoutAlign="center center" fxLayout.sm="row wrap" fxLayout.xs="row wrap"
     fxLayoutAlign="center center" fxLayoutGap="50px">
     <div class="flex-item" fxLayoutAlign="center center">
@@ -18,23 +26,3 @@
         <h1 class="safe-space">Maine</h1>
     </div>
 </div>
-
-
-
-
-<!-- <mat-card class="mat-elevation-z0 intro-card" #square (window:resize)="0"
-        [ngStyle]="{'height.px': square.offsetWidth }">
-        <mat-card-title class="welcome"><i>welcome to</i></mat-card-title>
-        <mat-card-content>
-            <h1 class="safe-space">SAFE</h1>
-            <h1 class="safe-space">SPACE</h1>
-            <i>Helping you safely expand your orbit.</i>
-        </mat-card-content>
-        <mat-card-actions>
-            <app-auth-button></app-auth-button>
-            <br>
-            <button routerLink="/about" mat-icon-button color="primary" aria-label="about us">
-                <mat-icon>info</mat-icon>
-            </button>
-        </mat-card-actions>
-    </mat-card> -->
