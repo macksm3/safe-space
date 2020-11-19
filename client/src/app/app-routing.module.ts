@@ -12,6 +12,7 @@ import { TableComponent } from './table/table.component';
 import { UserFormComponent } from './userform/userform.component';
 import { ConnectComponent } from './connect/connect.component';
 import { ResourceFormComponent } from './resource-form/resource-form.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 // Nov 13 MWE define routes in Routes array
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'table', component: TableComponent },
   { path: 'explore', component: ExploreComponent },
+  { path: 'profile', component: ProfileComponent },
   { path: 'connect', component: ConnectComponent },
   { path: 'userform', component: UserFormComponent },
   { path: 'resourceform', component: ResourceFormComponent },

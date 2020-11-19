@@ -31,6 +31,9 @@ import { UserFormComponent } from './userform/userform.component';
 import { MatSelectModule } from '@angular/material/select';
 import { ResourceFormComponent } from './resource-form/resource-form.component';
 import { NavComponent } from './nav/nav.component';
+import { LoginButtonComponent } from './login-button/login-button.component';
+import { HomeLoginButtonComponent } from './home-login-button/home-login-button.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +53,9 @@ import { NavComponent } from './nav/nav.component';
     UserFormComponent,
     ResourceFormComponent,
     NavComponent,
+    LoginButtonComponent,
+    HomeLoginButtonComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

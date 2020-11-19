@@ -29,11 +29,6 @@ mat-card-title {
 
 mat-card-actions {
   padding: 10px;
-  // margin: 0;
-
-  button.mat-raised-button {
-    background-color: #6EBE44;
-  }
 }
 
 h1.safe-space {
@@ -47,4 +42,17 @@ h1.safe-space {
 p {
   color: white;
   margin: 20px;
+}
+
+mat-icon {
+  font-size: 48px;
+  height: 48px;
+  width: 48px;
+  margin-top: 8px;
+  margin-left: -4px;
+}
+
+.btnColor {
+  background-color: #ADFFE3;
+  color: #1E344B;
 }

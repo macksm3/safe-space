@@ -14,10 +14,12 @@ mat-card.about-card {
   text-align: center;
   background: rgb(255, 255, 255, 0.8);
   border-radius: 45px;
-  padding: 50px;
+  padding: 20px 50px;
   color: #1E344B;
   font-weight: 800;
   max-width: 300px;
+  margin-top: 30px;
+  margin-bottom: 10px;
 }
 
 mat-card-title {
@@ -43,4 +45,9 @@ h1.safe-space {
 
 p {
   margin: 0px;
+}
+
+.btnColor {
+  background-color: #1E344B;
+  color: #ADFFE3
 }
