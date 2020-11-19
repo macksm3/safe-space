@@ -2,6 +2,7 @@ import { Component, AfterViewInit, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import SampleJson from '../../assets/SampleJson.json';
 
 @Component({
   selector: 'app-table',
@@ -15,7 +16,10 @@ export class TableComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor() { }
+  constructor() {
+    console.log('Reading local json files');
+    console.log(SampleJson);
+   }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;

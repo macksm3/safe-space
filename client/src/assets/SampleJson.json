@@ -1,0 +1,25 @@
+[{
+        "type": "restaurant",
+        "name": "Blackstones",
+        "city": "Portland",
+        "state": "Maine",
+        "site": "www.blackstones.com",
+        "description": "alskdjf;alsdkfjalskdjflsdaj"
+    },
+    {
+        "type": "resources",
+        "name": "MaineTransNet",
+        "city": "Portland",
+        "state": "Maine",
+        "site": "www.mainetrans.net",
+        "description": "alskdjf;alsdkfjalskdjflsdaj"
+    },
+    {
+        "type": "cafe",
+        "name": "Candy Loves You",
+        "city": "Portland",
+        "state": "Maine",
+        "site": "candyslovesyou.space",
+        "description": "alskdjf;alsdkfjalskdjflsdaj"
+    }
+]
