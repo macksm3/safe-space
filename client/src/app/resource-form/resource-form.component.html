@@ -7,13 +7,24 @@
     fxLayout.xs="column">
 
     <div class="flex-item">
+        <!-- Category from drop down -->
+        <mat-form-field appearance="fill" class="flex-item">
+            <mat-label>Resource Category</mat-label>
+            <mat-select required>
+                <mat-option placeholder="Select One" value="option">Business</mat-option>
+                <mat-option placeholder="Select One" value="option">Community Resource</mat-option>
+            </mat-select>
+        </mat-form-field>
         <!-- type of business from drop down -->
         <mat-form-field appearance="fill" class="flex-item">
             <mat-label>Business Type</mat-label>
             <mat-select required>
                 <mat-option placeholder="Select One" value="option">Café</mat-option>
                 <mat-option placeholder="Select One" value="option">Restaurant</mat-option>
-                <mat-option placeholder="Select One" value="option">Community Resource</mat-option>
+                <mat-option placeholder="Select One" value="option">Personal Care</mat-option>
+                <mat-option placeholder="Select One" value="option">Other</mat-option>
+                <mat-option placeholder="Select One" value="option">Crisis Service</mat-option>
+                <mat-option placeholder="Select One" value="option">Therapeutic/Support</mat-option>
             </mat-select>
         </mat-form-field>
         <!-- business name -->
@@ -30,14 +41,14 @@
             <mat-label>Business State</mat-label>
             <input matNativeControl placeholder="state" matInput required>
         </mat-form-field>
+    </div>
+
+    <div class="flex-item">
         <!-- web address, needs validator, possibly from https://stackoverflow.com/questions/50508712/validate-an-url-->
         <mat-form-field appearance="fill" class="flex-item">
             <mat-label>Web Site</mat-label>
             <input matNativeControl placeholder="web address" matInput required>
         </mat-form-field>
-    </div>
-
-    <div class="flex-item">
         <!--email  -->
         <mat-form-field appearance="fill" class="flex-item">
             <mat-label>Contact Name</mat-label>
