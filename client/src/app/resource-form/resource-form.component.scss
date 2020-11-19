@@ -1,11 +1,21 @@
 .formContainer {
-    background-color: white;
-    max-width: 800px;
+    background-color: transparent;
+    margin: 30px 0px;
 }
 
 .flex-item {
-    background-color: rgb(142, 199, 216);
+    // background-color: rgb(142, 199, 216);
+    // background-color: #ADFFE3;
     margin: 10px;
     width: 50vw;
 }
 
+.mat-input-element {
+    caret-color: #adffe3!important;
+    color: #adffe3!important;
+}
+
+button {
+    background-color: #ADFFE3;
+    color: #1e344b;
+}
