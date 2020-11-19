@@ -20,7 +20,5 @@
     "start:dev": "npm run start:server & npm run start:client",
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "npm install --prefix client && npm install --prefix server"
-  },
-  "dependencies": {},
-  "devDependencies": {}
+  }
 }
