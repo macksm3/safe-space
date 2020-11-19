@@ -6,7 +6,7 @@ import { AuthModule } from '@auth0/auth0-angular';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent, AuthButtonComponent } from './app.component';
+import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
@@ -25,6 +25,8 @@ import { MatButtonModule } from '@angular/material/button';
 
 // Adding Angular Material Module (also added to imports below)
 import { AngularMaterialModule } from './angular-material.module';
+import { AuthButtonComponent } from './auth-button/auth-button.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserFormComponent } from './userform/userform.component';
 import { MatSelectModule } from '@angular/material/select';
 import { ResourceFormComponent } from './resource-form/resource-form.component';
@@ -33,7 +35,6 @@ import { NavComponent } from './nav/nav.component';
 @NgModule({
   declarations: [
     AppComponent,
-    AuthButtonComponent,
     FooterComponent,
     HomeComponent,
     AboutComponent,
@@ -44,6 +45,8 @@ import { NavComponent } from './nav/nav.component';
     ResourcesComponent,
     NewhampshireComponent,
     TableComponent,
+    AuthButtonComponent,
+    UserProfileComponent,
     UserFormComponent,
     ResourceFormComponent,
     NavComponent,
