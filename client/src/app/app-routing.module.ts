@@ -20,6 +20,9 @@ import { NewyorkComponent } from './newyork/newyork.component';
 import { MassachusettsComponent } from './massachusetts/massachusetts.component';
 import { MaineComponent } from './maine/maine.component';
 import { AddBusinessComponent } from './add-business/add-business.component';
+import { CoffeeShopsComponent } from './coffee-shops/coffee-shops.component';
+import { RestaurantsComponent } from './restaurants/restaurants.component';
+import { MiscComponent } from './misc/misc.component';
 
 
 // Nov 13 MWE define routes in Routes array
@@ -37,7 +40,10 @@ const routes: Routes = [
   { path: 'newyork', component: NewyorkComponent },
   { path: 'massachusetts', component: MassachusettsComponent },
   { path: 'maine', component: MaineComponent },
-  { path: 'addbusiness', component: AddBusinessComponent},
+  { path: 'addbusiness', component: AddBusinessComponent },
+  { path: 'coffeeshops', component: CoffeeShopsComponent },
+  { path: 'restaurants', component: RestaurantsComponent },
+  { path: 'misc', component: MiscComponent },
   { path: 'userform', component: UserFormComponent },
   { path: 'resourceform', component: ResourceFormComponent },
   { path: '**', component: PageNotFoundComponent}

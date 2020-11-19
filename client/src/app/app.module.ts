@@ -40,6 +40,9 @@ import { NewyorkComponent } from './newyork/newyork.component';
 import { MassachusettsComponent } from './massachusetts/massachusetts.component';
 import { MaineComponent } from './maine/maine.component';
 import { AddBusinessComponent } from './add-business/add-business.component';
+import { CoffeeShopsComponent } from './coffee-shops/coffee-shops.component';
+import { RestaurantsComponent } from './restaurants/restaurants.component';
+import { MiscComponent } from './misc/misc.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +71,9 @@ import { AddBusinessComponent } from './add-business/add-business.component';
     MassachusettsComponent,
     MaineComponent,
     AddBusinessComponent,
+    CoffeeShopsComponent,
+    RestaurantsComponent,
+    MiscComponent,
   ],
   imports: [
     BrowserModule,
