@@ -1,0 +1,44 @@
+<br>
+<br>
+
+<div class="formContainer" fxLayoutAlign="center center" flxLayout="flex-container" fxLayout="row wrap" fxLayout.sm="row wrap" fxLayout.xs="row wrap">
+
+    <!-- type of business from drop down -->
+    <mat-form-field appearance="fill" class="flex-item">
+        <mat-label>Business Type</mat-label>
+        <mat-select required>
+          <mat-option placeholder="Select One" value="option">Café</mat-option>
+          <mat-option placeholder="Select One" value="option">Restaurant</mat-option>
+          <mat-option placeholder="Select One" value="option">Community Resource</mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+<!-- business name -->
+    <mat-form-field appearance="fill" class="flex-item">
+      <mat-label>Business Name</mat-label>
+      <input matNativeControl placeholder = "business name" matInput required>
+    </mat-form-field>
+    <br>
+    <!-- business location - states will eventually be a dropdown list -->
+    <mat-form-field appearance="fill" class="flex-item">
+        <mat-label>Business City</mat-label>
+        <input matNativeControl placeholder = "city" matInput required>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill" class="flex-item">
+        <mat-label>Business State</mat-label>
+        <input matNativeControl placeholder = "state" matInput required>
+      </mat-form-field>
+      <br>
+    <!-- web address, needs validator, possibly from https://stackoverflow.com/questions/50508712/validate-an-url-->
+    <mat-form-field appearance="fill" class="flex-item">
+        <mat-label>Web Site</mat-label>
+        <input matNativeControl placeholder = "web address" matInput required>
+      </mat-form-field>
+      <br>  
+    <!-- description -->
+    <mat-form-field appearance="fill" class="flex-item">
+        <mat-label>Description</mat-label>
+        <textarea matInput matNativeControl placeholder = "" maxlength="150"></textarea>
+    </mat-form-field>  
+</div>

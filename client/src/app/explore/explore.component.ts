@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-explore',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./explore.component.scss']
 })
 export class ExploreComponent implements OnInit {
-
-  constructor() { }
+  public user;
+  constructor(public auth: AuthService) { }
 
   ngOnInit(): void {
+    this.auth.user$.subscribe(data => {
+      console.log(data);
+      this.user = data;
+    })
   }
 
 }
