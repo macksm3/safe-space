@@ -1,8 +1,12 @@
-
 .formContainer {
-    background-color: lightblue;
-    color: white;
-    padding: 20px;
-    margin: 20px;
-    max-width: 150px;
+    min-height: 90vh;
+    background-color: white;
+    max-width: 800px;
+    padding-bottom: 50px;
+}
+
+.flex-item {
+    background-color: rgb(142, 199, 216);
+    margin: 10px;
+    width: 50vw;
 }
