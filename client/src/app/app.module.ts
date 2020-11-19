@@ -34,6 +34,11 @@ import { NavComponent } from './nav/nav.component';
 import { LoginButtonComponent } from './login-button/login-button.component';
 import { HomeLoginButtonComponent } from './home-login-button/home-login-button.component';
 import { ProfileComponent } from './profile/profile.component';
+import { StateTemplateComponent } from './state-template/state-template.component';
+import { VermontComponent } from './vermont/vermont.component';
+import { NewyorkComponent } from './newyork/newyork.component';
+import { MassachusettsComponent } from './massachusetts/massachusetts.component';
+import { MaineComponent } from './maine/maine.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +61,11 @@ import { ProfileComponent } from './profile/profile.component';
     LoginButtonComponent,
     HomeLoginButtonComponent,
     ProfileComponent,
+    StateTemplateComponent,
+    VermontComponent,
+    NewyorkComponent,
+    MassachusettsComponent,
+    MaineComponent,
   ],
   imports: [
     BrowserModule,
