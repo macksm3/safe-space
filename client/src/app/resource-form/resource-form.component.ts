@@ -7,5 +7,6 @@ import { FormControl, Validators } from '@angular/forms';
   styleUrls: ['./resource-form.component.scss']
 })
 export class ResourceFormComponent {
-
+    
 }
+

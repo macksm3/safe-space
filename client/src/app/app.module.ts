@@ -22,6 +22,7 @@ import { TableComponent } from './table/table.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 // Adding Angular Material Module (also added to imports below)
 import { AngularMaterialModule } from './angular-material.module';
@@ -91,7 +92,8 @@ import { MiscComponent } from './misc/misc.component';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent],
