@@ -22,6 +22,7 @@ import { TableComponent } from './table/table.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 // Adding Angular Material Module (also added to imports below)
 import { AngularMaterialModule } from './angular-material.module';
@@ -34,6 +35,15 @@ import { NavComponent } from './nav/nav.component';
 import { LoginButtonComponent } from './login-button/login-button.component';
 import { HomeLoginButtonComponent } from './home-login-button/home-login-button.component';
 import { ProfileComponent } from './profile/profile.component';
+import { StateTemplateComponent } from './state-template/state-template.component';
+import { VermontComponent } from './vermont/vermont.component';
+import { NewyorkComponent } from './newyork/newyork.component';
+import { MassachusettsComponent } from './massachusetts/massachusetts.component';
+import { MaineComponent } from './maine/maine.component';
+import { AddBusinessComponent } from './add-business/add-business.component';
+import { CoffeeShopsComponent } from './coffee-shops/coffee-shops.component';
+import { RestaurantsComponent } from './restaurants/restaurants.component';
+import { MiscComponent } from './misc/misc.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +66,15 @@ import { ProfileComponent } from './profile/profile.component';
     LoginButtonComponent,
     HomeLoginButtonComponent,
     ProfileComponent,
+    StateTemplateComponent,
+    VermontComponent,
+    NewyorkComponent,
+    MassachusettsComponent,
+    MaineComponent,
+    AddBusinessComponent,
+    CoffeeShopsComponent,
+    RestaurantsComponent,
+    MiscComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,7 +92,8 @@ import { ProfileComponent } from './profile/profile.component';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent],
