@@ -1,0 +1,6 @@
+<!-- <div class="profile-style" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="40px" *ngIf="auth.user$ | async as user"> -->
+<div class="profile-style" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="40px">
+    <!-- <h4>{{ user.email }}</h4> -->
+    <img *ngIf="user" [src]="user.picture" alt="Profile Picture" />
+    <h1 *ngIf="user" class="neon">{{ user.name }}</h1>
+</div>

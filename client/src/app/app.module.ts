@@ -6,7 +6,7 @@ import { AuthModule } from '@auth0/auth0-angular';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent, AuthButtonComponent } from './app.component';
+import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
@@ -23,11 +23,12 @@ import { TableComponent } from './table/table.component';
 
 // Adding Angular Material Module (also added to imports below)
 import { AngularMaterialModule } from './angular-material.module';
+import { AuthButtonComponent } from './auth-button/auth-button.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AuthButtonComponent,
     FooterComponent,
     HomeComponent,
     AboutComponent,
@@ -38,6 +39,8 @@ import { AngularMaterialModule } from './angular-material.module';
     ResourcesComponent,
     NewhampshireComponent,
     TableComponent,
+    AuthButtonComponent,
+    UserProfileComponent,
   ],
   imports: [
     BrowserModule,
