@@ -3,7 +3,9 @@
   flex: 1 1 auto;
 }
 
-mat-toolbar {
+mat-toolbar,
+mat-drawer,
+.sidenav-container {
   font-family: 'Audiowide', cursive;
   background-color: #1E344B;
 
@@ -26,4 +28,17 @@ mat-toolbar {
     color: #1E344B;
     opacity: 50%;
   }
+}
+
+.active-list-item {
+  color: #d062f2 !important; /* Note: You could also use a custom theme */
+}
+
+mat-drawer {
+  overflow: visible;
+}
+
+.example-container {
+  position: fixed;
+  height: 30%;
 }

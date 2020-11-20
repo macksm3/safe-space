@@ -22,6 +22,9 @@ import { TableComponent } from './table/table.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatSidenavModule } from '@angular/material/sidenav';
+
 
 // Adding Angular Material Module (also added to imports below)
 import { AngularMaterialModule } from './angular-material.module';
@@ -91,7 +94,9 @@ import { MiscComponent } from './misc/misc.component';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatSelectModule
+    MatSelectModule,
+    MatButtonToggleModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent],
