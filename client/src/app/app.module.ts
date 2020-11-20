@@ -4,9 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AuthModule } from '@auth0/auth0-angular';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent, AuthButtonComponent } from './app.component';
+import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
@@ -19,17 +19,41 @@ import { ConnectComponent } from './connect/connect.component';
 import { ResourcesComponent } from './resources/resources.component';
 import { NewhampshireComponent } from './newhampshire/newhampshire.component';
 import { TableComponent } from './table/table.component';
+<<<<<<< HEAD
 
 import { TestApiComponent } from './test-api/test-api.component';
 
+=======
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+>>>>>>> fa970b8c9ab7b79165bb42bb181e8f1df6b5269c
 
 // Adding Angular Material Module (also added to imports below)
 import { AngularMaterialModule } from './angular-material.module';
+import { AuthButtonComponent } from './auth-button/auth-button.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserFormComponent } from './userform/userform.component';
+import { MatSelectModule } from '@angular/material/select';
+import { ResourceFormComponent } from './resource-form/resource-form.component';
+import { NavComponent } from './nav/nav.component';
+import { LoginButtonComponent } from './login-button/login-button.component';
+import { HomeLoginButtonComponent } from './home-login-button/home-login-button.component';
+import { ProfileComponent } from './profile/profile.component';
+import { StateTemplateComponent } from './state-template/state-template.component';
+import { VermontComponent } from './vermont/vermont.component';
+import { NewyorkComponent } from './newyork/newyork.component';
+import { MassachusettsComponent } from './massachusetts/massachusetts.component';
+import { MaineComponent } from './maine/maine.component';
+import { AddBusinessComponent } from './add-business/add-business.component';
+import { CoffeeShopsComponent } from './coffee-shops/coffee-shops.component';
+import { RestaurantsComponent } from './restaurants/restaurants.component';
+import { MiscComponent } from './misc/misc.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AuthButtonComponent,
     FooterComponent,
     HomeComponent,
     AboutComponent,
@@ -40,7 +64,27 @@ import { AngularMaterialModule } from './angular-material.module';
     ResourcesComponent,
     NewhampshireComponent,
     TableComponent,
+<<<<<<< HEAD
     TestApiComponent,
+=======
+    AuthButtonComponent,
+    UserProfileComponent,
+    UserFormComponent,
+    ResourceFormComponent,
+    NavComponent,
+    LoginButtonComponent,
+    HomeLoginButtonComponent,
+    ProfileComponent,
+    StateTemplateComponent,
+    VermontComponent,
+    NewyorkComponent,
+    MassachusettsComponent,
+    MaineComponent,
+    AddBusinessComponent,
+    CoffeeShopsComponent,
+    RestaurantsComponent,
+    MiscComponent,
+>>>>>>> fa970b8c9ab7b79165bb42bb181e8f1df6b5269c
   ],
   imports: [
     BrowserModule,
@@ -52,7 +96,14 @@ import { AngularMaterialModule } from './angular-material.module';
     BrowserAnimationsModule,
     GlobalModule,
     FlexLayoutModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent],

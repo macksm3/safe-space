@@ -1,10 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
 
+div.background {
+  min-height: 100vh;
+}
+
 .intro-card {
   text-align: center;
   background: transparent;
-  background: url("https://i.ibb.co/vmjNnQV/white-circle.png") no-repeat;
+  background: url("/assets/images/white-circle.png") no-repeat;
   background-size: 100%;
   padding: 80px;
   width: 260px;
@@ -25,11 +29,6 @@ mat-card-title {
 
 mat-card-actions {
   padding: 10px;
-  // margin: 0;
-
-  button.mat-raised-button {
-    background-color: #6EBE44;
-  }
 }
 
 h1.safe-space {
@@ -45,10 +44,15 @@ p {
   margin: 20px;
 }
 
-div.background {
-  background-image: url('https://i.ibb.co/XLdTXMc/background-ADFFE3-1-E344-B.png');
-  width: 100vw;
-  height: 100vh;
-  min-height: 100%;
-  margin-bottom: -32px;
+mat-icon {
+  font-size: 48px;
+  height: 48px;
+  width: 48px;
+  margin-top: 8px;
+  margin-left: -4px;
+}
+
+.btnColor {
+  background-color: #ADFFE3;
+  color: #1E344B;
 }
