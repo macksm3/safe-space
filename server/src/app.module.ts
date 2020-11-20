@@ -1,4 +1,5 @@
 // DEPENDENCIES
+require('dotenv').config()
 import { Module } from "@nestjs/common";
 import { MongooseModule } from "@nestjs/mongoose";  // used to setup DB connection
 import { ServeStaticModule } from "@nestjs/serve-static";
