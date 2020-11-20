@@ -19,16 +19,13 @@ import { ConnectComponent } from './connect/connect.component';
 import { ResourcesComponent } from './resources/resources.component';
 import { NewhampshireComponent } from './newhampshire/newhampshire.component';
 import { TableComponent } from './table/table.component';
-<<<<<<< HEAD
-
 import { TestApiComponent } from './test-api/test-api.component';
-
-=======
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCheckboxModule } from '@angular/material/checkbox';
->>>>>>> fa970b8c9ab7b79165bb42bb181e8f1df6b5269c
 
 // Adding Angular Material Module (also added to imports below)
 import { AngularMaterialModule } from './angular-material.module';
@@ -64,9 +61,7 @@ import { MiscComponent } from './misc/misc.component';
     ResourcesComponent,
     NewhampshireComponent,
     TableComponent,
-<<<<<<< HEAD
     TestApiComponent,
-=======
     AuthButtonComponent,
     UserProfileComponent,
     UserFormComponent,
@@ -84,7 +79,6 @@ import { MiscComponent } from './misc/misc.component';
     CoffeeShopsComponent,
     RestaurantsComponent,
     MiscComponent,
->>>>>>> fa970b8c9ab7b79165bb42bb181e8f1df6b5269c
   ],
   imports: [
     BrowserModule,
@@ -103,6 +97,8 @@ import { MiscComponent } from './misc/misc.component';
     MatInputModule,
     MatButtonModule,
     MatSelectModule,
+    MatButtonToggleModule,
+    MatSidenavModule,
     MatCheckboxModule
   ],
   providers: [],

@@ -1,11 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 
 .footer-style {
-    text-align: center;
     background-color: #1E344B;
-    margin-top: -50px;
     h2 {
         font-family: 'Audiowide', cursive;
         color: #ADFFE3;
     }
+}
+
+.spacer {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
 }
