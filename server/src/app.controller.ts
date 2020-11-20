@@ -5,10 +5,10 @@ import { AppService } from './app.service';
 export class AppController {
   constructor(private readonly appService: AppService) { }
 
-  // @Get()
-  // root(@Res() response): void {
-  //   response.sendFile(path.resolve('../client/dist/safe-space/index.html'))
-  // }
+//   @Get()
+//   forRoot(): any {
+//     DEFAULT_ROOT_PATH('../client/dist/safe-space/index.html'))
+//   }
 
   @Get("/test-api")
   testApi(): string {
