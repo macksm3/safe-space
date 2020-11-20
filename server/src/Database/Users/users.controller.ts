@@ -16,7 +16,7 @@ export class UsersController {
         @Body("favoriteBusinesses") favoriteBusinesses: [string],
         @Body("reviewedBusinesses") reviewedBusinesses: [string],
     ): Promise<any> {  //  "any" is the type of response we will get back from this req
-        const generatedId = await this.usersService.insertProduct(
+        const generatedId = await this.usersService.insertUser(
             username,
             firstName,
             lastName,
@@ -31,7 +31,14 @@ export class UsersController {
     async getAllUsers() {
         const users = await this.usersService.getAllUsers();
         //  .map() the users to give us the "_id" as just an "id"
-        return users.map((user) => ({ id: user.id, title: user.title, description: user.description, price: user.price }));
+        return users.map((user) => ({
+            username: user.username,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            pronouns: user.pronouns,
+            favoriteBusinesses: user.favoriteBusinesses,
+            reviewedBusinesses: user.reviewedBusinesses
+        }));
     }
 
     @Get(":id")

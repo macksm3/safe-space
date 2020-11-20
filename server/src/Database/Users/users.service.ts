@@ -44,7 +44,7 @@ export class UsersService {
         return result.id as string;
     }
 
-    async getUsers() {
+    async getAllUsers() {
         const users = await this.userModel.find().exec();  //  ".exec" makes the .find() return a promise?
 
         //  return users like this so we receive an array of users,
@@ -52,7 +52,7 @@ export class UsersService {
         return users as User[];  //  this sets "users" as type "User"
     }
 
-    async getSingleUser(userId: string) {
+    async getOneUser(userId: string) {
         const user = await this.findOneUser(userId);
         return {
             username: user.username,
