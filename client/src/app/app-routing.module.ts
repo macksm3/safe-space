@@ -9,6 +9,9 @@ import { ExploreComponent } from './explore/explore.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { TableComponent } from './table/table.component';
+<<<<<<< HEAD
+import { TestApiComponent } from './test-api/test-api.component';
+=======
 import { UserFormComponent } from './userform/userform.component';
 import { ConnectComponent } from './connect/connect.component';
 import { ResourceFormComponent } from './resource-form/resource-form.component';
@@ -23,6 +26,7 @@ import { AddBusinessComponent } from './add-business/add-business.component';
 import { CoffeeShopsComponent } from './coffee-shops/coffee-shops.component';
 import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { MiscComponent } from './misc/misc.component';
+>>>>>>> fa970b8c9ab7b79165bb42bb181e8f1df6b5269c
 
 
 // Nov 13 MWE define routes in Routes array
@@ -32,6 +36,9 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'table', component: TableComponent },
   { path: 'explore', component: ExploreComponent },
+<<<<<<< HEAD
+  { path: 'brendan', component: TestApiComponent},
+=======
   { path: 'connect', component: ConnectComponent },
   { path: 'resources', component: ResourcesComponent },
   { path: 'profile', component: ProfileComponent },
@@ -46,6 +53,7 @@ const routes: Routes = [
   { path: 'misc', component: MiscComponent },
   { path: 'userform', component: UserFormComponent },
   { path: 'resourceform', component: ResourceFormComponent },
+>>>>>>> fa970b8c9ab7b79165bb42bb181e8f1df6b5269c
   { path: '**', component: PageNotFoundComponent}
 ];
 
