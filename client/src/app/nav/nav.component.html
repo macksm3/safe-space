@@ -1,13 +1,31 @@
-<p>
-    <mat-toolbar>
-        <span routerLink="/home">SAFE SPACE</span>
-        <span class="example-spacer"></span>
-        <button mat-button routerLink="/explore">Explore</button>
-        <button mat-button routerLink="/connect">Connect</button>
-        <button mat-button routerLink="/resources">Resources</button>
-        <button mat-button routerLink="/profile">Profile</button>
-        <app-login-button></app-login-button>
+<mat-toolbar>
+    <span>SAFE SPACE</span>
+    <span class="example-spacer"></span>
+    <button fxShow="true" fxHide.lt-md="true" mat-button routerLink="/explore"
+        routerLinkActive="active-list-item">Explore</button>
+    <button fxShow="true" fxHide.lt-md="true" mat-button routerLink="/connect"
+        routerLinkActive="active-list-item">Connect</button>
+    <button fxShow="true" fxHide.lt-md="true" mat-button routerLink="/resources"
+        routerLinkActive="active-list-item">Resources</button>
+    <button fxShow="true" fxHide.lt-md="true" mat-button routerLink="/profile"
+        routerLinkActive="active-list-item">Profile</button>
+    <app-login-button fxShow="true" fxHide.lt-md="true"></app-login-button>
+    <button type="button" (click)="drawer.toggle()" fxShow="true" fxHide.gt-sm="true" mat-button class="menu-button">
+        <mat-icon>menu</mat-icon>
+    </button>
+</mat-toolbar>
 
-
-    </mat-toolbar>
-</p>
+<mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer mode="side">
+        <div>
+            <button mat-button (click)="drawer.toggle()" mat-button>
+                <mat-icon>close</mat-icon>
+            </button>
+            <button (click)="drawer.toggle()" mat-button routerLink="/explore" routerLinkActive="active-list-item">Explore</button>
+            <button (click)="drawer.toggle()" mat-button routerLink="/connect" routerLinkActive="active-list-item">Connect</button>
+            <button (click)="drawer.toggle()" mat-button routerLink="/resources" routerLinkActive="active-list-item">Resources</button>
+            <button (click)="drawer.toggle()" mat-button routerLink="/profile" routerLinkActive="active-list-item">Profile</button>
+            <app-login-button (click)="drawer.toggle()"></app-login-button>
+        </div>
+    </mat-drawer>
+</mat-drawer-container>

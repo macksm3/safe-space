@@ -19,9 +19,12 @@ import { ConnectComponent } from './connect/connect.component';
 import { ResourcesComponent } from './resources/resources.component';
 import { NewhampshireComponent } from './newhampshire/newhampshire.component';
 import { TableComponent } from './table/table.component';
+import { TestApiComponent } from './test-api/test-api.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
 // Adding Angular Material Module (also added to imports below)
@@ -58,6 +61,7 @@ import { MiscComponent } from './misc/misc.component';
     ResourcesComponent,
     NewhampshireComponent,
     TableComponent,
+    TestApiComponent,
     AuthButtonComponent,
     UserProfileComponent,
     UserFormComponent,
@@ -93,6 +97,8 @@ import { MiscComponent } from './misc/misc.component';
     MatInputModule,
     MatButtonModule,
     MatSelectModule,
+    MatButtonToggleModule,
+    MatSidenavModule,
     MatCheckboxModule
   ],
   providers: [],
