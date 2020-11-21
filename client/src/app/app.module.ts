@@ -36,7 +36,6 @@ import { UserFormComponent } from './userform/userform.component';
 import { MatSelectModule } from '@angular/material/select';
 import { ResourceFormComponent } from './resource-form/resource-form.component';
 import { NavComponent } from './nav/nav.component';
-import { LoginButtonComponent } from './login-button/login-button.component';
 import { HomeLoginButtonComponent } from './home-login-button/home-login-button.component';
 import { ProfileComponent } from './profile/profile.component';
 import { StateTemplateComponent } from './state-template/state-template.component';
@@ -68,7 +67,6 @@ import { MiscComponent } from './misc/misc.component';
     UserFormComponent,
     ResourceFormComponent,
     NavComponent,
-    LoginButtonComponent,
     HomeLoginButtonComponent,
     ProfileComponent,
     StateTemplateComponent,
