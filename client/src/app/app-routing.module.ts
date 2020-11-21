@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-// import { AuthGuard } from '@auth0/auth0-angular';
+import { AuthGuard } from '@auth0/auth0-angular';
 
 // using guidelines: https://angular.io/guide/router
 // Nov 13 MWE import modules needed for routing
@@ -33,20 +33,20 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'home', component: HomeComponent },
   { path: 'table', component: TableComponent },
-  { path: 'explore', component: ExploreComponent },
+  { path: 'explore', component: ExploreComponent, canActivate: [AuthGuard] },
   { path: 'brendan', component: TestApiComponent},
-  { path: 'connect', component: ConnectComponent },
-  { path: 'resources', component: ResourcesComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'newhampshire', component: NewhampshireComponent },
-  { path: 'vermont', component: VermontComponent },
-  { path: 'newyork', component: NewyorkComponent },
-  { path: 'massachusetts', component: MassachusettsComponent },
-  { path: 'maine', component: MaineComponent },
-  { path: 'addbusiness', component: AddBusinessComponent },
-  { path: 'coffeeshops', component: CoffeeShopsComponent },
-  { path: 'restaurants', component: RestaurantsComponent },
-  { path: 'misc', component: MiscComponent },
+  { path: 'connect', component: ConnectComponent, canActivate: [AuthGuard] },
+  { path: 'resources', component: ResourcesComponent, canActivate: [AuthGuard] },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: 'newhampshire', component: NewhampshireComponent, canActivate: [AuthGuard] },
+  { path: 'vermont', component: VermontComponent, canActivate: [AuthGuard] },
+  { path: 'newyork', component: NewyorkComponent, canActivate: [AuthGuard] },
+  { path: 'massachusetts', component: MassachusettsComponent, canActivate: [AuthGuard] },
+  { path: 'maine', component: MaineComponent, canActivate: [AuthGuard] },
+  { path: 'addbusiness', component: AddBusinessComponent, canActivate: [AuthGuard] },
+  { path: 'coffeeshops', component: CoffeeShopsComponent, canActivate: [AuthGuard] },
+  { path: 'restaurants', component: RestaurantsComponent, canActivate: [AuthGuard] },
+  { path: 'misc', component: MiscComponent, canActivate: [AuthGuard] },
   { path: 'userform', component: UserFormComponent },
   { path: 'resourceform', component: ResourceFormComponent },
   { path: 'users', component: UserComponent},
