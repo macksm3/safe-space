@@ -1,8 +1,11 @@
 # SAFE SPACE 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+![Login Screen](/client/src/assets/images/front-page.png)
+
 ## Table of Contents
 * [Description](#description)
+* [Deployed Link](#deployed-link)
 * [Technologies](#technologies)
 * [Future Enhancements](#future-enhancements)
 * [Contributors](#contributors)
@@ -12,22 +15,22 @@
 * [Screenshots](#screenshots)
 
 ## Description
-Members of the LGBTQ community often feel nervous, unsure or unsafe about accessing new business. Frequently, it's a good idea to ask a friend for a recommendation rather than trying a new place, sight unseen. If you are new to an area - relocating for school, work, family or personal reasons - that option may not be available. Safe Space wants to make that process easier, offering users an introduction to their community and an ability to safely expand their orbit, accessing a database of trusted businesses and community organizations.
+For the LGBTQ community, safety is of upmost importance. The ability to experience the world safely is not a luxury afforded to everyone and most often, members of the LGBTQ community rely on word-of-mouth to find businesses and resources that will provide safe havens and community. But one of the most frequent roadblocks is the decentralization of such information.
 
-Users can securely login into the application using a social media account or an email address and password. 
+**Safe Space offers a unique platform that helps the LGBTQ community safely expand their orbit by connecting members with resources, businesses and community.** With Safe Space, members are able to securely and swiftly login with a social media account or email and password to access a database of trusted businesses and community organizations.
 
 Once in the app, users can:
 - Review or update their profiles, including a picture.
 - Access a sortable listing of LGBTQ-friendly and LGBTQ-owned restaurants, cafés and business by state.
 - Access a sortable listing of LGBTQ-friendly community and crisis resources.
-- Connect with other Safe Space members via a video chat modules.
+- Connect with other Safe Space members via a video chat
 - Grow to the Safe Space orbit by contributing to both the resource and business listings.
 
 
-[Check out Safe Space today!](https://safe-space-ne.herokuapp.com/)
+#### Deployed Application: [Check out Safe Space today!](https://safe-space-ne.herokuapp.com/)
 
 ## Technologies
-This application leverages the following technologies:
+**This application leverages the following technologies:**
 
 | Front-end          | Back-end         | Dev Tools      |
 |--------------------|------------------|----------------|
@@ -35,12 +38,12 @@ This application leverages the following technologies:
 | Angular/Material   | Axios            | dotenv         |
 | Font Awesome       | NestJS           | TSLint         |
 | SCSS               | Heroku           | Google G Suite |
-|                    | TypeORM          | nodemon        |
+| Canva              | TypeORM          | nodemon        |
 |                    | MongoDB          | Postman        |
 |                    |                  | Trello         |
+<!-- |                    |                  |                |
 |                    |                  |                |
-|                    |                  |                |
-|                    |                  |                |
+|                    |                  |                | -->
 
 ## Future Enhancements
 - Expansion to cover additional US States
@@ -63,12 +66,12 @@ If you would like to contribute to this project, please fork the repository and 
 
 ## References
 - Add any references, links, etc here
-- Many thanks to our TA team Bobby Hoffman and Mike Fearnley for their assistance.
+- Many thanks to our TA team, Bobby "Big Brain" Hoffman and Mike "Pop Pop" Fearnley, for their assistance.
 
 ## License
 This repository is licensed under the MIT License.
 
-## Screenshots
+<!-- ## Screenshots -->
 
 
 

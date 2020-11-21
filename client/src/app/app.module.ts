@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http'
 
 // added custom elements schema for use with tables
+import { GlobalModule } from './global.module';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AuthModule } from '@auth0/auth0-angular';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -10,7 +12,6 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
-import { GlobalModule } from './global.module';
 import { AboutComponent } from './about/about.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HeaderComponent } from './header/header.component';
@@ -80,6 +81,7 @@ import { MiscComponent } from './misc/misc.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AuthModule.forRoot({
       domain: 'safe-space.us.auth0.com',
       clientId: '7fi7IEnY7UuPX6SvpUG0UG9L33HdnHW5'
