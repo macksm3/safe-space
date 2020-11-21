@@ -9,7 +9,7 @@
         routerLinkActive="active-list-item">Resources</button>
     <button fxShow="true" fxHide.lt-md="true" mat-button routerLink="/profile"
         routerLinkActive="active-list-item">Profile</button>
-    <app-login-button fxShow="true" fxHide.lt-md="true"></app-login-button>
+    <app-home-login-button fxShow="true" fxHide.lt-md="true"></app-home-login-button>
     <button type="button" (click)="drawer.toggle()" fxShow="true" fxHide.gt-sm="true" mat-button class="menu-button">
         <mat-icon>menu</mat-icon>
     </button>
@@ -25,7 +25,7 @@
             <button (click)="drawer.toggle()" mat-button routerLink="/connect" routerLinkActive="active-list-item">Connect</button>
             <button (click)="drawer.toggle()" mat-button routerLink="/resources" routerLinkActive="active-list-item">Resources</button>
             <button (click)="drawer.toggle()" mat-button routerLink="/profile" routerLinkActive="active-list-item">Profile</button>
-            <app-login-button (click)="drawer.toggle()"></app-login-button>
+            <app-home-login-button></app-home-login-button>
         </div>
     </mat-drawer>
 </mat-drawer-container>
