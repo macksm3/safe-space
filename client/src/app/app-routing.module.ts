@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AuthGuard } from '@auth0/auth0-angular';
+import { AuthGuard } from './auth.guard';
 
 // using guidelines: https://angular.io/guide/router
 // Nov 13 MWE import modules needed for routing
