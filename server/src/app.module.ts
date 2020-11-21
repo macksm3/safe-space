@@ -15,7 +15,7 @@ import { UsersModule } from "./Database/Users/users.module";
         UsersModule,
         MongooseModule.forRoot(process.env.MONGODB_URI),
         ServeStaticModule.forRoot({
-            rootPath: join(__dirname, "../..", "./client/dist"),
+            rootPath: join(__dirname, "../..", "./client/dist/index.html"),
         }),
     ],  //  import other modules into this module, so we can get their Providers
     controllers: [AppController],  //  controllers accept requests, do stuff, and then give responses
