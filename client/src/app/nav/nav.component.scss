@@ -21,12 +21,10 @@ mat-drawer,
     font-size: 16px;
     text-transform: lowercase;
     color: #ADFFE3;
-  }
-
-  button:hover {
-    background-color: #ADFFE3;
-    color: #1E344B;
-    opacity: 50%;
+    &:hover {
+      background-color: rgba(173, 255, 227, 0.5);
+      color: #1E344B;
+    }
   }
 }
 
