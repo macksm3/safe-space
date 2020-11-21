@@ -9,6 +9,7 @@ import { ExploreComponent } from './explore/explore.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { TableComponent } from './table/table.component';
+import { TestApiComponent } from './test-api/test-api.component';
 import { UserFormComponent } from './userform/userform.component';
 import { ConnectComponent } from './connect/connect.component';
 import { ResourceFormComponent } from './resource-form/resource-form.component';
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'table', component: TableComponent },
   { path: 'explore', component: ExploreComponent },
+  { path: 'brendan', component: TestApiComponent},
   { path: 'connect', component: ConnectComponent },
   { path: 'resources', component: ResourcesComponent },
   { path: 'profile', component: ProfileComponent },
