@@ -7,7 +7,7 @@ mat-toolbar,
 mat-drawer,
 .sidenav-container {
   font-family: 'Audiowide', cursive;
-  background-color: #1E344B;
+  background-color: rgba(30, 52, 75, .5);
 
   // Logo 
   span {
@@ -37,6 +37,9 @@ mat-drawer {
 }
 
 .example-container {
-  position: fixed;
+  position: absolute;
+  right: 15px;
+  text-align: right;
   height: 30%;
+  background: transparent;
 }

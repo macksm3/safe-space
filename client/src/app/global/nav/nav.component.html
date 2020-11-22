@@ -17,7 +17,6 @@
 
 <mat-drawer-container class="example-container" autosize>
     <mat-drawer #drawer mode="side">
-        <div>
             <button mat-button (click)="drawer.toggle()" mat-button>
                 <mat-icon>close</mat-icon>
             </button>
@@ -26,6 +25,5 @@
             <button (click)="drawer.toggle()" mat-button routerLink="/resources" routerLinkActive="active-list-item">Resources</button>
             <button (click)="drawer.toggle()" mat-button routerLink="/profile" routerLinkActive="active-list-item">Profile</button>
             <app-home-login-button></app-home-login-button>
-        </div>
     </mat-drawer>
 </mat-drawer-container>
