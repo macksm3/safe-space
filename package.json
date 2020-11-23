@@ -11,12 +11,12 @@
   "license": "UNLICENSED",
   "scripts": {
     "start": "npm run start:prod --prefix server",
-    "build:client": "cd client && ng build --prod --output-path=../dist/client",
+    "build:client": "cd client && ng build --prod --output-path=../client/dist",
     "build:dummy": "npm run build --prefix client",
     "build:server": "npm run build --prefix server",
     "build": "npm run build:server & npm run build:dummy",
     "start:dev": "npm run start:server & npm run start:client",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "install": "cd client & npm install"
+    "install": "npm install --prefix client && npm install --prefix server"
   }
 }
