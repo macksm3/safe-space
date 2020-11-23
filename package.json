@@ -19,6 +19,6 @@
     "start:server": " cd server && npm start",
     "start:dev": "npm run start:server & npm run start:client",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "install": "npm install --prefix client && npm install --prefix server"
+    "install": "cd client & npm install"
   }
 }
