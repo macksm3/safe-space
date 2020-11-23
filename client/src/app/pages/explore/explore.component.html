@@ -1,0 +1,28 @@
+
+<!-- <div class="planetsContainer" fxLayoutAlign="center center" flxLayout="flex-container" fxLayout="row wrap"
+    fxLayout.sm="row wrap" fxLayout.xs="row wrap" fxLayoutAlign="center center" fxLayoutGap="50px"> -->
+
+
+    
+<div fxLayout="column" fxLayoutAlign="center center">
+    <app-header class="title" title=Welcome!></app-header>
+    <h3 *ngIf="user" class="neon">{{ user.name }}</h3>
+</div>
+<div class="planetsContainer" fxLayoutAlign="center center" fxLayout.sm="row wrap" fxLayout.xs="row wrap"
+    fxLayoutAlign="center center" fxLayoutGap="50px">
+    <div class="flex-item animate_animated animate__zoomInDown" fxLayoutAlign="center center">
+        <button mat-button routerLink="/newhampshire" class="safe-space">New Hampshire</button>
+    </div>
+    <div class="flex-item animate_animated animate__zoomInDown" fxLayoutAlign="center center">
+        <button mat-button routerLink="/vermont" class="safe-space" fxLayout="row" fxLayoutAlign="center center">Vermont</button>
+    </div>
+    <div class="flex-item animate_animated animate__zoomInDown" fxLayoutAlign="center center">
+        <button mat-button routerLink="/newyork" class="safe-space">New York</button>
+    </div>
+    <div class="flex-item animate_animated animate__zoomInDown" fxLayoutAlign="center center">
+        <button mat-button routerLink="/massachusetts" class="safe-space">Massachusetts</button>
+    </div>
+    <div class="flex-item animate_animated animate__zoomInDown" fxLayoutAlign="center center">
+        <button mat-button routerLink="/maine" class="safe-space">Maine</button>
+    </div>
+</div>

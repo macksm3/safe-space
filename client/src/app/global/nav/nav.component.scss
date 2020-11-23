@@ -1,0 +1,45 @@
+// Space between logo and Nav-Links
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+mat-toolbar,
+mat-drawer {
+  font-family: 'Audiowide', cursive;
+  background-color: rgba(30, 52, 75, .7);
+  border-right: none;
+
+  // Logo 
+  span {
+    font-size: 30px;
+    padding-left: 20px;
+  }
+
+  // Nav Links
+  button {
+    font-family: 'Audiowide', cursive;
+    font-size: 16px;
+    text-transform: lowercase;
+    color: #ADFFE3;
+    &:hover {
+      background-color: rgba(173, 255, 227, 0.5);
+      color: #1E344B;
+    }
+  }
+}
+
+.active-list-item {
+  color: #d062f2 !important; /* Note: You could also use a custom theme */
+}
+
+mat-drawer {
+  overflow: visible;
+}
+
+.example-container {
+  position: absolute;
+  right: 15px !important;
+  text-align: right;
+  height: 30%;
+  background: transparent;
+}
