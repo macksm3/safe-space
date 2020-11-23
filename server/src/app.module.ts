@@ -9,10 +9,12 @@ import { join } from 'path';
 import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
 import { UsersModule } from "./Database/Users/users.module";
+import { ResourcesModule } from "./Database/Resources/resources.module";
 
 @Module({
     imports: [
         UsersModule,
+        ResourcesModule,
         MongooseModule.forRoot(process.env.MONGODB_URI),
         ServeStaticModule.forRoot({
             rootPath: join(__dirname, "../..", "./client/dist"),
