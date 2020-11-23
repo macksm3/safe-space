@@ -5,9 +5,9 @@ import { Model } from "mongoose";
 import { IResource } from "./resources.model";
 
 @Injectable()
-export class RecoursesService {
+export class ResourcesService {
 
-    constructor(@InjectModel("Recourse") private readonly resourceModel: Model<IResource>) {  //  "Resource" is the model we created in resources.model.ts
+    constructor(@InjectModel("Resource") private readonly resourceModel: Model<IResource>) {  //  "Resource" is the model we created in resources.model.ts
         //  <Resource> comes from the "interface" we created in resource.model.ts
 
     }
@@ -28,16 +28,24 @@ export class RecoursesService {
         name: string,
         city: string,
         state: string,
-        site: string,
+        website: string,
         description: string,
+        contactName: string,
+        phone: string,
+        email: string,
+        memberOwned: boolean
     ) {
         const newResource = new this.resourceModel({
             type,
             name,
             city,
             state,
-            site,
+            website,
             description,
+            contactName,
+            phone,
+            email,
+            memberOwned
         });  //  "this.resourceModel" comes from the @InjectModel from the constructor above, it creates a new object from the resources.model.ts blueprint
         const result = await newResource.save();
 
@@ -59,8 +67,12 @@ export class RecoursesService {
             name: resource.name,
             city: resource.city,
             state: resource.state,
-            site: resource.site,
-            description: resource.description
+            website: resource.website,
+            description: resource.description,
+            contactName: resource.contactName,
+            phone: resource.phone,
+            email: resource.email,
+            memberOwned: resource.memberOwned
         };
     }
 
@@ -70,8 +82,12 @@ export class RecoursesService {
         name: string,
         city: string,
         state: string,
-        site: string,
+        website: string,
         description: string,
+        contactName: string,
+        phone: string,
+        email: string,
+        memberOwned: boolean
     ) {
         const updatedResource = await this.findOneResource(id);
         if (type) {
@@ -86,11 +102,23 @@ export class RecoursesService {
         if (state) {
             updatedResource.state = state;
         }
-        if (site) {
-            updatedResource.site = site;
+        if (website) {
+            updatedResource.website = website;
         }
         if (description) {
             updatedResource.description = description;
+        }
+        if (contactName) {
+            updatedResource.contactName = contactName;
+        }
+        if (phone) {
+            updatedResource.phone = phone;
+        }
+        if (email) {
+            updatedResource.email = email;
+        }
+        if (memberOwned) {
+            updatedResource.memberOwned = memberOwned;
         }
         updatedResource.save();
     }

@@ -13,16 +13,24 @@ export class ResourcesController {
         @Body("name") name: string,
         @Body("city") city: string,
         @Body("state") state: string,
-        @Body("site") site: string,
+        @Body("website") website: string,
         @Body("description") description: string,
+        @Body("contactName") contactName: string,
+        @Body("phone") phone: string,
+        @Body("email") email: string,
+        @Body("memberOwned") memberOwned: boolean
     ): Promise<any> {  //  "any" is the type of response we will get back from this req
         const generatedId = await this.resourcesService.insertResource(
             type,
             name,
             city,
             state,
-            site,
-            description
+            website,
+            description,
+            contactName,
+            phone,
+            email,
+            memberOwned
         );
         return { id: generatedId };
     }
@@ -32,12 +40,17 @@ export class ResourcesController {
         const resources = await this.resourcesService.getAllResources();
         //  .map() the resources to give us the "_id" as just an "id"
         return resources.map((resource) => ({
+            id: resource.id,
             type: resource.type,
             name: resource.name,
+            website: resource.website,
+            description: resource.description,
+            contactName: resource.contactName,
             city: resource.city,
             state: resource.state,
-            site: resource.site,
-            description: resource.description
+            phone: resource.phone,
+            email: resource.email,
+            memberOwned: resource.memberOwned
         }));
     }
 
@@ -53,8 +66,12 @@ export class ResourcesController {
         @Body("name") name: string,
         @Body("city") city: string,
         @Body("state") state: string,
-        @Body("site") site: string,
+        @Body("website") website: string,
         @Body("description") description: string,
+        @Body("contactName") contactName: string,
+        @Body("phone") phone: string,
+        @Body("email") email: string,
+        @Body("type") memberOwned: boolean
     ) {
         await this.resourcesService.updateResource(
             id,
@@ -62,8 +79,12 @@ export class ResourcesController {
             name,
             city,
             state,
-            site,
-            description
+            website,
+            description,
+            contactName,
+            phone,
+            email,
+            memberOwned
         );
         return "Resource updated";
     }
