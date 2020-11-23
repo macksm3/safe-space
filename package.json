@@ -10,7 +10,6 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "prestart": "npm run build",
     "start": "npm run start:prod --prefix server",
     "build:client": "cd client && ng build --prod --output-path=../client/dist",
     "build:dummy": "npm run build --prefix client",
