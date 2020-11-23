@@ -1,5 +1,3 @@
-@import '~animate.css/animate.min';
-
 div.planetsContainer {
     min-height: 55vh;
   }
@@ -11,8 +9,6 @@ div.planetsContainer {
     background-size: 100%;
     height: 200px;
     width: 200px;
-    animation: zoomInDown;
-    animation-duration: 2s;
   }
   
   div.flex-item:nth-of-type(even) {
