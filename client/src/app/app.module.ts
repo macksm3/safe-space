@@ -30,7 +30,6 @@ import { ConnectComponent } from './pages/connect/connect.component';
 import { ResourcesComponent } from './resource-folder/resources/resources.component';
 import { NewhampshireComponent } from './states/newhampshire/newhampshire.component';
 import { TableComponent } from './table/table.component';
-import { TestApiComponent } from './test-api/test-api.component';
 
 // Adding Angular Material Module (also added to imports below)
 import { AuthButtonComponent } from './buttons/auth-button/auth-button.component';
@@ -63,7 +62,6 @@ import { MiscComponent } from './resource-folder/misc/misc.component';
     ResourcesComponent,
     NewhampshireComponent,
     TableComponent,
-    TestApiComponent,
     AuthButtonComponent,
     UserProfileComponent,
     UserFormComponent,

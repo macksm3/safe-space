@@ -11,7 +11,6 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { ConnectComponent } from './pages/connect/connect.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { TableComponent } from './table/table.component';
-import { TestApiComponent } from './test-api/test-api.component';
 import { UserFormComponent } from './forms/userform/userform.component';
 import { ResourceFormComponent } from './forms/resource-form/resource-form.component';
 import { AddBusinessComponent } from './forms/add-business/add-business.component';
@@ -34,7 +33,6 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'table', component: TableComponent },
   { path: 'explore', component: ExploreComponent, canActivate: [AuthGuard] },
-  { path: 'brendan', component: TestApiComponent},
   { path: 'connect', component: ConnectComponent, canActivate: [AuthGuard] },
   { path: 'resources', component: ResourcesComponent, canActivate: [AuthGuard] },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
