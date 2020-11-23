@@ -10,7 +10,7 @@ import { IUser, UserService } from './user.service';
 
 export class UserComponent {
     error: any;
-    users: string[];
+    userArr: IUser[];
     user: IUser;
 
     constructor(private userService: UserService) { }
@@ -18,8 +18,11 @@ export class UserComponent {
     showUsers() {
         this.userService.getUsers()
             .subscribe(
-                (data: IUser) => this.user = { ...data }, // sucess path
-                error => this.error = error // error path
+                (data: IUser) => {
+                    this.user = { ...data }, // sucess path
+                    error => {this.error = error && console.log(error)}; // error path
+                    console.log(data);
+                }
             );
     }
 
@@ -34,5 +37,6 @@ export class UserComponent {
 
     ngOnInit() {
         this.showUserResponse();
+        this.showUsers();
     }
 }
