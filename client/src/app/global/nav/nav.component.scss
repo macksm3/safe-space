@@ -4,10 +4,10 @@
 }
 
 mat-toolbar,
-mat-drawer,
-.sidenav-container {
+mat-drawer {
   font-family: 'Audiowide', cursive;
   background-color: rgba(30, 52, 75, .7);
+  border-right: none;
 
   // Logo 
   span {

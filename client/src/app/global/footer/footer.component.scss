@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 
 .footer-style {
+    position: absolute;
+    bottom: 0;
+    height: 2.5rem;
     background-color: #1E344B;
     h2 {
         font-family: 'Audiowide', cursive;
