@@ -15,8 +15,6 @@
     "build:dummy": "npm run build --prefix client",
     "build:server": "npm run build --prefix server",
     "build": "npm run build:server & npm run build:dummy",
-    "start:client": " cd client && npm start",
-    "start:server": " cd server && npm start",
     "start:dev": "npm run start:server & npm run start:client",
     "test": "echo \"Error: no test specified\" && exit 1",
     "install": "npm install --prefix client && npm install --prefix server"
