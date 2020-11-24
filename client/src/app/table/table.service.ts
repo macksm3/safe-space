@@ -2,11 +2,10 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { HttpHeaders } from "@angular/common/http";
 
-import { Observable } from "rxjs";
-import { catchError } from "rxjs/operators";
+import { Observable, throwError } from "rxjs";
+import { catchError, retry } from "rxjs/operators";
 
-import { IResource } from "./IResource";
-import { HttpErrorHandler, HandleError } from "../http-error-handler.service";
+import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -15,32 +14,60 @@ const httpOptions = {
   })
 };
 
+export interface IResource {
+  type: string;
+  name: string;
+  city: string;
+  state: string;
+  website: string;
+  description: string;
+  contactName: string;
+  email: string;
+  phone: string;
+  memberOwned: boolean;
+}
+
 @Injectable()
 export class TableService {
   resourcesUrl = "api/resources"; // URL to web api
-  private handleError: HandleError;
 
-  constructor(private http: HttpClient, httpErrorHandler: HttpErrorHandler) {
-    this.handleError = httpErrorHandler.createHandleError("TableService");
-  }
+  constructor(private http: HttpClient) { }
 
   /** GET resourcees from the server */
-  getResources(): Observable<IResource[]> {
-    return this.http
-      .get<IResource[]>(this.resourcesUrl)
-      .pipe(catchError(this.handleError("getResources", [])));
-  }
+  public getResources() {
+    return this.http.get<IResource[]>(this.resourcesUrl)
+      .pipe(
+        retry(3), // retry a failed request up to 3 times
+        catchError(this.handleError) // then handle the error);
+      )
+  };
 
-  /* GET resourcees whose name contains search term */
-  searchResourcees(term: string): Observable<IResource[]> {
-    term = term.trim();
+  // /* GET resourcees whose name contains search term */
+  // searchResourcees(term: string): Observable<IResource[]> {
+  //   term = term.trim();
 
-    // Add safe, URL encoded search parameter if there is a search term
-    const options = term ? { params: new HttpParams().set("name", term) } : {};
+  //   // Add safe, URL encoded search parameter if there is a search term
+  //   const options = term ? { params: new HttpParams().set("name", term) } : {};
 
-    return this.http
-      .get<IResource[]>(this.resourcesUrl, options)
-      .pipe(catchError(this.handleError<IResource[]>("searchResources", [])));
+  //   return this.http
+  //     .get<IResource[]>(this.resourcesUrl, options)
+  //     .pipe(catchError(this.handleError)));
+  // }
+
+  private handleError(error: HttpErrorResponse) {
+    if (error.error instanceof ErrorEvent) {
+      // A client-side or network error occurred. Handle it accordingly.
+      console.error('An error occurred:', error.error.message);
+    } else {
+      // The backend returned an unsuccessful response code.
+      // The response body may contain clues as to what went wrong.
+      console.error(
+        `Backend returned code ${error.status}, ` +
+        `body was: ${error.error}`);
+    }
+    // Return an observable with a user-facing error message.
+    return throwError(
+      'Something bad happened; please try again later.');
   }
 }
 
