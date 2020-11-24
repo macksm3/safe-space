@@ -1,14 +1,14 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post } from "@nestjs/common";
 
-import { ResourcesService } from "./resources.service";
+import { BusinessService } from "./business.service";
 
-@Controller("api/resources")
-export class ResourcesController {
-    //  "readonly" means we won't change the "resourcesService" to another value/type
-    constructor(private readonly resourcesService: ResourcesService) { } //  "resourceServices" can be called anything, "ResourcesService" is exported from service file
+@Controller("api/business")
+export class BusinessController {
+    //  "readonly" means we won't change the "businessService" to another value/type
+    constructor(private readonly businessService: BusinessService) { } //  "businessServices" can be called anything, "BusinessService" is exported from service file
 
     @Post()
-    async addResource(
+    async addBusiness(
         @Body("type") type: string,
         @Body("name") name: string,
         @Body("city") city: string,
@@ -20,7 +20,7 @@ export class ResourcesController {
         @Body("email") email: string,
         @Body("memberOwned") memberOwned: boolean
     ): Promise<any> {  //  "any" is the type of response we will get back from this req
-        const generatedId = await this.resourcesService.insertResource(
+        const generatedId = await this.businessService.insertBusiness(
             type,
             name,
             city,
@@ -36,31 +36,36 @@ export class ResourcesController {
     }
 
     @Get()
-    async getAllResources() {
-        const resources = await this.resourcesService.getAllResources();
-        //  .map() the resources to give us the "_id" as just an "id"
-        return resources.map((resource) => ({
-            id: resource.id,
-            type: resource.type,
-            name: resource.name,
-            website: resource.website,
-            description: resource.description,
-            contactName: resource.contactName,
-            city: resource.city,
-            state: resource.state,
-            phone: resource.phone,
-            email: resource.email,
-            memberOwned: resource.memberOwned
+    async getAllBusiness() {
+        const business = await this.businessService.getAllBusinesses();
+        //  .map() the business to give us the "_id" as just an "id"
+        return business.map((business) => ({
+            id: business.id,
+            type: business.type,
+            name: business.name,
+            website: business.website,
+            description: business.description,
+            contactName: business.contactName,
+            city: business.city,
+            state: business.state,
+            phone: business.phone,
+            email: business.email,
+            memberOwned: business.memberOwned
         }));
     }
 
+    @Get(":type")
+    getAllByType(@Param("type") businessType: string) {
+        return this.businessService.getAllByType(businessType);
+    }
+
     @Get(":id")
-    getOneResource(@Param("id") resourceId: string) {
-        return this.resourcesService.getOneResource(resourceId);
+    getOneBusiness(@Param("id") businessId: string) {
+        return this.businessService.getOneBusiness(businessId);
     }
 
     @Patch(":id")
-    async updateResource(
+    async updateBusiness(
         @Param("id") id: string,
         @Body("type") type: string,
         @Body("name") name: string,
@@ -73,7 +78,7 @@ export class ResourcesController {
         @Body("email") email: string,
         @Body("type") memberOwned: boolean
     ) {
-        await this.resourcesService.updateResource(
+        await this.businessService.updateBusiness(
             id,
             type,
             name,
@@ -86,12 +91,12 @@ export class ResourcesController {
             email,
             memberOwned
         );
-        return "Resource updated";
+        return "Business updated";
     }
 
     @Delete(":id")
-    async removeResource(@Param("id") resourceId: string) {
-        await this.resourcesService.deleteResource(resourceId);
-        return "Resource deleted";
+    async removeBusiness(@Param("id") businessId: string) {
+        await this.businessService.deleteBusiness(businessId);
+        return "Business deleted";
     }
 }
