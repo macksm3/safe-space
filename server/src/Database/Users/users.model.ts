@@ -14,12 +14,18 @@ export const UserSchema = new mongoose.Schema({
     pronouns: {
         type: String
     },
+    location: {
+        type: String
+    },
     favoriteBusinesses: {
         type: Array
     },
     reviewedBusinesses: {
         type: Array
     },
+    moreInfo: {
+        type: String
+    }
 });
 
 export interface User extends mongoose.Document {  //  this interface gets added as a type "<User>" in users.service.ts
@@ -28,6 +34,8 @@ export interface User extends mongoose.Document {  //  this interface gets added
     firstName: string;
     lastName: string;
     pronouns: string;
+    location: string;
     favoriteBusinesses: [string];
     reviewedBusinesses: [string];
+    moreInfo: string;
 }

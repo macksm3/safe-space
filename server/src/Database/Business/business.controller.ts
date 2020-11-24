@@ -7,6 +7,9 @@ export class BusinessController {
     //  "readonly" means we won't change the "businessService" to another value/type
     constructor(private readonly businessService: BusinessService) { } //  "businessServices" can be called anything, "BusinessService" is exported from service file
 
+    // 
+    // ADD BUSINESS
+    // 
     @Post()
     async addBusiness(
         @Body("type") type: string,
@@ -35,6 +38,9 @@ export class BusinessController {
         return { id: generatedId };
     }
 
+    // 
+    // GET ALL BUSINESSES
+    // 
     @Get()
     async getAllBusiness() {
         const business = await this.businessService.getAllBusinesses();
@@ -54,6 +60,9 @@ export class BusinessController {
         }));
     }
 
+    // 
+    // GET ALL BUSINESSES BY type && state IN THAT ORDER
+    // 
     @Get(":type/:state")
     getAllByTypeAndState(
         @Param("type") businessType: string,
@@ -62,11 +71,17 @@ export class BusinessController {
         return this.businessService.getAllByTypeAndState(businessType, businessState);
     }
 
+    // 
+    // GET A SINGLE BUSINESS BY ID
+    // 
     @Get(":id")
     getOneBusiness(@Param("id") businessId: string) {
         return this.businessService.getOneBusiness(businessId);
     }
 
+    // 
+    // UPDATE SINGLE BUSINESS BY ID
+    // 
     @Patch(":id")
     async updateBusiness(
         @Param("id") id: string,
@@ -97,6 +112,9 @@ export class BusinessController {
         return "Business updated";
     }
 
+    // 
+    // DELETE SINGLE BUSINESS BY ID
+    // 
     @Delete(":id")
     async removeBusiness(@Param("id") businessId: string) {
         await this.businessService.deleteBusiness(businessId);

@@ -29,7 +29,9 @@ export class UsersService {
         lastName: string,
         pronouns: string,
         favoriteBusinesses: [string],
-        reviewedBusinesses: [string]
+        reviewedBusinesses: [string],
+        location: string,
+        moreInfo: string,
     ) {
         const newUser = new this.userModel({
             username,
@@ -37,7 +39,9 @@ export class UsersService {
             lastName,
             pronouns,
             favoriteBusinesses,
-            reviewedBusinesses
+            reviewedBusinesses,
+            location,
+            moreInfo,
         });  //  "this.userModel" comes from the @InjectModel from the constructor above, it creates a new object from the users.model.ts blueprint
         const result = await newUser.save();
 
@@ -60,7 +64,9 @@ export class UsersService {
             lastName: user.lastName,
             pronouns: user.pronouns,
             favoriteBusinesses: user.favoriteBusinesses,
-            reviewedBusinesses: user.reviewedBusinesses
+            reviewedBusinesses: user.reviewedBusinesses,
+            location: user.location,
+            moreInfo: user.moreInfo
         };
     }
 
@@ -71,7 +77,9 @@ export class UsersService {
         lastName: string,
         pronouns: string,
         favoriteBusinesses: [string],
-        reviewedBusinesses: [string]
+        reviewedBusinesses: [string],
+        location: string,
+        moreInfo: string,
     ) {
         const updatedUser = await this.findOneUser(userId);
         if (username) {
@@ -82,6 +90,21 @@ export class UsersService {
         }
         if (lastName) {
             updatedUser.lastName = lastName;
+        }
+        if (pronouns) {
+            updatedUser.pronouns = pronouns;
+        }
+        if (favoriteBusinesses) {
+            updatedUser.favoriteBusinesses = favoriteBusinesses;
+        }
+        if (reviewedBusinesses) {
+            updatedUser.reviewedBusinesses = reviewedBusinesses;
+        }
+        if (location) {
+            updatedUser.location = location;
+        }
+        if (moreInfo) {
+            updatedUser.moreInfo = moreInfo;
         }
         updatedUser.save();
     }
