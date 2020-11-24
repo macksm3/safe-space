@@ -1,8 +1,25 @@
-<h3>Get configuration from JSON file</h3>
+<div class="sampleUser">
+    <h3>Your User Data</h3>
+    <h5>first name: {{usersArr[0].firstName}}</h5>
+    <h5>last name: {{usersArr[0].lastName}}</h5>
+    <h5>username: {{usersArr[0].username}}</h5>
 
-<span *ngIf="users">
-    <p>users exist! huzzah</p>
-    <!-- <p>Users API URL is "{{users.body}}"</p> -->
-</span>
 
-<p *ngIf="error" class="error">{{error | json}}</p>
+
+    <!-- <h2>Display object property by ngFor</h2> -->
+    <div *ngFor="let user of usersArr">
+        <div *ngFor="let value of user">{{ value.firstName }}</div>
+    </div>
+
+
+    <div *ngFor="let userObj of usersArr">
+        <ul *ngFor="let user of userObj.value">
+            <p>SOMETHING! aNYTHING</p>
+            <li>user array exists! huzzah</li>
+            <li>first name: {{user.firstName}}</li>
+            <!-- <p>Users API URL is "{{users.body}}"</p> -->
+        </ul>
+    </div>
+
+    <p *ngIf="error" class="error">{{error | json}}</p>
+</div>

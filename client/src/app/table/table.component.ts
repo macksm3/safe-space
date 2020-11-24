@@ -1,43 +1,68 @@
-import { Component, AfterViewInit, OnInit, ViewChild } from '@angular/core';
+import { Component, AfterViewInit, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { IBusiness, TableService } from "./table.service";
 import SampleJson from '../../assets/SampleJson.json';
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
+  providers: [TableService],
   styleUrls: ['./table.component.scss']
 })
-export class TableComponent implements AfterViewInit {
-  displayedColumns: string[] = ['type', 'name', 'city', 'state', 'site', 'description'];
-  dataSource = new MatTableDataSource(SAMPLE_DATA);
 
+export class TableComponent implements OnInit, AfterViewInit {
+
+  public displayedColumns: string[] = [ 'type', 'name', 'city', 'state', 'description', 'website' ];
+  public dataSource = new MatTableDataSource([]);
+  public businessesArr: IBusiness[];
+  
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-
-  constructor() {
-    console.log('Reading local json files');
-    console.log(SampleJson);
-  }
-
+  
+  constructor(private tableService: TableService, private cdr: ChangeDetectorRef) {}
+  
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
+  
+  ngOnInit() {
+    this.showBusinesss();
+  }
+  
+  showBusinesss() {
+    this.tableService.getBusinesss()
+    .subscribe(
+      (data) => {
+        this.businessesArr = [ ...data ];
+        this.dataSource = new MatTableDataSource(this.businessesArr);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort
+        this.cdr.detectChanges();
+
+        console.log("I'm your showBusinesss function!");
+        console.log(this.businessesArr);
+        console.log("I'm your dataSource")
+        console.log(this.dataSource);
+      }
+    )
+  }
+
 }
 
 // LOCAL JSON SAMPLE DATA
-export interface SampleJsonTable {
-  type: string;
-  name: string;
-  city: string;
-  state: string;
-  site: string;
-  description: string;
-}
+// export interface SampleJsonTable {
+//   type: string;
+//   name: string;
+//   city: string;
+//   state: string;
+//   site: string;
+//   description: string;
+// }
 
-const SAMPLE_DATA: SampleJsonTable[] = SampleJson;
+// const SAMPLE_DATA: SampleJsonTable[] = SampleJson;
 
 /* Static data */
 
