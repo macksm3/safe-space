@@ -35,20 +35,26 @@ export class BusinessService {
         email: string,
         memberOwned: boolean
     ) {
-        const newBusiness = new this.businessModel({
-            type,
-            name,
-            city,
-            state,
-            website,
-            description,
-            contactName,
-            phone,
-            email,
-            memberOwned
-        });  //  "this.businessModel" comes from the @InjectModel from the constructor above, it creates a new object from the business.model.ts blueprint
+        let newBusiness;
+        try {
+            newBusiness = new this.businessModel({
+                type,
+                name,
+                city,
+                state,
+                website,
+                description,
+                contactName,
+                phone,
+                email,
+                memberOwned
+            });  //  "this.businessModel" comes from the @InjectModel from the constructor above, it creates a new object from the business.model.ts blueprint
+        } catch (error) {
+            throw new NotFoundException("Could not add the business. Make sure you added fields for 'type' and 'name' as those are marked 'required' in the business.model file");
+        }
+        
         const result = await newBusiness.save();
-
+        
         return result.id as string;
     }
 
@@ -60,11 +66,12 @@ export class BusinessService {
         return businesses as IBusiness[];  //  this sets "business" as type "IBusiness"
     }
 
-    async getAllByType(businessType: string) {
+    async getAllByTypeAndState(businessType: string, businessState: string) {
         businessType = businessType.toLowerCase();
-        const result = await this.businessModel.find().where({type: businessType}).exec();
+        businessState = businessState.toUpperCase();
+        const result = await this.businessModel.find().where({ type: businessType, state: businessState }).exec();
         if (result.length <= 0) {
-            throw new NotFoundException(`Couldn't find any businesses of type ${businessType}.`);
+            throw new NotFoundException(`Couldn't find any businesses of state ${businessState} && type ${businessType}.`);
         } else {
             return result;
         }
