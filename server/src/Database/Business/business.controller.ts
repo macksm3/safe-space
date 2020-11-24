@@ -54,9 +54,12 @@ export class BusinessController {
         }));
     }
 
-    @Get(":type")
-    getAllByType(@Param("type") businessType: string) {
-        return this.businessService.getAllByType(businessType);
+    @Get(":type/:state")
+    getAllByTypeAndState(
+        @Param("type") businessType: string,
+        @Param("state") businessState: string
+    ) {
+        return this.businessService.getAllByTypeAndState(businessType, businessState);
     }
 
     @Get(":id")
@@ -76,7 +79,7 @@ export class BusinessController {
         @Body("contactName") contactName: string,
         @Body("phone") phone: string,
         @Body("email") email: string,
-        @Body("type") memberOwned: boolean
+        @Body("memberOwned") memberOwned: boolean
     ) {
         await this.businessService.updateBusiness(
             id,
