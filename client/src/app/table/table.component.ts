@@ -2,7 +2,7 @@ import { Component, AfterViewInit, OnInit, ViewChild, ChangeDetectorRef } from '
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { IResource, TableService } from "./table.service";
+import { IBusiness, TableService } from "./table.service";
 import SampleJson from '../../assets/SampleJson.json';
 
 @Component({
@@ -14,9 +14,9 @@ import SampleJson from '../../assets/SampleJson.json';
 
 export class TableComponent implements OnInit, AfterViewInit {
 
-  public displayedColumns: string[] = ['type', 'name', 'city', 'state', 'website', 'description', "contactName", "email", "phone", "memberOwned"];
+  public displayedColumns: string[] = [ 'type', 'name', 'city', 'state', 'description', 'website' ];
   public dataSource = new MatTableDataSource([]);
-  public resourcesArr: IResource[];
+  public businessesArr: IBusiness[];
   
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -29,21 +29,21 @@ export class TableComponent implements OnInit, AfterViewInit {
   }
   
   ngOnInit() {
-    this.showResources();
+    this.showBusinesss();
   }
   
-  showResources() {
-    this.tableService.getResources()
+  showBusinesss() {
+    this.tableService.getBusinesss()
     .subscribe(
       (data) => {
-        this.resourcesArr = [ ...data ];
-        this.dataSource = new MatTableDataSource(this.resourcesArr);
+        this.businessesArr = [ ...data ];
+        this.dataSource = new MatTableDataSource(this.businessesArr);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort
         this.cdr.detectChanges();
 
-        console.log("I'm your showResources function!");
-        console.log(this.resourcesArr);
+        console.log("I'm your showBusinesss function!");
+        console.log(this.businessesArr);
         console.log("I'm your dataSource")
         console.log(this.dataSource);
       }
