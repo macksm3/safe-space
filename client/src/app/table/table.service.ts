@@ -2,11 +2,10 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { HttpHeaders } from "@angular/common/http";
 
-import { Observable } from "rxjs";
-import { catchError } from "rxjs/operators";
+import { Observable, throwError } from "rxjs";
+import { catchError, retry } from "rxjs/operators";
 
-import { IResource } from "./IResource";
-import { HttpErrorHandler, HandleError } from "../http-error-handler.service";
+import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -15,62 +14,90 @@ const httpOptions = {
   })
 };
 
+export interface IBusiness {
+  type: string;
+  name: string;
+  city: string;
+  state: string;
+  website: string;
+  description: string;
+  contactName: string;
+  phone: string;
+  email: string;
+  memberOwned: boolean;
+}
+
 @Injectable()
 export class TableService {
-  resourcesUrl = "api/resources"; // URL to web api
-  private handleError: HandleError;
+  businessesUrl = "api/business"; // URL to web api
 
-  constructor(private http: HttpClient, httpErrorHandler: HttpErrorHandler) {
-    this.handleError = httpErrorHandler.createHandleError("TableService");
-  }
+  constructor(private http: HttpClient) { }
 
   /** GET resourcees from the server */
-  getResources(): Observable<IResource[]> {
-    return this.http
-      .get<IResource[]>(this.resourcesUrl)
-      .pipe(catchError(this.handleError("getResources", [])));
-  }
+  public getBusinesss() {
+    return this.http.get<IBusiness[]>(this.businessesUrl)
+      .pipe(
+        retry(3), // retry a failed request up to 3 times
+        catchError(this.handleError) // then handle the error);
+      )
+  };
 
-  /* GET resourcees whose name contains search term */
-  searchResourcees(term: string): Observable<IResource[]> {
-    term = term.trim();
+  // /* GET resourcees whose name contains search term */
+  // searchBusinesses(term: string): Observable<IBusiness[]> {
+  //   term = term.trim();
 
-    // Add safe, URL encoded search parameter if there is a search term
-    const options = term ? { params: new HttpParams().set("name", term) } : {};
+  //   // Add safe, URL encoded search parameter if there is a search term
+  //   const options = term ? { params: new HttpParams().set("name", term) } : {};
 
-    return this.http
-      .get<IResource[]>(this.resourcesUrl, options)
-      .pipe(catchError(this.handleError<IResource[]>("searchResources", [])));
+  //   return this.http
+  //     .get<IBusiness[]>(this.businessesUrl, options)
+  //     .pipe(catchError(this.handleError)));
+  // }
+
+  private handleError(error: HttpErrorResponse) {
+    if (error.error instanceof ErrorEvent) {
+      // A client-side or network error occurred. Handle it accordingly.
+      console.error('An error occurred:', error.error.message);
+    } else {
+      // The backend returned an unsuccessful response code.
+      // The response body may contain clues as to what went wrong.
+      console.error(
+        `Backend returned code ${error.status}, ` +
+        `body was: ${error.error}`);
+    }
+    // Return an observable with a user-facing error message.
+    return throwError(
+      'Something bad happened; please try again later.');
   }
 }
 
   // //////// Save methods //////////
 
   // /** POST: add a new resource to the database */
-  // addResource(resource: Resource): Observable<Resource> {
+  // addBusiness(resource: Business): Observable<Business> {
   //   return this.http
-  //     .post<Resource>(this.resourcesUrl, resource, httpOptions)
-  //     .pipe(catchError(this.handleError("addResource", resource)));
+  //     .post<Business>(this.businessesUrl, resource, httpOptions)
+  //     .pipe(catchError(this.handleError("addBusiness", resource)));
   // }
 
   // /** DELETE: delete the resource from the server */
-  // deleteResource(id: number): Observable<{}> {
-  //   const url = `${this.resourcesUrl}/${id}`; // DELETE api/resourcees/42
+  // deleteBusiness(id: number): Observable<{}> {
+  //   const url = `${this.businessesUrl}/${id}`; // DELETE api/resourcees/42
   //   return this.http
   //     .delete(url, httpOptions)
-  //     .pipe(catchError(this.handleError("deleteResource")));
+  //     .pipe(catchError(this.handleError("deleteBusiness")));
   // }
 
   // /** PUT: update the resource on the server. Returns the updated resource upon success. */
-  // updateResource(resource: Resource): Observable<Resource> {
+  // updateBusiness(resource: Business): Observable<Business> {
   //   httpOptions.headers = httpOptions.headers.set(
   //     "Authorization",
   //     "my-new-auth-token"
   //   );
 
   //   return this.http
-  //     .put<Resource>(this.resourcesUrl, resource, httpOptions)
-  //     .pipe(catchError(this.handleError("updateResource", resource)));
+  //     .put<Business>(this.businessesUrl, resource, httpOptions)
+  //     .pipe(catchError(this.handleError("updateBusiness", resource)));
   // }
 
 /*
