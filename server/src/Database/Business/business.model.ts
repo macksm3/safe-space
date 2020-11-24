@@ -1,6 +1,6 @@
 import * as mongoose from "mongoose";
 
-export const ResourceSchema = new mongoose.Schema({
+export const BusinessSchema = new mongoose.Schema({
     type: {
         type: String,
         required: true
@@ -36,7 +36,7 @@ export const ResourceSchema = new mongoose.Schema({
     
 });
 
-export interface IResource extends mongoose.Document {  //  this interface gets added as a type "<IResource>" in users.service.ts
+export interface IBusiness extends mongoose.Document {  //  this interface gets added as a type "<IBusiness>" in users.service.ts
     id: string;
     type: string;
     name: string;
