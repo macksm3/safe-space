@@ -36,7 +36,12 @@ export class TableService {
 
   public getUrl(resource: string, stateName: string) {
 
-    this.businessesUrl = `api/business/${resource}/${stateName}/`;
+    if (stateName === "all") {
+      this.businessesUrl = `api/business`
+    } else {
+
+      this.businessesUrl = `api/business/${resource}/${stateName}/`;
+    }
 
   }
 

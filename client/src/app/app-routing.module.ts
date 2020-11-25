@@ -10,11 +10,11 @@ import { HomeComponent } from './pages/home/home.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { ConnectComponent } from './pages/connect/connect.component';
 import { ProfileComponent } from './pages/profile/profile.component';
-import { TableComponent } from './table/table.component';
+import { TableComponent } from './global/table/table.component';
 import { UserFormComponent } from './forms/userform/userform.component';
 import { ResourceFormComponent } from './forms/resource-form/resource-form.component';
 import { AddBusinessComponent } from './forms/add-business/add-business.component';
-import { StateTemplateComponent } from './state-template/state-template.component';
+import { StateTemplateComponent } from './global/state-template/state-template.component';
 
 
 // Nov 13 MWE define routes in Routes array
@@ -28,6 +28,7 @@ const routes: Routes = [
   { path: 'explore', component: ExploreComponent, canActivate: [AuthGuard] },
   { path: 'connect', component: ConnectComponent, canActivate: [AuthGuard] },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: 'resources', component: TableComponent, data: { type: "All Resource", state: "all" }},
 
   // State Pages
   { path: 'newhampshire', component: StateTemplateComponent, data: { stateTitle: "New Hampshire", stateName: "nh" }, canActivate: [AuthGuard] },
