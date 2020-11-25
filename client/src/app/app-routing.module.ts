@@ -14,16 +14,7 @@ import { TableComponent } from './table/table.component';
 import { UserFormComponent } from './forms/userform/userform.component';
 import { ResourceFormComponent } from './forms/resource-form/resource-form.component';
 import { AddBusinessComponent } from './forms/add-business/add-business.component';
-import { ResourcesComponent } from './resource-folder/resources/resources.component';
-import { NewhampshireComponent } from './states/newhampshire/newhampshire.component';
-import { VermontComponent } from './states/vermont/vermont.component';
-import { NewyorkComponent } from './states/newyork/newyork.component';
-import { MassachusettsComponent } from './states/massachusetts/massachusetts.component';
-import { MaineComponent } from './states/maine/maine.component';
-import { CoffeeShopsComponent } from './resource-folder/coffee-shops/coffee-shops.component';
-import { RestaurantsComponent } from './resource-folder/restaurants/restaurants.component';
-import { MiscComponent } from './resource-folder/misc/misc.component';
-import { UserComponent } from './services/user.component';
+import { StateTemplateComponent } from './state-template/state-template.component';
 
 
 // Nov 13 MWE define routes in Routes array
@@ -32,22 +23,21 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'home', component: HomeComponent },
   { path: 'table', component: TableComponent },
-  { path: 'explore', component: ExploreComponent, canActivate: [AuthGuard] },
+  { path: 'explore', component: ExploreComponent},
   { path: 'connect', component: ConnectComponent, canActivate: [AuthGuard] },
-  { path: 'resources', component: ResourcesComponent, canActivate: [AuthGuard] },
+  { path: 'resources', component: TableComponent, canActivate: [AuthGuard] },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
-  { path: 'newhampshire', component: NewhampshireComponent, canActivate: [AuthGuard] },
-  { path: 'vermont', component: VermontComponent, canActivate: [AuthGuard] },
-  { path: 'newyork', component: NewyorkComponent, canActivate: [AuthGuard] },
-  { path: 'massachusetts', component: MassachusettsComponent, canActivate: [AuthGuard] },
-  { path: 'maine', component: MaineComponent, canActivate: [AuthGuard] },
+  { path: 'newhampshire', component: StateTemplateComponent, data: {stateName: "New Hampshire"}, canActivate: [AuthGuard] },
+  { path: 'vermont', component: StateTemplateComponent, data: {stateName: "Vermont"}, canActivate: [AuthGuard] },
+  { path: 'newyork', component: StateTemplateComponent, data: {stateName: "New York"}, canActivate: [AuthGuard]},
+  { path: 'massachusetts', component: StateTemplateComponent, data: {stateName: "Massachusetts"} },
+  { path: 'maine', component: StateTemplateComponent, data: {stateName: "Maine"} },
   { path: 'addbusiness', component: AddBusinessComponent, canActivate: [AuthGuard] },
-  { path: 'coffeeshops', component: CoffeeShopsComponent, canActivate: [AuthGuard] },
-  { path: 'restaurants', component: RestaurantsComponent, canActivate: [AuthGuard] },
-  { path: 'misc', component: MiscComponent, canActivate: [AuthGuard] },
+  { path: 'coffeeshops', component: TableComponent, data: {tableName: "Cafe"}, canActivate: [AuthGuard] },
+  { path: 'restaurants', component: TableComponent, data: {tableName: "Restaurants"}, canActivate: [AuthGuard] },
+  { path: 'resources', component: TableComponent, data: {tableName: "Wonky"}, canActivate: [AuthGuard] },
   { path: 'userform', component: UserFormComponent },
   { path: 'resourceform', component: ResourceFormComponent },
-  { path: 'users', component: UserComponent},
   { path: '**', component: PageNotFoundComponent}
 ];
 
