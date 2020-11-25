@@ -54,6 +54,13 @@ export class BusinessController {
         }));
     }
 
+    @Get(":state")
+    getAllByState(
+        @Param("state") businessState: string
+    ) {
+        return this.businessService.getAllByState(businessState);
+    }
+
     @Get(":type/:state")
     getAllByTypeAndState(
         @Param("type") businessType: string,

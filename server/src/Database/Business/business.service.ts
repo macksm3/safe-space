@@ -66,6 +66,16 @@ export class BusinessService {
         return businesses as IBusiness[];  //  this sets "business" as type "IBusiness"
     }
 
+    async getAllByState(businessState: string) {
+        businessState = businessState.toUpperCase();
+        const result = await this.businessModel.find().where({ state: businessState }).exec();
+        if (result.length <= 0) {
+            throw new NotFoundException(`Couldn't find any businesses of state ${businessState}.`);
+        } else {
+            return result;
+        }
+    }
+
     async getAllByTypeAndState(businessType: string, businessState: string) {
         businessType = businessType.toLowerCase();
         businessState = businessState.toUpperCase();
