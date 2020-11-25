@@ -33,7 +33,7 @@ const routes: Routes = [
   { path: 'newhampshire', component: StateTemplateComponent, data: { stateTitle: "New Hampshire", stateName: "nh" }, canActivate: [AuthGuard] },
   { path: 'vermont', component: StateTemplateComponent, data: { stateTitle: "Vermont", stateName: "vt" }, canActivate: [AuthGuard] },
   { path: 'newyork', component: StateTemplateComponent, data: { stateTitle: "New York", stateName: "ny" }, canActivate: [AuthGuard] },
-  { path: 'massachusetts', component: StateTemplateComponent, data: { stateTitle: "Massachusetts", stateName: "ma" }, },
+  { path: 'massachusetts', component: StateTemplateComponent, data: { stateTitle: "Massachusetts", stateName: "ma" }, canActivate: [AuthGuard]  },
   { path: 'maine', component: StateTemplateComponent, data: { stateTitle: "Maine", stateName: "me" }, canActivate: [AuthGuard] },
 
 
@@ -45,7 +45,7 @@ const routes: Routes = [
   // Massachusettes Resources
   { path: 'ma-cafe', component: TableComponent, data: { type: "cafe", state: "ma" }, canActivate: [AuthGuard] },
   { path: 'ma-restaurants', component: TableComponent, data: { type: "restaurant", state: "ma" }, canActivate: [AuthGuard] },
-  { path: 'ma-resources', component: TableComponent, data: { type: "resource", state: "ma" } },
+  { path: 'ma-resources', component: TableComponent, data: { type: "resource", state: "ma" }, canActivate: [AuthGuard]  },
 
   // New York Resources
   { path: 'ny-cafe', component: TableComponent, data: { type: "cafe", state: "ny" }, canActivate: [AuthGuard] },
