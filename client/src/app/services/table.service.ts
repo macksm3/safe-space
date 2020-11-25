@@ -29,17 +29,19 @@ export interface IBusiness {
 
 @Injectable()
 export class TableService {
-  businessesUrl;
-  
-  public getUrl(resource, stateName) {
-    // businessesUrl = "api/business"; // URL to web api
-    this.businessesUrl = `api/business/${resource}/${stateName}/`;
-  }
 
   constructor(private http: HttpClient) { }
 
+  businessesUrl: string;
+
+  public getUrl(resource: string, stateName: string) {
+
+    this.businessesUrl = `api/business/${resource}/${stateName}/`;
+
+  }
+
   /** GET resourcees from the server */
-  public getBusinesses(resource, stateName) {
+  public getBusinesses(resource: string, stateName: string) {
     this.getUrl(resource, stateName);
     return this.http.get<IBusiness[]>(this.businessesUrl)
       .pipe(

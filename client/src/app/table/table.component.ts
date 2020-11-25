@@ -15,6 +15,8 @@ import { IBusiness, TableService } from "../services/table.service";
 export class TableComponent implements OnInit, AfterViewInit {
 
   public pageTitle: string;
+  public stateName: string;
+  public resourceType: string;
 
   public displayedColumns: string[] = ['type', 'name', 'city', 'state', 'description', 'website'];
   public dataSource = new MatTableDataSource([]);
@@ -35,17 +37,26 @@ export class TableComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.showBusinesses();
     this.route.data
       .subscribe((data) => {
-        this.pageTitle = data.tableName;
-        console.log("I'm your table name")
-        console.log(data.tableName)
+        // Passing Resource Type & State in to TableService from Router
+        this.stateName = data.state;
+        console.log("I'm your stateName");
+        console.log(this.stateName);
+
+        this.resourceType = data.type;
+        console.log("I'm your resourceType");
+        console.log(this.resourceType);
+
+        this.showBusinesses(this.resourceType, this.stateName);
+
+        // Setting Page title
+        this.pageTitle = this.capitalizeFirstLetter(data.type + "s");
       });
   }
 
-  showBusinesses() {
-    this.tableService.getBusinesses("resource", "me")
+  showBusinesses(resource: string, state: string) {
+    this.tableService.getBusinesses(resource, state)
       .subscribe(
         (data) => {
           this.businessesArr = [...data];
@@ -61,4 +72,9 @@ export class TableComponent implements OnInit, AfterViewInit {
         }
       )
   }
+
+  capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
 }
