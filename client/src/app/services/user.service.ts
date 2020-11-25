@@ -32,15 +32,15 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   public getUsers() {
-    return this.http.get<IUser>(this.usersUrl)
+    return this.http.get<IUser[]>(this.usersUrl)
       .pipe(
         retry(3), // retry a failed request up to 3 times
         catchError(this.handleError) // then handle the error
       )
   }
 
-  getUserResponse(): Observable<HttpResponse<IUser>> {
-    return this.http.get<IUser>(
+  getUserResponse(): Observable<HttpResponse<IUser[]>> {
+    return this.http.get<IUser[]>(
       this.usersUrl, { observe: 'response' });
   }
 
