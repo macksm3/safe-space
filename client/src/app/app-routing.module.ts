@@ -19,26 +19,51 @@ import { StateTemplateComponent } from './state-template/state-template.componen
 
 // Nov 13 MWE define routes in Routes array
 const routes: Routes = [
-  { path: '',   redirectTo: 'home', pathMatch: 'full' }, // redirect to home page
+  { path: '', redirectTo: 'home', pathMatch: 'full' }, // redirect to home page
+
+  // Base Pages
   { path: 'about', component: AboutComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'table', component: TableComponent },
-  { path: 'explore', component: ExploreComponent},
+  { path: 'table', component: TableComponent, canActivate: [AuthGuard] },
+  { path: 'explore', component: ExploreComponent, canActivate: [AuthGuard] },
   { path: 'connect', component: ConnectComponent, canActivate: [AuthGuard] },
-  { path: 'resources', component: TableComponent, canActivate: [AuthGuard] },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
-  { path: 'newhampshire', component: StateTemplateComponent, data: {stateName: "New Hampshire"}, canActivate: [AuthGuard] },
-  { path: 'vermont', component: StateTemplateComponent, data: {stateName: "Vermont"}, canActivate: [AuthGuard] },
-  { path: 'newyork', component: StateTemplateComponent, data: {stateName: "New York"}, canActivate: [AuthGuard]},
-  { path: 'massachusetts', component: StateTemplateComponent, data: {stateName: "Massachusetts"} },
-  { path: 'maine', component: StateTemplateComponent, data: {stateName: "Maine"} },
+
+  // State Pages
+  { path: 'newhampshire', component: StateTemplateComponent, data: { stateTitle: "New Hampshire", stateName: "nh" }, canActivate: [AuthGuard] },
+  { path: 'vermont', component: StateTemplateComponent, data: { stateTitle: "Vermont", stateName: "vt" }, canActivate: [AuthGuard] },
+  { path: 'newyork', component: StateTemplateComponent, data: { stateTitle: "New York", stateName: "ny" }, canActivate: [AuthGuard] },
+  { path: 'massachusetts', component: StateTemplateComponent, data: { stateTitle: "Massachusetts", stateName: "ma" }, },
+  { path: 'maine', component: StateTemplateComponent, data: { stateTitle: "Maine", stateName: "me" }, canActivate: [AuthGuard] },
+
+
+  // Maine Resources
+  { path: 'me-cafe', component: TableComponent, data: { type: "cafe", state: "me" }, canActivate: [AuthGuard] },
+  { path: 'me-restaurants', component: TableComponent, data: { type: "restaurant", state: "me" }, canActivate: [AuthGuard] },
+  { path: 'me-resources', component: TableComponent, data: { type: "resource", state: "me" }, canActivate: [AuthGuard] },
+
+  // Massachusettes Resources
+  { path: 'ma-cafe', component: TableComponent, data: { type: "cafe", state: "ma" }, canActivate: [AuthGuard] },
+  { path: 'ma-restaurants', component: TableComponent, data: { type: "restaurant", state: "ma" }, canActivate: [AuthGuard] },
+  { path: 'ma-resources', component: TableComponent, data: { type: "resource", state: "ma" } },
+
+  // New York Resources
+  { path: 'ny-cafe', component: TableComponent, data: { type: "cafe", state: "ny" }, canActivate: [AuthGuard] },
+  { path: 'ny-restaurants', component: TableComponent, data: { type: "restaurant", state: "ny" }, canActivate: [AuthGuard] },
+  { path: 'ny-resources', component: TableComponent, data: { type: "resource", state: "ny" }, canActivate: [AuthGuard] },
+
+  // New Hampshire Resources
+  { path: 'nh-cafe', component: TableComponent, data: { type: "cafe", state: "nh" }, canActivate: [AuthGuard] },
+  { path: 'nh-restaurants', component: TableComponent, data: { type: "restaurant", state: "nh" }, canActivate: [AuthGuard] },
+  { path: 'nh-resources', component: TableComponent, data: { type: "resource", state: "nh" }, canActivate: [AuthGuard] },
+
+
+
+  // Forms
   { path: 'addbusiness', component: AddBusinessComponent, canActivate: [AuthGuard] },
-  { path: 'coffeeshops', component: TableComponent, data: {tableName: "Cafe"}, canActivate: [AuthGuard] },
-  { path: 'restaurants', component: TableComponent, data: {tableName: "Restaurants"}, canActivate: [AuthGuard] },
-  { path: 'resources', component: TableComponent, data: {tableName: "Wonky"}, canActivate: [AuthGuard] },
   { path: 'userform', component: UserFormComponent },
   { path: 'resourceform', component: ResourceFormComponent },
-  { path: '**', component: PageNotFoundComponent}
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
