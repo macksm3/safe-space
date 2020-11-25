@@ -15,6 +15,8 @@ export class UsersController {
         @Body("pronouns") pronouns: string,
         @Body("favoriteBusinesses") favoriteBusinesses: [string],
         @Body("reviewedBusinesses") reviewedBusinesses: [string],
+        @Body("location") location: string,
+        @Body("moreInfo") moreInfo: string
     ): Promise<any> {  //  "any" is the type of response we will get back from this req
         const generatedId = await this.usersService.insertUser(
             username,
@@ -22,7 +24,9 @@ export class UsersController {
             lastName,
             pronouns,
             favoriteBusinesses,
-            reviewedBusinesses
+            reviewedBusinesses,
+            location,
+            moreInfo,
         );
         return { id: generatedId };
     }
@@ -32,12 +36,15 @@ export class UsersController {
         const users = await this.usersService.getAllUsers();
         //  .map() the users to give us the "_id" as just an "id"
         return users.map((user) => ({
+            id: user._id,
             username: user.username,
             firstName: user.firstName,
             lastName: user.lastName,
             pronouns: user.pronouns,
             favoriteBusinesses: user.favoriteBusinesses,
-            reviewedBusinesses: user.reviewedBusinesses
+            reviewedBusinesses: user.reviewedBusinesses,
+            location: user.location,
+            moreInfo: user.moreInfo
         }));
     }
 
@@ -54,7 +61,9 @@ export class UsersController {
         @Body("lastName") lastName: string,
         @Body("pronouns") pronouns: string,
         @Body("favoriteBusinesses") favoriteBusinesses: [string],
-        @Body("reviewedBusinesses") reviewedBusinesses: [string]
+        @Body("reviewedBusinesses") reviewedBusinesses: [string],
+        @Body("location") location: string,
+        @Body("moreInfo") moreInfo: string
     ) {
         await this.usersService.updateUser(
             userId,
@@ -63,7 +72,9 @@ export class UsersController {
             lastName,
             pronouns,
             favoriteBusinesses,
-            reviewedBusinesses
+            reviewedBusinesses,
+            location,
+            moreInfo,
         );
         return "User updated";
     }
