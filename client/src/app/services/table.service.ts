@@ -29,12 +29,20 @@ export interface IBusiness {
 
 @Injectable()
 export class TableService {
-  businessesUrl = "api/business"; // URL to web api
 
   constructor(private http: HttpClient) { }
 
+  businessesUrl: string;
+
+  public getUrl(resource: string, stateName: string) {
+
+    this.businessesUrl = `api/business/${resource}/${stateName}/`;
+
+  }
+
   /** GET resourcees from the server */
-  public getBusinesss() {
+  public getBusinesses(resource: string, stateName: string) {
+    this.getUrl(resource, stateName);
     return this.http.get<IBusiness[]>(this.businessesUrl)
       .pipe(
         retry(3), // retry a failed request up to 3 times
@@ -42,17 +50,17 @@ export class TableService {
       )
   };
 
-  // /* GET resourcees whose name contains search term */
-  // searchBusinesses(term: string): Observable<IBusiness[]> {
-  //   term = term.trim();
+  /* GET resourcees whose name contains search term */
+  public getState(term: string) {
+    term = term.trim();
 
-  //   // Add safe, URL encoded search parameter if there is a search term
-  //   const options = term ? { params: new HttpParams().set("name", term) } : {};
+    // Add safe, URL encoded search parameter if there is a search term
+    const options = term ? { params: new HttpParams().set("state", term) } : {};
 
-  //   return this.http
-  //     .get<IBusiness[]>(this.businessesUrl, options)
-  //     .pipe(catchError(this.handleError)));
-  // }
+    return this.http
+      .get(this.businessesUrl, options)
+      .pipe(catchError(this.handleError));
+  }
 
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
