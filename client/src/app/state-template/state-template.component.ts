@@ -1,32 +1,39 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 // import { DataService } from "../services/data.service";
 
 @Component({
   selector: 'app-state-template',
-  // providers: [DataService],
   templateUrl: './state-template.component.html',
   styleUrls: ['./state-template.component.scss']
 })
 
 export class StateTemplateComponent implements OnInit {
 
+  public stateTitle: string;
   public stateName: string;
 
-  constructor(private route: ActivatedRoute) { }
-  // private data: DataService
+  public restaurantPath: string;
+  public cafePath: string;
+  public resourcePath: string;
+
+  constructor( private route: ActivatedRoute ) { }
 
   ngOnInit() {
     this.route.data
       .subscribe((data) => {
         this.stateName = data.stateName;
-        console.log(data)
-      });
-    // this.data.currentMessage.subscribe(message => this.message = message)
-  }
+        this.stateTitle = data.stateTitle;
+        
+        this.resourcePath = "/" + this.stateName + "-resources";
+        this.cafePath = "/" + this.stateName + "-cafe";
+        this.restaurantPath = "/" + this.stateName + "-restaurants";
 
-  newMessage() {
-    // this.data.changeMessage("Hello from Sibling")
+        console.log(this.stateTitle);
+        console.log(this.resourcePath);
+        console.log(this.restaurantPath);
+        console.log(this.cafePath);
+      });
   }
 
 }

@@ -1,14 +1,14 @@
 <div fxLayout="column" fxLayoutAlign="center center">
-    <app-header title={{stateName}}></app-header>
+    <app-header title={{stateTitle}}></app-header>
 </div>
 <div class="planetsContainer" fxLayoutAlign="center center" fxLayout.sm="row wrap" fxLayout.xs="row wrap"
     fxLayoutAlign="center center" fxLayoutGap="50px">
     
-    <app-planet pathName="/coffeeshops" label="Coffee Shops"></app-planet>
+    <app-planet pathName={{cafePath}} label="Coffee Shops"></app-planet>
 
-    <app-planet pathName="/restaurants" label="Restaurants"></app-planet>
+    <app-planet pathName={{restaurantPath}} label="Restaurants"></app-planet>
     
-    <app-planet pathName="/resources" label="Resources"></app-planet>
+    <app-planet pathName={{resourcePath}} label="Resources"></app-planet>
 </div>
 <div fxLayout="row" fxLayoutAlign="center center">
     <button class="other" mat-raised-button routerLink="/addbusiness">Add a Business</button>
