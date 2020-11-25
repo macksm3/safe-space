@@ -27,7 +27,7 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { HeaderComponent } from './global/header/header.component';
 import { ExploreComponent } from './pages/explore/explore.component';
 import { ConnectComponent } from './pages/connect/connect.component';
-import { TableComponent } from './table/table.component';
+import { TableComponent } from './global/table/table.component';
 
 // Adding Angular Material Module (also added to imports below)
 import { UserProfileComponent } from './forms/user-profile/user-profile.component';
@@ -36,7 +36,7 @@ import { ResourceFormComponent } from './forms/resource-form/resource-form.compo
 import { NavComponent } from './global/nav/nav.component';
 import { HomeLoginButtonComponent } from './forms/home-login-button/home-login-button.component';
 import { ProfileComponent } from './pages/profile/profile.component';
-import { StateTemplateComponent } from './state-template/state-template.component';
+import { StateTemplateComponent } from './global/state-template/state-template.component';
 import { AddBusinessComponent } from './forms/add-business/add-business.component';
 import { PlanetComponent } from './global/planet/planet.component';
 
