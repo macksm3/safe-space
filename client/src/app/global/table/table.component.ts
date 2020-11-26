@@ -17,6 +17,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   public pageTitle: string;
   public stateName: string;
   public resourceType: string;
+  public backUrl: string;
 
   public displayedColumns: string[] = ['type', 'name', 'city', 'state', 'description', 'website'];
   public dataSource = new MatTableDataSource([]);
@@ -38,20 +39,20 @@ export class TableComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.route.data
-      .subscribe((data) => {
-        // Passing Resource Type & State in to TableService from Router
-        this.stateName = data.state;
-        console.log("I'm your stateName");
-        console.log(this.stateName);
+      .subscribe(
+        (data) => { // capturing data from router
 
-        this.resourceType = data.type;
-        console.log("I'm your resourceType");
-        console.log(this.resourceType);
+        this.stateName = data.state; // setting state name
+        this.resourceType = data.type; // setting resource type
 
+        // Triggering Show Businesses function with new values
         this.showBusinesses(this.resourceType, this.stateName);
 
-        // Setting Page title
-        this.pageTitle = this.capitalizeFirstLetter(data.type + "s");
+        // Setting Page title w/ capital first letter and adding "s" to make it plural
+        this.pageTitle = this.handleTitle(data.type);
+
+        // Setting url for back btn 
+        this.backBtnFunction(this.stateName);
       });
   }
 
@@ -64,17 +65,24 @@ export class TableComponent implements OnInit, AfterViewInit {
           this.dataSource.paginator = this.paginator;
           this.dataSource.sort = this.sort
           this.cdr.detectChanges();
-
-          // console.log("I'm your showBusinesses function!");
-          console.log(this.businessesArr);
-          // console.log("I'm your dataSource")
-          // console.log(this.dataSource);
         }
       )
   }
 
-  capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  }
+  handleTitle(string) {
+    if (string !== "misc") {
+      return this.pageTitle = string.charAt(0).toUpperCase() + string.slice(1) + "s";
+    } else {
+      return this.pageTitle = string.charAt(0).toUpperCase() + string.slice(1);
+    }
+  };
+
+  backBtnFunction(stateName) {
+    if (stateName === "all") {
+      return this.backUrl = "/explore";
+    } else {
+      return  this.backUrl = "/" + stateName
+    }
+  };
 
 }
