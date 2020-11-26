@@ -1,6 +1,9 @@
-<div class="formContainer" fxLayoutAlign="center center" flxLayout="flex-container" fxLayout="column">
+<div class="formContainer" fxLayout="row wrap" fxLayoutAlign="center center" fxLayout.sm="column" fxLayout.xs="column"
+    fxLayoutAlign.xs="center" fxLayoutAlign.sm="center">
+
+    <!-- <div class="section-style" fxLayout="column"> -->
     <!-- type of business from drop down -->
-    <mat-form-field appearance="fill" class="flex-item">
+    <mat-form-field appearance="fill" class="field-style flex-item">
         <mat-label>Business Type</mat-label>
         <mat-select required>
             <mat-option placeholder="Select One" value="option">café</mat-option>
@@ -9,45 +12,61 @@
             <mat-option placeholder="Select One" value="option">resource</mat-option>
         </mat-select>
     </mat-form-field>
+    <!-- type of business from drop down -->
+    <mat-form-field appearance="fill" class="field-style flex-item">
+        <mat-label>LGBTQ-Owned?</mat-label>
+        <mat-select required>
+            <mat-option placeholder="Select One" value="option">true</mat-option>
+            <mat-option placeholder="Select One" value="option">false</mat-option>
+        </mat-select>
+    </mat-form-field>
     <!-- business name -->
-    <mat-form-field appearance="fill" class="flex-item">
+    <mat-form-field appearance="fill" class="field-style flex-item">
         <mat-label>Business Name</mat-label>
         <input matNativeControl placeholder="business name" matInput required>
     </mat-form-field>
     <!-- business location - states will eventually be a dropdown list -->
-    <mat-form-field appearance="fill" class="flex-item">
+    <mat-form-field appearance="fill" class="field-style flex-item">
         <mat-label>Business City</mat-label>
         <input matNativeControl placeholder="city" matInput required>
     </mat-form-field>
-    <mat-form-field appearance="fill" class="flex-item">
+    <mat-form-field appearance="fill" class="field-style flex-item">
         <mat-label>Business State</mat-label>
         <input matNativeControl placeholder="state" matInput required>
     </mat-form-field>
+    <!-- </div> -->
+
+    <!-- <div class="section-style" fxLayout="column"> -->
     <!-- web address, needs validator, possibly from https://stackoverflow.com/questions/50508712/validate-an-url-->
-    <mat-form-field appearance="fill" class="flex-item">
+    <mat-form-field appearance="fill" class="field-style flex-item">
         <mat-label>Web Site</mat-label>
         <input matNativeControl placeholder="web address" matInput required>
     </mat-form-field>
-    <!--email  -->
-    <mat-form-field appearance="fill" class="flex-item">
+    <!-- Contact Name  -->
+    <mat-form-field appearance="fill" class="field-style flex-item">
         <mat-label>Contact Name</mat-label>
         <input matNativeControl placeholder="name" matInput>
     </mat-form-field>
-    <!--email  -->
-    <mat-form-field appearance="fill" class="flex-item">
+    <!-- email  -->
+    <mat-form-field appearance="fill" class="field-style flex-item">
         <mat-label>Email</mat-label>
         <input matNativeControl placeholder="email" matInput>
     </mat-form-field>
     <!--phone  -->
-    <mat-form-field appearance="fill" class="flex-item">
+    <mat-form-field appearance="fill" class="field-style flex-item">
         <mat-label>Phone</mat-label>
         <input matNativeControl placeholder="phone" matInput>
     </mat-form-field>
     <!-- description -->
-    <mat-form-field appearance="fill" class="flex-item">
+    <mat-form-field appearance="fill" class="field-style flex-item">
         <mat-label>Description</mat-label>
-        <textarea matInput matNativeControl placeholder="" maxlength="150"></textarea>
+        <textarea matInput matNativeControl placeholder="" maxlength="400"></textarea>
     </mat-form-field>
+    <!-- </div> -->
+
+</div>
+<div fxLayout="row" fxLayoutAlign="center center">
     <!-- submit button -->
     <button mat-raised-button>Submit</button>
+
 </div>
