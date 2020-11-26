@@ -13,7 +13,6 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { TableComponent } from './global/table/table.component';
 import { UserFormComponent } from './forms/userform/userform.component';
 import { ResourceFormComponent } from './forms/resource-form/resource-form.component';
-import { AddBusinessComponent } from './forms/add-business/add-business.component';
 import { StateTemplateComponent } from './global/state-template/state-template.component';
 
 
@@ -75,7 +74,7 @@ const routes: Routes = [
 
 
   // Forms
-  { path: 'addBusiness', component: AddBusinessComponent, canActivate: [AuthGuard] },
+  { path: 'addBusiness', component: ResourceFormComponent, canActivate: [AuthGuard] },
   { path: 'userform', component: UserFormComponent },
   { path: 'resourceform', component: ResourceFormComponent },
   { path: '**', component: PageNotFoundComponent }

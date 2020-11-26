@@ -33,7 +33,6 @@ import { TableComponent } from './global/table/table.component';
 import { UserProfileComponent } from './forms/user-profile/user-profile.component';
 import { UserFormComponent } from './forms/userform/userform.component';
 import { ResourceFormComponent } from './forms/resource-form/resource-form.component';
-import { AddBusinessComponent } from './forms/add-business/add-business.component';
 import { NavComponent } from './global/nav/nav.component';
 import { HomeLoginButtonComponent } from './forms/home-login-button/home-login-button.component';
 import { ProfileComponent } from './pages/profile/profile.component';
@@ -58,7 +57,6 @@ import { PlanetComponent } from './global/planet/planet.component';
     HomeLoginButtonComponent,
     ProfileComponent,
     StateTemplateComponent,
-    AddBusinessComponent,
     PlanetComponent
   ],
   imports: [
