@@ -2,6 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
 
 
+app-header {
+    font-size: 30px;
+}
+
 .formContainer {
     background-color: transparent;
     margin: 40px 0px;
@@ -16,10 +20,15 @@
     }
 }
 
-// .mat-input-element {
-//     caret-color: #adffe3!important;
-//     color: #adffe3!important;
-// }
+input {
+    font-size: 30px;
+    color: white;
+}
+
+mat-label {
+    caret-color: #adffe3!important;
+    color: #adffe3!important;
+}
 
 button {
     background-color: #ADFFE3;

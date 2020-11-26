@@ -1,72 +1,98 @@
-<div class="formContainer" fxLayout="row wrap" fxLayoutAlign="center center" fxLayout.sm="column" fxLayout.xs="column"
-    fxLayoutAlign.xs="center" fxLayoutAlign.sm="center">
+<app-header class="title" title='Help Expand Our Orbit'></app-header>
 
-    <!-- <div class="section-style" fxLayout="column"> -->
-    <!-- type of business from drop down -->
-    <mat-form-field appearance="fill" class="field-style flex-item">
-        <mat-label>Business Type</mat-label>
-        <mat-select required>
-            <mat-option placeholder="Select One" value="option">café</mat-option>
-            <mat-option placeholder="Select One" value="option">restaurant</mat-option>
-            <mat-option placeholder="Select One" value="option">misc</mat-option>
-            <mat-option placeholder="Select One" value="option">resource</mat-option>
-        </mat-select>
-    </mat-form-field>
-    <!-- type of business from drop down -->
-    <mat-form-field appearance="fill" class="field-style flex-item">
-        <mat-label>LGBTQ-Owned?</mat-label>
-        <mat-select required>
-            <mat-option placeholder="Select One" value="option">true</mat-option>
-            <mat-option placeholder="Select One" value="option">false</mat-option>
-        </mat-select>
-    </mat-form-field>
-    <!-- business name -->
-    <mat-form-field appearance="fill" class="field-style flex-item">
-        <mat-label>Business Name</mat-label>
-        <input id="name" matNativeControl placeholder="business name" matInput required>
-    </mat-form-field>
-    <!-- business location - states will eventually be a dropdown list -->
-    <mat-form-field appearance="fill" class="field-style flex-item">
-        <mat-label>Business City</mat-label>
-        <input id="city" matNativeControl placeholder="city" matInput required>
-    </mat-form-field>
-    <mat-form-field appearance="fill" class="field-style flex-item">
-        <mat-label>Business State</mat-label>
-        <input matNativeControl placeholder="state" matInput required>
-    </mat-form-field>
-    <!-- </div> -->
+<div class="formContainer" *ngIf="!post; else forminfo" fxLayout="row wrap" fxLayoutAlign="center center"
+    fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign.xs="center" fxLayoutAlign.sm="center" novalidate>
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form">
 
-    <!-- <div class="section-style" fxLayout="column"> -->
-    <!-- web address, needs validator, possibly from https://stackoverflow.com/questions/50508712/validate-an-url-->
-    <mat-form-field appearance="fill" class="field-style flex-item">
-        <mat-label>Web Site</mat-label>
-        <input matNativeControl placeholder="web address" matInput required>
-    </mat-form-field>
-    <!-- Contact Name  -->
-    <mat-form-field appearance="fill" class="field-style flex-item">
-        <mat-label>Contact Name</mat-label>
-        <input matNativeControl placeholder="name" matInput>
-    </mat-form-field>
-    <!-- email  -->
-    <mat-form-field appearance="fill" class="field-style flex-item">
-        <mat-label>Email</mat-label>
-        <input matNativeControl placeholder="email" matInput>
-    </mat-form-field>
-    <!--phone  -->
-    <mat-form-field appearance="fill" class="field-style flex-item">
-        <mat-label>Phone</mat-label>
-        <input matNativeControl placeholder="phone" matInput>
-    </mat-form-field>
-    <!-- description -->
-    <mat-form-field appearance="fill" class="field-style flex-item">
-        <mat-label>Description</mat-label>
-        <textarea matInput matNativeControl placeholder="" maxlength="400"></textarea>
-    </mat-form-field>
-    <!-- </div> -->
+        <!-- Business Type -->
+        <mat-form-field class="field-style flex-item">
+            <mat-label>Business Type</mat-label>
+            <mat-select formControlName="type" [(value)]="selectedType" required>
+                <mat-option placeholder="Select One" value="cafe">coffee shop</mat-option>
+                <mat-option placeholder="Select One" value="restaurant">restaurant</mat-option>
+                <mat-option placeholder="Select One" value="resource">resource</mat-option>
+                <mat-option placeholder="Select One" value="misc">misc</mat-option>
+            </mat-select>
+        </mat-form-field>
 
+        <!-- LGBTQ owned? -->
+        <mat-form-field class="field-style flex-item">
+            <mat-label>LGBTQ-Owned?</mat-label>
+            <mat-select formControlName="memberOwned" [(value)]="selectedBool" required>
+                <mat-option placeholder="Select One" value="true">Yes</mat-option>
+                <mat-option placeholder="Select One" value="false">No</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <!-- business name -->
+        <mat-form-field class="field-style flex-item">
+            <mat-label>Business Name</mat-label>
+            <input matNativeControl placeholder="Favorite Place" formControlName="name" matInput required>
+        </mat-form-field>
+
+        <!-- city -->
+        <mat-form-field class="field-style flex-item">
+            <mat-label>Business City</mat-label>
+            <input matNativeControl placeholder="MyCity" formControlName="city" matInput required>
+        </mat-form-field>
+
+        <!-- state -->
+        <!-- eventually a drop down list? -->
+        <mat-form-field class="field-style flex-item">
+            <mat-label>Business State</mat-label>
+            <input matNativeControl placeholder="ME" formControlName="state" matInput required>
+            <mat-error *ngIf="!formGroup.controls['state'].valid && formGroup.controls['state'].touched">
+                {{ getErrorState()}}
+            </mat-error>
+        </mat-form-field>
+
+        <!-- website -->
+        <mat-form-field class="field-style flex-item">
+            <mat-label>Web Site</mat-label>
+            <input matNativeControl placeholder="https://www.website.com" formControlName="website" matInput required>
+            <mat-error *ngIf="!formGroup.controls['website'].valid && formGroup.controls['website'].touched">
+                {{ getErrorUrl() }}
+            </mat-error>
+        </mat-form-field>
+
+        <!-- Contact Name  -->
+        <mat-form-field class="field-style flex-item">
+            <mat-label>Contact Name</mat-label>
+            <input matNativeControl placeholder="Lila Ohare" formControlName="contactName" matInput>
+        </mat-form-field>
+
+        <!-- email  -->
+        <mat-form-field class="field-style flex-item">
+            <mat-label>Email</mat-label>
+            <input matNativeControl placeholder="email@address.com" formControlName="email" matInput>
+            <mat-error *ngIf="!formGroup.controls['email'].valid && formGroup.controls['email'].touched">
+                {{ getErrorEmail() }}
+            </mat-error>
+        </mat-form-field>
+
+        <!--phone  -->
+        <mat-form-field class="field-style flex-item">
+            <mat-label>Phone</mat-label>
+            <input matNativeControl placeholder="(555) 555-5555" formControlName="phone" matInput>
+        </mat-form-field>
+
+        <!-- description -->
+        <mat-form-field class="field-style flex-item">
+            <mat-label>Description</mat-label>
+            <textarea matInput matNativeControl placeholder="" formControlName="description"></textarea>
+        </mat-form-field>
+
+
+        <div fxLayout="row" fxLayoutAlign="center center">
+            <!-- submit button -->
+            <button mat-raised-button (click)="onSubmit()" [disabled]="!formGroup.valid">Submit</button>
+        </div>
+
+    </form>
 </div>
-<div fxLayout="row" fxLayoutAlign="center center">
-    <!-- submit button -->
-    <button mat-raised-button>Submit</button>
 
-</div>
+<ng-template #forminfo>
+    <div class="formContainer">
+        {{ post | json }}
+    </div>
+</ng-template>
