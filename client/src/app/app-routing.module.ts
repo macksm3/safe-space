@@ -28,40 +28,54 @@ const routes: Routes = [
   { path: 'explore', component: ExploreComponent, canActivate: [AuthGuard] },
   { path: 'connect', component: ConnectComponent, canActivate: [AuthGuard] },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
-  { path: 'resources', component: TableComponent, data: { type: "All Resource", state: "all" }},
+  { path: 'resources', component: TableComponent, data: { type: "All Resource", state: "all" } },
 
   // State Pages
-  { path: 'newhampshire', component: StateTemplateComponent, data: { stateTitle: "New Hampshire", stateName: "nh" }, canActivate: [AuthGuard] },
-  { path: 'vermont', component: StateTemplateComponent, data: { stateTitle: "Vermont", stateName: "vt" }, canActivate: [AuthGuard] },
-  { path: 'newyork', component: StateTemplateComponent, data: { stateTitle: "New York", stateName: "ny" }, canActivate: [AuthGuard] },
-  { path: 'massachusetts', component: StateTemplateComponent, data: { stateTitle: "Massachusetts", stateName: "ma" }, canActivate: [AuthGuard]  },
-  { path: 'maine', component: StateTemplateComponent, data: { stateTitle: "Maine", stateName: "me" }, canActivate: [AuthGuard] },
+  { path: 'nh', component: StateTemplateComponent, data: { stateTitle: "New Hampshire", stateName: "nh" }, canActivate: [AuthGuard] },
+  { path: 'vt', component: StateTemplateComponent, data: { stateTitle: "Vermont", stateName: "vt" }, canActivate: [AuthGuard] },
+  { path: 'ny', component: StateTemplateComponent, data: { stateTitle: "New York", stateName: "ny" }, canActivate: [AuthGuard] },
+  { path: 'ma', component: StateTemplateComponent, data: { stateTitle: "Massachusetts", stateName: "ma" }, canActivate: [AuthGuard] },
+  { path: 'me', component: StateTemplateComponent, data: { stateTitle: "Maine", stateName: "me" }, canActivate: [AuthGuard] },
 
 
   // Maine Resources
   { path: 'me-cafe', component: TableComponent, data: { type: "cafe", state: "me" }, canActivate: [AuthGuard] },
-  { path: 'me-restaurants', component: TableComponent, data: { type: "restaurant", state: "me" }, canActivate: [AuthGuard] },
-  { path: 'me-resources', component: TableComponent, data: { type: "resource", state: "me" }, canActivate: [AuthGuard] },
+  { path: 'me-restaurant', component: TableComponent, data: { type: "restaurant", state: "me" }, canActivate: [AuthGuard] },
+  { path: 'me-resource', component: TableComponent, data: { type: "resource", state: "me" }, canActivate: [AuthGuard] },
+  { path: 'me-misc', component: TableComponent, data: { type: "misc", state: "me" }, canActivate: [AuthGuard] },
+
 
   // Massachusettes Resources
   { path: 'ma-cafe', component: TableComponent, data: { type: "cafe", state: "ma" }, canActivate: [AuthGuard] },
-  { path: 'ma-restaurants', component: TableComponent, data: { type: "restaurant", state: "ma" }, canActivate: [AuthGuard] },
-  { path: 'ma-resources', component: TableComponent, data: { type: "resource", state: "ma" }, canActivate: [AuthGuard]  },
+  { path: 'ma-restaurant', component: TableComponent, data: { type: "restaurant", state: "ma" }, canActivate: [AuthGuard] },
+  { path: 'ma-resource', component: TableComponent, data: { type: "resource", state: "ma" }, canActivate: [AuthGuard] },
+  { path: 'ma-misc', component: TableComponent, data: { type: "misc", state: "ma" }, canActivate: [AuthGuard] },
+
 
   // New York Resources
   { path: 'ny-cafe', component: TableComponent, data: { type: "cafe", state: "ny" }, canActivate: [AuthGuard] },
-  { path: 'ny-restaurants', component: TableComponent, data: { type: "restaurant", state: "ny" }, canActivate: [AuthGuard] },
-  { path: 'ny-resources', component: TableComponent, data: { type: "resource", state: "ny" }, canActivate: [AuthGuard] },
+  { path: 'ny-restaurant', component: TableComponent, data: { type: "restaurant", state: "ny" }, canActivate: [AuthGuard] },
+  { path: 'ny-resource', component: TableComponent, data: { type: "resource", state: "ny" }, canActivate: [AuthGuard] },
+  { path: 'ny-misc', component: TableComponent, data: { type: "misc", state: "ny" }, canActivate: [AuthGuard] },
+
 
   // New Hampshire Resources
   { path: 'nh-cafe', component: TableComponent, data: { type: "cafe", state: "nh" }, canActivate: [AuthGuard] },
-  { path: 'nh-restaurants', component: TableComponent, data: { type: "restaurant", state: "nh" }, canActivate: [AuthGuard] },
-  { path: 'nh-resources', component: TableComponent, data: { type: "resource", state: "nh" }, canActivate: [AuthGuard] },
+  { path: 'nh-restaurant', component: TableComponent, data: { type: "restaurant", state: "nh" }, canActivate: [AuthGuard] },
+  { path: 'nh-resource', component: TableComponent, data: { type: "resource", state: "nh" }, canActivate: [AuthGuard] },
+  { path: 'nh-misc', component: TableComponent, data: { type: "misc", state: "nh" }, canActivate: [AuthGuard] },
 
+
+
+  // Vermont Resources
+  { path: 'vt-cafe', component: TableComponent, data: { type: "cafe", state: "vt" }, canActivate: [AuthGuard] },
+  { path: 'vt-restaurant', component: TableComponent, data: { type: "restaurant", state: "vt" }, canActivate: [AuthGuard] },
+  { path: 'vt-resource', component: TableComponent, data: { type: "resource", state: "vt" }, canActivate: [AuthGuard] },
+  { path: 'vt-misc', component: TableComponent, data: { type: "misc", state: "vt" }, canActivate: [AuthGuard] },
 
 
   // Forms
-  { path: 'addbusiness', component: AddBusinessComponent, canActivate: [AuthGuard] },
+  { path: 'addBusiness', component: AddBusinessComponent, canActivate: [AuthGuard] },
   { path: 'userform', component: UserFormComponent },
   { path: 'resourceform', component: ResourceFormComponent },
   { path: '**', component: PageNotFoundComponent }
