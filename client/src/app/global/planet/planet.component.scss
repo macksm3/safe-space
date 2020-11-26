@@ -3,24 +3,26 @@ div.flex-item {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  button {
+    align-self: center;
+    transform: translateY(200%);
+    font-size: 20px;
+    font-family: 'Audiowide', cursive;
+    color: white;
+    text-align: center;
+    text-shadow:
+      0 0 5px #000,
+      0 0 10px #000,
+      0 0 20px #000,
+      0 0 40px #00000f,
+      0 0 80px #000f,
+      0 0 90px #00f,
+      0 0 100px #0ff,
+      0 0 150px #0ff;
+  }
 }
 
-button.safe-space {
-  margin-top: 40%;
-  font-size: 20px;
-  font-family: 'Audiowide', cursive;
-  color: white;
-  text-align: center;
-  text-shadow:
-    0 0 5px #000,
-    0 0 10px #000,
-    0 0 20px #000,
-    0 0 40px #00000f,
-    0 0 80px #000f,
-    0 0 90px #00f,
-    0 0 100px #0ff,
-    0 0 150px #0ff;
-}
 
 .neon {
   font-size: 50px;
