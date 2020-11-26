@@ -3,7 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { IBusiness, TableService } from "../../services/table.service";
+import { TableService } from "../../services/table.service";
+import { IBusiness } from "../../services/business-interface";
 
 @Component({
   selector: 'app-table',

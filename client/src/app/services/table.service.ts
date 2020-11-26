@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { HttpHeaders } from "@angular/common/http";
+import { IBusiness } from "./business-interface";
 
 import { Observable, throwError } from "rxjs";
 import { catchError, retry } from "rxjs/operators";
@@ -13,19 +14,6 @@ const httpOptions = {
     Authorization: "my-auth-token"
   })
 };
-
-export interface IBusiness {
-  type: string;
-  name: string;
-  city: string;
-  state: string;
-  website: string;
-  description: string;
-  contactName: string;
-  phone: string;
-  email: string;
-  memberOwned: boolean;
-}
 
 @Injectable()
 export class TableService {
