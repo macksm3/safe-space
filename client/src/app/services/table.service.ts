@@ -38,11 +38,10 @@ export class TableService {
 
     if (stateName === "all") {
       this.businessesUrl = `api/business`
+      
     } else {
-
       this.businessesUrl = `api/business/${resource}/${stateName}/`;
     }
-
   }
 
   /** GET resourcees from the server */
