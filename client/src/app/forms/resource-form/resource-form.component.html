@@ -2,7 +2,7 @@
 
 <div class="formContainer" *ngIf="!post; else forminfo" fxLayout="row wrap" fxLayoutAlign="center center"
     fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign.xs="center" fxLayoutAlign.sm="center" novalidate>
-    <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form">
+    <form [formGroup]="businessForm" (ngSubmit)="onSubmit(businessForm.value)" class="form">
 
         <!-- Business Type -->
         <mat-form-field class="field-style flex-item">
@@ -41,7 +41,7 @@
         <mat-form-field class="field-style flex-item">
             <mat-label>Business State</mat-label>
             <input matNativeControl placeholder="ME" formControlName="state" matInput required>
-            <mat-error *ngIf="!formGroup.controls['state'].valid && formGroup.controls['state'].touched">
+            <mat-error *ngIf="!businessForm.controls['state'].valid && businessForm.controls['state'].touched">
                 {{ getErrorState()}}
             </mat-error>
         </mat-form-field>
@@ -50,7 +50,7 @@
         <mat-form-field class="field-style flex-item">
             <mat-label>Web Site</mat-label>
             <input matNativeControl placeholder="https://www.website.com" formControlName="website" matInput required>
-            <mat-error *ngIf="!formGroup.controls['website'].valid && formGroup.controls['website'].touched">
+            <mat-error *ngIf="!businessForm.controls['website'].valid && businessForm.controls['website'].touched">
                 {{ getErrorUrl() }}
             </mat-error>
         </mat-form-field>
@@ -65,7 +65,7 @@
         <mat-form-field class="field-style flex-item">
             <mat-label>Email</mat-label>
             <input matNativeControl placeholder="email@address.com" formControlName="email" matInput>
-            <mat-error *ngIf="!formGroup.controls['email'].valid && formGroup.controls['email'].touched">
+            <mat-error *ngIf="!businessForm.controls['email'].valid && businessForm.controls['email'].touched">
                 {{ getErrorEmail() }}
             </mat-error>
         </mat-form-field>
@@ -85,7 +85,7 @@
 
         <div fxLayout="row" fxLayoutAlign="center center">
             <!-- submit button -->
-            <button mat-raised-button (click)="onSubmit()" [disabled]="!formGroup.valid">Submit</button>
+            <button mat-raised-button type="submit" [disabled]="!businessForm.valid">Submit</button>
         </div>
 
     </form>
