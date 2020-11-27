@@ -1,37 +1,35 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { FormService } from "../../services/resource-form.service";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-resource-form',
-  providers: [FormService],
   templateUrl: './resource-form.component.html',
   styleUrls: ['./resource-form.component.scss']
 })
+
 export class ResourceFormComponent implements OnInit {
 
-  formGroup: FormGroup;
+  businessForm: FormGroup;
   titleAlert: string = 'This field is required';
   post: any = '';
   selectedType = 'option2'
   selectedBool = 'option2';
 
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private formService: FormService
-  ) { }
+  constructor( private formBuilder: FormBuilder, private http: HttpClient ) { }
 
   ngOnInit() {
     this.createForm();
   }
 
   createForm() {
+    // to test email format
     let EMAIL_REGEXP: RegExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    // to test website format
     let URL_REGEXP: RegExp = /^[A-Za-z][A-Za-z\d.+-]*:\/*(?:\w+(?::\w+)?@)?[^\s/]+(?::\d+)?(?:\/[\w#!:.?+=&%@\-/]*)?$/;
 
-    this.formGroup = this.formBuilder.group({
+    this.businessForm = this.formBuilder.group({
       'type': [null, Validators.required],
       'name': [null, Validators.required],
       'city': [null, Validators.required],
@@ -46,21 +44,29 @@ export class ResourceFormComponent implements OnInit {
   }
 
   getErrorEmail() {
-    return this.formGroup.get('email').hasError('pattern') ? 'Not a valid email address.' : '';
+    return this.businessForm.get('email').hasError('pattern') ? 'Not a valid email address.' : '';
   }
 
   getErrorUrl() {
-    return this.formGroup.get('website').hasError('required') ? 'Field is required' :
-      this.formGroup.get('website').hasError('pattern') ? 'Not a valid url.' : '';
+    return this.businessForm.get('website').hasError('required') ? 'Field is required' :
+      this.businessForm.get('website').hasError('pattern') ? 'Not a valid url.' : '';
   }
 
   getErrorState() {
-    return this.formGroup.get('state').hasError('required') ? 'Field is required' :
-      this.formGroup.get('state').hasError('maxlength') ? 'Please enter state in abbreviated form.' : '';
+    return this.businessForm.get('state').hasError('required') ? 'Field is required' :
+      this.businessForm.get('state').hasError('maxlength') ? 'Please enter state in abbreviated form.' : '';
   }
 
   onSubmit(post) {
-    this.post = post;
-    this.formService.addBusiness(post);
+    // this.post = post;
+    // this.formService.addBusiness(post);
+    console.log(post)
+
+    if (this.businessForm.valid) {
+      this.http.post('/api/business', post)
+      .subscribe((response)=>{
+        console.log('response ', response);
+      })
+    }
   }
 }
