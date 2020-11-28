@@ -13,7 +13,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { TableComponent } from './global/table/table.component';
 import { UserFormComponent } from './forms/userform/userform.component';
 import { ResourceFormComponent } from './forms/resource-form/resource-form.component';
-import { StateTemplateComponent } from './global/state-template/state-template.component';
+import { StateTemplateComponent } from './pages/state-template/state-template.component';
 
 
 // Nov 13 MWE define routes in Routes array
@@ -74,7 +74,7 @@ const routes: Routes = [
 
 
   // Forms
-  { path: 'addBusiness', component: ResourceFormComponent, canActivate: [AuthGuard] },
+  { path: 'addBusiness', component: ResourceFormComponent },
   { path: 'userform', component: UserFormComponent },
   { path: 'resourceform', component: ResourceFormComponent },
   { path: '**', component: PageNotFoundComponent }
