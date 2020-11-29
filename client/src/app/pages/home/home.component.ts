@@ -1,7 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-// Nov 13 MWE imports needed for routes
-// import { Router, ActivatedRoute, ParamMap } from '@angular/core';
-// import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-home',
@@ -11,11 +9,8 @@ import { Component, Input, OnInit } from '@angular/core';
 
 export class HomeComponent implements OnInit {
 
-  constructor(
-  ) { }
+  constructor( public auth: AuthService ) { }
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void { }
 
 }

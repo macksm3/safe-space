@@ -1,24 +1,58 @@
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
-
+app-header {
+  font-size: 30px;
+}
 
 .formContainer {
-    background-color: transparent;
-    margin: 30px 0px;
+  background-color: transparent;
+  margin: 40px 0px;
+  text-align: center;
 }
 
-.flex-item {
-    // background-color: rgb(142, 199, 216);
-    // background-color: #ADFFE3;
-    margin: 10px;
+.field-style {
+  padding: 10px;
+  min-width: 40vw;
+
+  @media screen and (max-width: 959px) {
+    margin: 0px 40px;
+  }
 }
 
-.mat-input-element {
-    caret-color: #adffe3!important;
-    color: #adffe3!important;
+input,
+textarea {
+  font-size: 14px;
+  color: white;
+}
+
+textarea {
+  font-size: 12px;
+}
+
+mat-label {
+  caret-color: #adffe3 !important;
+  color: #adffe3 !important;
 }
 
 button {
-    background-color: #ADFFE3;
-    color: #1e344b;
+  background-color: #ADFFE3;
+  color: #1e344b;
+}
+
+h2 {
+  color: white;
+  text-align: center;
+}
+
+.showDetails {
+  background-color: rgba(0, 0, 0, .5);
+    margin: 40px;
+  text-align: left;
+  color: white;
+  width: 500px;
+  padding: 40px;
+
+  app-button {
+    margin: 10px;
+  }
 }

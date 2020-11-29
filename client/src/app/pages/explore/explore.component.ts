@@ -7,12 +7,19 @@ import { AuthService } from '../../auth.service';
   styleUrls: ['./explore.component.scss']
 })
 export class ExploreComponent implements OnInit {
-  public user;
+  public user: string;
+  public welcomeTitle: string;
+
   constructor(public auth: AuthService) { }
+
+  
 
   ngOnInit(): void {
     this.auth.userProfile$.subscribe(data => {
+      console.log("I'm your user data")
+      console.log(data);
       this.user = data;
+      this.welcomeTitle = "Welcome " + data.given_name + "!";
     })
   }
 

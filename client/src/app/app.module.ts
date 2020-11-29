@@ -27,27 +27,18 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { HeaderComponent } from './global/header/header.component';
 import { ExploreComponent } from './pages/explore/explore.component';
 import { ConnectComponent } from './pages/connect/connect.component';
-import { ResourcesComponent } from './resource-folder/resources/resources.component';
-import { NewhampshireComponent } from './states/newhampshire/newhampshire.component';
-import { TableComponent } from './table/table.component';
+import { TableComponent } from './global/table/table.component';
 
 // Adding Angular Material Module (also added to imports below)
-import { AuthButtonComponent } from './buttons/auth-button/auth-button.component';
 import { UserProfileComponent } from './forms/user-profile/user-profile.component';
 import { UserFormComponent } from './forms/userform/userform.component';
 import { ResourceFormComponent } from './forms/resource-form/resource-form.component';
 import { NavComponent } from './global/nav/nav.component';
-import { HomeLoginButtonComponent } from './buttons/home-login-button/home-login-button.component';
+import { HomeLoginButtonComponent } from './global/home-login-button/home-login-button.component';
 import { ProfileComponent } from './pages/profile/profile.component';
-import { StateTemplateComponent } from './states/state-template/state-template.component';
-import { VermontComponent } from './states/vermont/vermont.component';
-import { NewyorkComponent } from './states/newyork/newyork.component';
-import { MassachusettsComponent } from './states/massachusetts/massachusetts.component';
-import { MaineComponent } from './states/maine/maine.component';
-import { AddBusinessComponent } from './forms/add-business/add-business.component';
-import { CoffeeShopsComponent } from './resource-folder/coffee-shops/coffee-shops.component';
-import { RestaurantsComponent } from './resource-folder/restaurants/restaurants.component';
-import { MiscComponent } from './resource-folder/misc/misc.component';
+import { StateTemplateComponent } from './pages/state-template/state-template.component';
+import { PlanetComponent } from './global/planet/planet.component';
+import { ButtonComponent } from './global/button/button.component';
 
 @NgModule({
   declarations: [
@@ -59,10 +50,7 @@ import { MiscComponent } from './resource-folder/misc/misc.component';
     HeaderComponent,
     ExploreComponent,
     ConnectComponent,
-    ResourcesComponent,
-    NewhampshireComponent,
     TableComponent,
-    AuthButtonComponent,
     UserProfileComponent,
     UserFormComponent,
     ResourceFormComponent,
@@ -70,14 +58,8 @@ import { MiscComponent } from './resource-folder/misc/misc.component';
     HomeLoginButtonComponent,
     ProfileComponent,
     StateTemplateComponent,
-    VermontComponent,
-    NewyorkComponent,
-    MassachusettsComponent,
-    MaineComponent,
-    AddBusinessComponent,
-    CoffeeShopsComponent,
-    RestaurantsComponent,
-    MiscComponent,
+    PlanetComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,

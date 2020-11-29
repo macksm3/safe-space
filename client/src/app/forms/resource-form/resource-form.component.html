@@ -1,52 +1,122 @@
-<div class="formContainer" fxLayoutAlign="center center" flxLayout="flex-container" fxLayout="column">
-    <!-- type of business from drop down -->
-    <mat-form-field appearance="fill" class="flex-item">
-        <mat-label>Business Type</mat-label>
-        <mat-select required>
-            <mat-option placeholder="Select One" value="option">café</mat-option>
-            <mat-option placeholder="Select One" value="option">restaurant</mat-option>
-            <mat-option placeholder="Select One" value="option">resource</mat-option>
-        </mat-select>
-    </mat-form-field>
-    <!-- business name -->
-    <mat-form-field appearance="fill" class="flex-item">
-        <mat-label>Business Name</mat-label>
-        <input matNativeControl placeholder="business name" matInput required>
-    </mat-form-field>
-    <!-- business location - states will eventually be a dropdown list -->
-    <mat-form-field appearance="fill" class="flex-item">
-        <mat-label>Business City</mat-label>
-        <input matNativeControl placeholder="city" matInput required>
-    </mat-form-field>
-    <mat-form-field appearance="fill" class="flex-item">
-        <mat-label>Business State</mat-label>
-        <input matNativeControl placeholder="state" matInput required>
-    </mat-form-field>
-    <!-- web address, needs validator, possibly from https://stackoverflow.com/questions/50508712/validate-an-url-->
-    <mat-form-field appearance="fill" class="flex-item">
-        <mat-label>Web Site</mat-label>
-        <input matNativeControl placeholder="web address" matInput required>
-    </mat-form-field>
-    <!--email  -->
-    <mat-form-field appearance="fill" class="flex-item">
-        <mat-label>Contact Name</mat-label>
-        <input matNativeControl placeholder="name" matInput>
-    </mat-form-field>
-    <!--email  -->
-    <mat-form-field appearance="fill" class="flex-item">
-        <mat-label>Email</mat-label>
-        <input matNativeControl placeholder="email" matInput>
-    </mat-form-field>
-    <!--phone  -->
-    <mat-form-field appearance="fill" class="flex-item">
-        <mat-label>Phone</mat-label>
-        <input matNativeControl placeholder="phone" matInput>
-    </mat-form-field>
-    <!-- description -->
-    <mat-form-field appearance="fill" class="flex-item">
-        <mat-label>Description</mat-label>
-        <textarea matInput matNativeControl placeholder="" maxlength="150"></textarea>
-    </mat-form-field>
-    <!-- submit button -->
-    <button mat-raised-button>Submit</button>
+<app-header class="title" title='Help Expand Our Orbit'></app-header>
+
+<div class="formContainer" *ngIf="!post; else formInfo" fxLayout="column" fxLayoutAlign="center center" novalidate>
+    <!-- fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign.xs="center" fxLayoutAlign.sm="center" novalidate> -->
+    <form [formGroup]="businessForm" (ngSubmit)="onSubmit(businessForm.value)" class="form">
+
+        <!-- Business Type -->
+        <mat-form-field class="field-style flex-item">
+            <mat-label>Business Type</mat-label>
+            <mat-select formControlName="type" [(value)]="selectedType" required>
+                <mat-option placeholder="Select One" value="cafe">coffee shop</mat-option>
+                <mat-option placeholder="Select One" value="restaurant">restaurant</mat-option>
+                <mat-option placeholder="Select One" value="resource">resource</mat-option>
+                <mat-option placeholder="Select One" value="misc">misc</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <!-- LGBTQ owned? -->
+        <mat-form-field class="field-style flex-item">
+            <mat-label>LGBTQ-Owned?</mat-label>
+            <mat-select formControlName="memberOwned" [(value)]="selectedBool" required>
+                <mat-option placeholder="Select One" value="true">Yes</mat-option>
+                <mat-option placeholder="Select One" value="false">No</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <!-- business name -->
+        <mat-form-field class="field-style flex-item">
+            <mat-label>Business Name</mat-label>
+            <input matNativeControl placeholder="Favorite Place" formControlName="name" matInput required>
+        </mat-form-field>
+
+        <!-- city -->
+        <mat-form-field class="field-style flex-item">
+            <mat-label>Business City</mat-label>
+            <input matNativeControl placeholder="MyCity" formControlName="city" matInput required>
+        </mat-form-field>
+
+        <!-- state -->
+        <!-- eventually a drop down list? -->
+        <mat-form-field class="field-style flex-item">
+            <mat-label>Business State</mat-label>
+            <input matNativeControl placeholder="ME" formControlName="state" matInput required>
+            <mat-error *ngIf="!businessForm.controls['state'].valid && businessForm.controls['state'].touched">
+                {{ getErrorState()}}
+            </mat-error>
+        </mat-form-field>
+
+        <!-- website -->
+        <mat-form-field class="field-style flex-item">
+            <mat-label>Web Site</mat-label>
+            <input matNativeControl placeholder="https://www.website.com" formControlName="website" matInput required>
+            <mat-error *ngIf="!businessForm.controls['website'].valid && businessForm.controls['website'].touched">
+                {{ getErrorUrl() }}
+            </mat-error>
+        </mat-form-field>
+
+        <!-- Contact Name  -->
+        <mat-form-field class="field-style flex-item">
+            <mat-label>Contact Name</mat-label>
+            <input matNativeControl placeholder="Lila Ohare" formControlName="contactName" matInput>
+        </mat-form-field>
+
+        <!-- email  -->
+        <mat-form-field class="field-style flex-item">
+            <mat-label>Email</mat-label>
+            <input matNativeControl placeholder="email@address.com" formControlName="email" matInput>
+            <mat-error *ngIf="!businessForm.controls['email'].valid && businessForm.controls['email'].touched">
+                {{ getErrorEmail() }}
+            </mat-error>
+        </mat-form-field>
+
+        <!--phone  -->
+        <mat-form-field class="field-style flex-item">
+            <mat-label>Phone</mat-label>
+            <input matNativeControl placeholder="(555) 555-5555" formControlName="phone" matInput>
+        </mat-form-field>
+
+        <!-- description -->
+        <mat-form-field class="field-style flex-item">
+            <mat-label>Description</mat-label>
+            <textarea matInput matNativeControl placeholder="" formControlName="description"></textarea>
+        </mat-form-field>
+
+
+        <div fxLayout="row" fxLayoutAlign="center center">
+            <!-- submit button -->
+            <button mat-raised-button type="submit" [disabled]="!businessForm.valid">Submit</button>
+        </div>
+
+    </form>
 </div>
+
+<!-- <ng-template #forminfo>
+    <div class="formContainer">
+        {{ post | json }}
+    </div>
+
+</ng-template> -->
+
+<!-- Put note here saying "thank you" w/ buttons to explore, add another, maybe display form info? Would be great if people could view/edit before posting -->
+<ng-template #formInfo>
+    <div fxLayout="column" fxLayoutAlign="center center">
+        <div class="showDetails">
+            <h2>Thank you for your submission!</h2>
+            <h4>Business Name: {{post.name}}</h4>
+            <h4>Business Type: {{post.type}}</h4>
+            <h4>LGBTQ-Owned?: {{post.memberOwned}}</h4>
+            <h4>Location: {{post.city}}, {{post.state}} </h4>
+            <h4 *ngIf="post.contactName">Contact: {{post.contactName}}</h4>
+            <h4 *ngIf="post.email">Email: {{post.email}}</h4>
+            <h4 *ngIf="post.phone">Phone: {{post.phone}}</h4>
+            <h4>Description: {{post.description}}</h4>
+            <h4>Website: {{post.website}}</h4>
+            <div class="btnRow" fxLayout="row" fxLayoutAlign="center">
+                <!-- <button mat-raised-button color="accent">website</button> -->
+                <!-- <app-button path="{{post.website}}" label="website"></app-button> -->
+                <app-button path="addBusiness" label="add another"></app-button>
+            </div>
+        </div>
+    </div>
+</ng-template>
