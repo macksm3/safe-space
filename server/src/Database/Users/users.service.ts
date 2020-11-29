@@ -24,6 +24,7 @@ export class UsersService {
     }
 
     async insertUser(
+        subId: string,
         username: string,
         firstName: string,
         lastName: string,
@@ -34,6 +35,7 @@ export class UsersService {
         moreInfo: string,
     ) {
         const newUser = new this.userModel({
+            subId,
             username,
             firstName,
             lastName,

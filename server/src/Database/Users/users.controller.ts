@@ -2,13 +2,14 @@ import { Body, Controller, Delete, Get, Param, Patch, Post } from "@nestjs/commo
 
 import {UsersService } from "./users.service";
 
-@Controller("database/user")
+@Controller("api/user")
 export class UsersController {
     //  "readonly" means we won't change the "productsService" to another value/type
     constructor(private readonly usersService: UsersService) { } //  "productServices" can be called anything, "ProductsService" is exported from service file
 
     @Post()
     async addUser(
+        @Body("subId") subId: string,
         @Body("username") username: string,
         @Body("firstName") firstName: string,
         @Body("lastName") lastName: string,
@@ -19,6 +20,7 @@ export class UsersController {
         @Body("moreInfo") moreInfo: string
     ): Promise<any> {  //  "any" is the type of response we will get back from this req
         const generatedId = await this.usersService.insertUser(
+            subId,
             username,
             firstName,
             lastName,
@@ -26,7 +28,7 @@ export class UsersController {
             favoriteBusinesses,
             reviewedBusinesses,
             location,
-            moreInfo,
+            moreInfo
         );
         return { id: generatedId };
     }
