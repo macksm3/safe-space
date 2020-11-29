@@ -3,10 +3,17 @@ div.flex-item {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 10px;
+  min-height: 180px;
+  div {
+    margin: 0;
+    padding: 0;
+    height: 20px;
+  }
 
   button {
     align-self: center;
-    transform: translateY(200%);
+    // transform: translateY(230%);
     font-size: 20px;
     font-family: 'Audiowide', cursive;
     color: white;

@@ -2,7 +2,7 @@
     background-color: transparent;
 }
 
-.neon {
+h1 {
     font-size: 60px;
     text-align: center;
     font-family: 'Audiowide', cursive;
@@ -16,4 +16,7 @@
         0 0 30px #0073e6,
         0 0 35px #0073e6;
     margin-top: 50px;
+    @media screen and (max-width: 959px) {
+       font-size: 7vw; 
+    }
 }

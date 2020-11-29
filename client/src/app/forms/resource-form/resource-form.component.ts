@@ -43,27 +43,32 @@ export class ResourceFormComponent implements OnInit {
     });
   }
 
+  // checking formatting of email
   getErrorEmail() {
     return this.businessForm.get('email').hasError('pattern') ? 'Not a valid email address.' : '';
   }
 
+  // checking formatting of website
   getErrorUrl() {
-    return this.businessForm.get('website').hasError('required') ? 'Field is required' :
+    return this.businessForm.get('website').hasError('required') ? this.titleAlert :
       this.businessForm.get('website').hasError('pattern') ? 'Not a valid url.' : '';
   }
 
+  // checking formatting of state
   getErrorState() {
-    return this.businessForm.get('state').hasError('required') ? 'Field is required' :
+    return this.businessForm.get('state').hasError('required') ? this.titleAlert :
       this.businessForm.get('state').hasError('maxlength') ? 'Please enter state in abbreviated form.' : '';
   }
 
   onSubmit(post) {
-    // this.post = post;
-    // this.formService.addBusiness(post);
-    console.log(post)
+    // setting to variable to show user
+    this.post = post;
 
+    // if form is valid...
     if (this.businessForm.valid) {
+      // it will post to database
       this.http.post('/api/business', post)
+      // and return the id of the response
       .subscribe((response)=>{
         console.log('response ', response);
       })

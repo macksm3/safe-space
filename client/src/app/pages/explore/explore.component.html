@@ -1,8 +1,8 @@
 
     
 <div fxLayout="column" fxLayoutAlign="center center">
-    <app-header class="title" title=Welcome!></app-header>
-    <h3 *ngIf="user" class="neon">{{ user.name }}</h3>
+    <app-header title="{{welcomeTitle}}"></app-header>
+    <h6>Find your chosen family today.</h6>
 </div>
 
 <div class="planetsContainer" fxLayoutAlign="center center" fxLayout.sm="row wrap" fxLayout.xs="row wrap"
@@ -17,5 +17,4 @@
     <app-planet pathName="/me" label="Maine"></app-planet>
 
     <app-planet pathName="/vt" label="Vermont"></app-planet>
-
 </div>
