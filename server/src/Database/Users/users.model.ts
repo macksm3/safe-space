@@ -1,9 +1,16 @@
 import * as mongoose from "mongoose";
 
 export const UserSchema = new mongoose.Schema({
-    username: {
+
+    subId: {
         type: String,
         required: true
+    },
+    username: {
+        type: String
+    },
+    email: {
+        type: String,
     },
     firstName: {
         type: String
@@ -31,6 +38,7 @@ export const UserSchema = new mongoose.Schema({
 export interface User extends mongoose.Document {  //  this interface gets added as a type "<User>" in users.service.ts
     id: string;
     username: string;
+    email: string;
     firstName: string;
     lastName: string;
     pronouns: string;
@@ -38,4 +46,5 @@ export interface User extends mongoose.Document {  //  this interface gets added
     favoriteBusinesses: [string];
     reviewedBusinesses: [string];
     moreInfo: string;
+    subId: string;
 }

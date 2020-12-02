@@ -18,7 +18,7 @@ import { BusinessModule } from "./Database/Business/business.module";
         MongooseModule.forRoot(process.env.MONGODB_URI),
         ServeStaticModule.forRoot({
             rootPath: join(__dirname, "../..", "./client/dist"),
-        }),
+        })
     ],  //  import other modules into this module, so we can get their Providers
     controllers: [AppController],  //  controllers accept requests, do stuff, and then give responses
     providers: [AppService],  //  services/classes that provide things to the controllers, such as grabbing stuff from a DB and sending the data to the controller

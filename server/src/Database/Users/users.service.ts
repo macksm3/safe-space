@@ -23,8 +23,15 @@ export class UsersService {
         return user;
     }
 
+    async getUserIdByFindingAuthSub(subIdToSearch: string): Promise<User> {
+        const userId = await this.userModel.findOne({ subId: subIdToSearch }, '_id').exec();
+        return userId;
+    }
+
     async insertUser(
+        subId: string,
         username: string,
+        email: string,
         firstName: string,
         lastName: string,
         pronouns: string,
@@ -34,7 +41,9 @@ export class UsersService {
         moreInfo: string,
     ) {
         const newUser = new this.userModel({
+            subId,
             username,
+            email,
             firstName,
             lastName,
             pronouns,
@@ -59,6 +68,7 @@ export class UsersService {
     async getOneUser(userId: string) {
         const user = await this.findOneUser(userId);
         return {
+            subId: user.subId,
             username: user.username,
             firstName: user.firstName,
             lastName: user.lastName,
@@ -71,8 +81,9 @@ export class UsersService {
     }
 
     async updateUser(
-        userId: string,
+        subId: string,
         username: string,
+        email: string,
         firstName: string,
         lastName: string,
         pronouns: string,
@@ -81,32 +92,51 @@ export class UsersService {
         location: string,
         moreInfo: string,
     ) {
-        const updatedUser = await this.findOneUser(userId);
-        if (username) {
-            updatedUser.username = username;
+        const userId = await this.getUserIdByFindingAuthSub(subId);
+        if (userId) {
+            const updatedUser = await this.findOneUser(userId.id);
+            if (username) {
+                updatedUser.username = username;
+            }
+            if (email) {
+                updatedUser.email = email;
+            }
+            if (firstName) {
+                updatedUser.firstName = firstName;
+            }
+            if (lastName) {
+                updatedUser.lastName = lastName;
+            }
+            if (pronouns) {
+                updatedUser.pronouns = pronouns;
+            }
+            if (favoriteBusinesses) {
+                updatedUser.favoriteBusinesses = favoriteBusinesses;
+            }
+            if (reviewedBusinesses) {
+                updatedUser.reviewedBusinesses = reviewedBusinesses;
+            }
+            if (location) {
+                updatedUser.location = location;
+            }
+            if (moreInfo) {
+                updatedUser.moreInfo = moreInfo;
+            }
+            updatedUser.save();
+        } else {
+            await this.insertUser(
+                subId,
+                username,
+                email,
+                firstName,
+                lastName,
+                pronouns,
+                favoriteBusinesses,
+                reviewedBusinesses,
+                location,
+                moreInfo
+            );
         }
-        if (firstName) {
-            updatedUser.firstName = firstName;
-        }
-        if (lastName) {
-            updatedUser.lastName = lastName;
-        }
-        if (pronouns) {
-            updatedUser.pronouns = pronouns;
-        }
-        if (favoriteBusinesses) {
-            updatedUser.favoriteBusinesses = favoriteBusinesses;
-        }
-        if (reviewedBusinesses) {
-            updatedUser.reviewedBusinesses = reviewedBusinesses;
-        }
-        if (location) {
-            updatedUser.location = location;
-        }
-        if (moreInfo) {
-            updatedUser.moreInfo = moreInfo;
-        }
-        updatedUser.save();
     }
 
     async deleteUser(userId: string) {
