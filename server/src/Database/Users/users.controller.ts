@@ -11,6 +11,7 @@ export class UsersController {
     async addUser(
         @Body("subId") subId: string,
         @Body("username") username: string,
+        @Body("email") email: string,
         @Body("firstName") firstName: string,
         @Body("lastName") lastName: string,
         @Body("pronouns") pronouns: string,
@@ -22,6 +23,7 @@ export class UsersController {
         const generatedId = await this.usersService.insertUser(
             subId,
             username,
+            email,
             firstName,
             lastName,
             pronouns,
@@ -55,10 +57,16 @@ export class UsersController {
         return this.usersService.getOneUser(userId);
     }
 
+    @Get(":authSub")
+    getUserIdByFindingAuthSub(@Param("authSub") userSub: string) {
+        return this.usersService.getUserIdByFindingAuthSub(userSub);
+    }
+
     @Patch(":id")
     async updateUser(
-        @Param("id") userId: string,
+        @Param("id") authSubId: string,
         @Body("username") username: string,
+        @Body("email") email: string,
         @Body("firstName") firstName: string,
         @Body("lastName") lastName: string,
         @Body("pronouns") pronouns: string,
@@ -68,8 +76,9 @@ export class UsersController {
         @Body("moreInfo") moreInfo: string
     ) {
         await this.usersService.updateUser(
-            userId,
+            authSubId,
             username,
+            email,
             firstName,
             lastName,
             pronouns,
@@ -78,7 +87,7 @@ export class UsersController {
             location,
             moreInfo,
         );
-        return "User updated";
+        return {"User": "updated"};
     }
 
     @Delete(":id")
