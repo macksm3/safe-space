@@ -10,29 +10,32 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 export class StateTemplateComponent implements OnInit {
 
+  // Declaring Title and Name
   public stateTitle: string;
   public stateName: string;
 
+  // Declaring Path
   public restaurantPath: string;
   public cafePath: string;
   public resourcePath: string;
+  public miscPath: string;
 
   constructor( private route: ActivatedRoute ) { }
 
   ngOnInit() {
+    // Data from route
     this.route.data
       .subscribe((data) => {
+        // setting name and title
         this.stateName = data.stateName;
         this.stateTitle = data.stateTitle;
         
-        this.resourcePath = "/" + this.stateName + "-resources";
+        // setting paths for routerLinks
+        this.resourcePath = "/" + this.stateName + "-resource";
         this.cafePath = "/" + this.stateName + "-cafe";
-        this.restaurantPath = "/" + this.stateName + "-restaurants";
+        this.restaurantPath = "/" + this.stateName + "-restaurant";
+        this.miscPath = "/" + this.stateName + "-misc";
 
-        console.log(this.stateTitle);
-        console.log(this.resourcePath);
-        console.log(this.restaurantPath);
-        console.log(this.cafePath);
       });
   }
 

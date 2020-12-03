@@ -2,14 +2,16 @@ import { Body, Controller, Delete, Get, Param, Patch, Post } from "@nestjs/commo
 
 import {UsersService } from "./users.service";
 
-@Controller("database/user")
+@Controller("api/user")
 export class UsersController {
     //  "readonly" means we won't change the "productsService" to another value/type
     constructor(private readonly usersService: UsersService) { } //  "productServices" can be called anything, "ProductsService" is exported from service file
 
     @Post()
     async addUser(
+        @Body("subId") subId: string,
         @Body("username") username: string,
+        @Body("email") email: string,
         @Body("firstName") firstName: string,
         @Body("lastName") lastName: string,
         @Body("pronouns") pronouns: string,
@@ -19,14 +21,16 @@ export class UsersController {
         @Body("moreInfo") moreInfo: string
     ): Promise<any> {  //  "any" is the type of response we will get back from this req
         const generatedId = await this.usersService.insertUser(
+            subId,
             username,
+            email,
             firstName,
             lastName,
             pronouns,
             favoriteBusinesses,
             reviewedBusinesses,
             location,
-            moreInfo,
+            moreInfo
         );
         return { id: generatedId };
     }
@@ -53,10 +57,16 @@ export class UsersController {
         return this.usersService.getOneUser(userId);
     }
 
+    @Get(":authSub")
+    getUserIdByFindingAuthSub(@Param("authSub") userSub: string) {
+        return this.usersService.getUserIdByFindingAuthSub(userSub);
+    }
+
     @Patch(":id")
     async updateUser(
-        @Param("id") userId: string,
+        @Param("id") authSubId: string,
         @Body("username") username: string,
+        @Body("email") email: string,
         @Body("firstName") firstName: string,
         @Body("lastName") lastName: string,
         @Body("pronouns") pronouns: string,
@@ -66,8 +76,9 @@ export class UsersController {
         @Body("moreInfo") moreInfo: string
     ) {
         await this.usersService.updateUser(
-            userId,
+            authSubId,
             username,
+            email,
             firstName,
             lastName,
             pronouns,
@@ -76,7 +87,7 @@ export class UsersController {
             location,
             moreInfo,
         );
-        return "User updated";
+        return {"User": "updated"};
     }
 
     @Delete(":id")

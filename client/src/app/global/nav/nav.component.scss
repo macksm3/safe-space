@@ -28,6 +28,11 @@ mat-drawer {
   }
 }
 
+// remove outline from Safe Space when clicked as link
+span:focus {
+  outline: none;
+}
+
 .active-list-item {
   color: #d062f2 !important; /* Note: You could also use a custom theme */
 }

@@ -27,18 +27,18 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { HeaderComponent } from './global/header/header.component';
 import { ExploreComponent } from './pages/explore/explore.component';
 import { ConnectComponent } from './pages/connect/connect.component';
-import { TableComponent } from './table/table.component';
+import { TableComponent } from './global/table/table.component';
 
 // Adding Angular Material Module (also added to imports below)
 import { UserProfileComponent } from './forms/user-profile/user-profile.component';
 import { UserFormComponent } from './forms/userform/userform.component';
 import { ResourceFormComponent } from './forms/resource-form/resource-form.component';
 import { NavComponent } from './global/nav/nav.component';
-import { HomeLoginButtonComponent } from './forms/home-login-button/home-login-button.component';
+import { HomeLoginButtonComponent } from './global/home-login-button/home-login-button.component';
 import { ProfileComponent } from './pages/profile/profile.component';
-import { StateTemplateComponent } from './state-template/state-template.component';
-import { AddBusinessComponent } from './forms/add-business/add-business.component';
+import { StateTemplateComponent } from './pages/state-template/state-template.component';
 import { PlanetComponent } from './global/planet/planet.component';
+import { ButtonComponent } from './global/button/button.component';
 
 @NgModule({
   declarations: [
@@ -58,8 +58,8 @@ import { PlanetComponent } from './global/planet/planet.component';
     HomeLoginButtonComponent,
     ProfileComponent,
     StateTemplateComponent,
-    AddBusinessComponent,
-    PlanetComponent
+    PlanetComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,

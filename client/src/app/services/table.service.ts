@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { HttpHeaders } from "@angular/common/http";
+import { IBusiness } from "./business-interface";
 
 import { Observable, throwError } from "rxjs";
 import { catchError, retry } from "rxjs/operators";
@@ -14,19 +15,6 @@ const httpOptions = {
   })
 };
 
-export interface IBusiness {
-  type: string;
-  name: string;
-  city: string;
-  state: string;
-  website: string;
-  description: string;
-  contactName: string;
-  phone: string;
-  email: string;
-  memberOwned: boolean;
-}
-
 @Injectable()
 export class TableService {
 
@@ -36,8 +24,12 @@ export class TableService {
 
   public getUrl(resource: string, stateName: string) {
 
-    this.businessesUrl = `api/business/${resource}/${stateName}/`;
-
+    if (stateName === "all") {
+      this.businessesUrl = `api/business`
+      
+    } else {
+      this.businessesUrl = `api/business/${resource}/${stateName}/`;
+    }
   }
 
   /** GET resourcees from the server */
