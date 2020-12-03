@@ -40,7 +40,7 @@
         <mat-form-field class="field-style flex-item">
             <mat-label>Business State</mat-label>
             <!-- <input matNativeControl placeholder="ME" formControlName="state" matInput required> -->
-            <mat-select formControlName="state" [(value)]="selectedType" required>
+            <mat-select formControlName="state" [(value)]="selectedState" required>
                 <mat-option placeholder="Select One" value="MA">MA</mat-option>
                 <mat-option placeholder="Select One" value="ME">ME</mat-option>
                 <mat-option placeholder="Select One" value="NH">NH</mat-option>
@@ -85,7 +85,7 @@
         <!-- description -->
         <mat-form-field class="field-style flex-item">
             <mat-label>Description</mat-label>
-            <textarea matInput matNativeControl placeholder="" formControlName="description"></textarea>
+            <textarea matInput matNativeControl placeholder="" formControlName="description" required></textarea>
         </mat-form-field>
 
 
