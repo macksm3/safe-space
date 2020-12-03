@@ -40,8 +40,12 @@
         <!-- eventually a drop down list? -->
         <mat-form-field class="field-style flex-item">
             <mat-label>Business State</mat-label>
-            <input matNativeControl placeholder="ME" formControlName="state" matInput required>
-            <mat-error *ngIf="!businessForm.controls['state'].valid && businessForm.controls['state'].touched">
+            <mat-option placeholder="Select One">MA</mat-option>
+            <mat-option placeholder="Select One">ME</mat-option>
+            <mat-option placeholder="Select One">NH</mat-option>
+            <mat-option placeholder="Select One">NY</mat-option>
+            <mat-option placeholder="Select One">VT</mat-option>
+        <mat-error *ngIf="!businessForm.controls['state'].valid && businessForm.controls['state'].touched">
                 {{ getErrorState()}}
             </mat-error>
         </mat-form-field>
@@ -58,7 +62,7 @@
         <!-- Contact Name  -->
         <mat-form-field class="field-style flex-item">
             <mat-label>Contact Name</mat-label>
-            <input matNativeControl placeholder="Lila Ohare" formControlName="contactName" matInput>
+            <input matNativeControl placeholder="Contact" formControlName="contactName" matInput>
         </mat-form-field>
 
         <!-- email  -->
