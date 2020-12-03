@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './auth.guard';
 
-// using guidelines: https://angular.io/guide/router
-// Nov 13 MWE import modules needed for routing
 import { AboutComponent } from './pages/about/about.component';
 import { ExploreComponent } from './pages/explore/explore.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -16,7 +14,6 @@ import { ResourceFormComponent } from './forms/resource-form/resource-form.compo
 import { StateTemplateComponent } from './pages/state-template/state-template.component';
 
 
-// Nov 13 MWE define routes in Routes array
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' }, // redirect to home page
 

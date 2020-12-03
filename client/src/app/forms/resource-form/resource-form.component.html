@@ -37,10 +37,16 @@
         </mat-form-field>
 
         <!-- state -->
-        <!-- eventually a drop down list? -->
         <mat-form-field class="field-style flex-item">
             <mat-label>Business State</mat-label>
-            <input matNativeControl placeholder="ME" formControlName="state" matInput required>
+            <!-- <input matNativeControl placeholder="ME" formControlName="state" matInput required> -->
+            <mat-select formControlName="state" [(value)]="selectedState" required>
+                <mat-option placeholder="Select One" value="MA">MA</mat-option>
+                <mat-option placeholder="Select One" value="ME">ME</mat-option>
+                <mat-option placeholder="Select One" value="NH">NH</mat-option>
+                <mat-option placeholder="Select One" value="NY">NY</mat-option>
+                <mat-option placeholder="Select One" value="VT">VT</mat-option>
+            </mat-select>
             <mat-error *ngIf="!businessForm.controls['state'].valid && businessForm.controls['state'].touched">
                 {{ getErrorState()}}
             </mat-error>
@@ -58,7 +64,7 @@
         <!-- Contact Name  -->
         <mat-form-field class="field-style flex-item">
             <mat-label>Contact Name</mat-label>
-            <input matNativeControl placeholder="Lila Ohare" formControlName="contactName" matInput>
+            <input matNativeControl placeholder="Contact" formControlName="contactName" matInput>
         </mat-form-field>
 
         <!-- email  -->
@@ -79,7 +85,7 @@
         <!-- description -->
         <mat-form-field class="field-style flex-item">
             <mat-label>Description</mat-label>
-            <textarea matInput matNativeControl placeholder="" formControlName="description"></textarea>
+            <textarea matInput matNativeControl placeholder="" formControlName="description" required></textarea>
         </mat-form-field>
 
 
