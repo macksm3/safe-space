@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ChatService } from '../../services/chat.service';
 
 @Component({
   selector: 'app-connect',
@@ -7,9 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConnectComponent implements OnInit {
 
-  constructor() { }
+  public users: number = 0;
+  public message: string = '';
+  public messages: string[] = [];
 
-  ngOnInit(): void {
+  constructor(private chatService: ChatService) { }
+
+  ngOnInit(){
+
+    this.chatService.receiveChat().subscribe((message: string) => {
+      this.messages.push(message);
+    });
+
+    this.chatService.getUsers().subscribe((users: number) => {
+      this.users = users;
+    });
+  }
+
+  addChat(){
+    this.messages.push(this.message);
+    this.chatService.sendChat(this.message);
+    this.message = '';
   }
 
 }

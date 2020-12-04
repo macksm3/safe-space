@@ -1,1 +1,28 @@
 <app-header class="title" title=Connect></app-header>
+
+<div class="chatContent">
+  <mat-card>
+    <mat-card-content>
+      There are currently <strong>{{users}}</strong> users online. Start chatting!
+    </mat-card-content>
+  </mat-card>
+
+  <ul class="messages">
+    <li *ngFor="let message of messages">
+      {{message}}
+    </li>
+  </ul>
+</div>
+
+<footer>
+  <mat-toolbar>
+    <textarea spellcheck="true" autoComplete="true" autocorrect="true" rows="1" class="chat-input" [(ngModel)]="message" placeholder="type message..." (keyup.enter)="addChat()">
+    </textarea>
+    <mat-buttons slot="primary">
+      <mat-button (click)="addChat()" slot="end" class="send-chat-button">
+        <mat-icon slot="icon-only" name="send"></mat-icon>
+      </mat-button>
+    </mat-buttons>
+  </mat-toolbar>
+</footer>
+
