@@ -10,6 +10,7 @@ import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
 import { UsersModule } from "./Database/Users/users.module";
 import { BusinessModule } from "./Database/Business/business.module";
+import { ChatModule } from './chat/chat.module';
 
 @Module({
     imports: [
@@ -18,7 +19,8 @@ import { BusinessModule } from "./Database/Business/business.module";
         MongooseModule.forRoot(process.env.MONGODB_URI),
         ServeStaticModule.forRoot({
             rootPath: join(__dirname, "../..", "./client/dist"),
-        })
+        }),
+        ChatModule
     ],  //  import other modules into this module, so we can get their Providers
     controllers: [AppController],  //  controllers accept requests, do stuff, and then give responses
     providers: [AppService],  //  services/classes that provide things to the controllers, such as grabbing stuff from a DB and sending the data to the controller

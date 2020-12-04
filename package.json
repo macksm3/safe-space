@@ -11,7 +11,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "start": "npm run start:prod --prefix server",
-    "build:client": "cd client && ng build --prod --output-path=../client/dist",
+    "build:client": "ng build --prefix client --output-path=../client/dist",
     "build:dummy": "npm run build --prefix client",
     "build:server": "npm run build --prefix server",
     "build": "npm run build:server & npm run build:dummy",

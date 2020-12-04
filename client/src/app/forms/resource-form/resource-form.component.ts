@@ -13,7 +13,8 @@ export class ResourceFormComponent implements OnInit {
   businessForm: FormGroup;
   titleAlert: string = 'This field is required';
   post: any = '';
-  selectedType = 'option2'
+  selectedState = 'option2';
+  selectedType = 'option2';
   selectedBool = 'option2';
 
 
