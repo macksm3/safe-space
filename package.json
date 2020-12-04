@@ -14,7 +14,7 @@
     "build:client": "ng build --prefix client --output-path=../client/dist",
     "build:dummy": "npm run build --prefix client",
     "build:server": "npm run build --prefix server",
-    "build": "npm run build:server & npm run build:client",
+    "build": "npm run build:server & npm run build:dummy",
     "start:dev": "npm run start:server & npm run start:client",
     "start:client": " cd client && npm start",
     "start:server": " cd server && npm run start:dev",
