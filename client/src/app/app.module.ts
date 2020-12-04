@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+
+import { RouteReuseStrategy } from '@angular/router';
 
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -20,6 +22,8 @@ import { GlobalModule } from './global.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+
 import { FooterComponent } from './global/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
@@ -39,6 +43,12 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { StateTemplateComponent } from './pages/state-template/state-template.component';
 import { PlanetComponent } from './global/planet/planet.component';
 import { ButtonComponent } from './global/button/button.component';
+import { ChatService } from './services/chat.service';
+
+let hostname = window.location.hostname;
+let url = ( hostname === 'localhost' ) ? `${window.location.protocol}//${hostname}:3000` : undefined;
+const config: SocketIoConfig = { url: url, options: {} };
+// const config: SocketIoConfig = { url: 'http://localhost:3000', options: {}};
 
 @NgModule({
   declarations: [
@@ -81,9 +91,11 @@ import { ButtonComponent } from './global/button/button.component';
     MatSelectModule,
     MatButtonToggleModule,
     MatSidenavModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    SocketIoModule.forRoot(config)
   ],
-  providers: [],
+  entryComponents: [],
+  providers: [ChatService],
   bootstrap: [AppComponent],
   // added with Angular Material Model for us with tables
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
