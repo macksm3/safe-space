@@ -23,6 +23,13 @@ export class UsersService {
         return user;
     }
 
+    async getUserByAuthSub(userSub: string) {
+        const userData = await this.userModel.find().where({ subId: userSub }).exec();
+        if (userData.length > 0) {
+            return userData;
+        }
+    }
+
     async getUserIdByFindingAuthSub(subIdToSearch: string): Promise<User> {
         const userId = await this.userModel.findOne({ subId: subIdToSearch }, '_id').exec();
         return userId;

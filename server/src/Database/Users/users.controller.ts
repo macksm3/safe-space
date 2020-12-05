@@ -58,8 +58,8 @@ export class UsersController {
     }
 
     @Get("sub/:authSub")
-    getUserIdByFindingAuthSub(@Param("authSub") userSub: string) {
-        return this.usersService.getUserIdByFindingAuthSub(userSub);
+    getUserByAuthSub(@Param("authSub") userSub: string) {
+        return this.usersService.getUserByAuthSub(userSub);
     }
 
     @Patch(":id")

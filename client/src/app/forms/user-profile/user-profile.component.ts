@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../auth.service';
-import { UserFormComponent } from '../userform/userform.component';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
@@ -22,10 +21,10 @@ export class UserProfileComponent implements OnInit {
     }
 
     async getDatabaseData(authSub) {
-        const apiURL = await `/api/user/sub/${authSub}`;
+        const apiURL = `/api/user/sub/${authSub}`;
 
         this.databaseData = await this.http.get(apiURL);
-        console.log(this.databaseData);
+        console.log('databaseData from initial get === ', this.databaseData);
     }
 
     async getAuthData() {
