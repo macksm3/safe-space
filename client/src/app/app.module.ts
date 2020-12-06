@@ -44,6 +44,9 @@ import { PlanetComponent } from './global/planet/planet.component';
 import { ButtonComponent } from './global/button/button.component';
 import { ChatService } from './services/chat.service';
 
+//  Session and/or Local storage
+import { UserSessionStorageService } from "./services/webstorage.service";
+
 let hostname = window.location.hostname;
 let url = ( hostname === 'localhost' ) ? `${window.location.protocol}//${hostname}:3000` : undefined;
 const config: SocketIoConfig = { url: url, options: {} };
@@ -93,7 +96,7 @@ const config: SocketIoConfig = { url: url, options: {} };
     SocketIoModule.forRoot(config)
   ],
   entryComponents: [],
-  providers: [ChatService],
+  providers: [ChatService, UserSessionStorageService],
   bootstrap: [AppComponent],
   // added with Angular Material Model for us with tables
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

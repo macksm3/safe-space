@@ -28,6 +28,11 @@ export class UsersService {
         return userId;
     }
 
+    async getUserDataBySub(subIdToSearch: string) {
+        const userData = await this.userModel.find().where({ subId: subIdToSearch }).exec();
+        return userData;
+    }
+
     async insertUser(
         subId: string,
         username: string,
@@ -94,7 +99,7 @@ export class UsersService {
     ) {
         const userId = await this.getUserIdByFindingAuthSub(subId);
         if (userId) {
-            const updatedUser = await this.findOneUser(userId.id);
+            const updatedUser = await this.findOneUser(userId.id);  //  probably don't need this function, get entire user data indie "userId" which should just be the user object
             if (username) {
                 updatedUser.username = username;
             }
