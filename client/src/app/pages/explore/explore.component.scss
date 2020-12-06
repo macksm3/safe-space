@@ -52,7 +52,7 @@ app-planet:nth-of-type(5) {
 h6 {
   font-size: 20px;
   text-align: center;
-  margin-top: 40px;
+  margin-top: 20px;
   font-family: 'Audiowide', cursive;
   color: #fff;
   text-shadow:
@@ -65,7 +65,7 @@ h6 {
     0 0 35px #0073e6;
 
   @media screen and (max-width: 479px) {
-    font-size: 30px;
+    font-size: 4vw;
     margin-top: 20px;
   }
 }

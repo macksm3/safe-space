@@ -31,14 +31,13 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { HeaderComponent } from './global/header/header.component';
 import { ExploreComponent } from './pages/explore/explore.component';
 import { ConnectComponent } from './pages/connect/connect.component';
+import { MatTableResponsiveModule } from './global/mat-table-responsive/mat-table-responsive.module';
 import { TableComponent } from './global/table/table.component';
 
 // Adding Angular Material Module (also added to imports below)
-import { UserProfileComponent } from './forms/user-profile/user-profile.component';
-import { UserFormComponent } from './forms/userform/userform.component';
-import { ResourceFormComponent } from './forms/resource-form/resource-form.component';
 import { NavComponent } from './global/nav/nav.component';
 import { HomeLoginButtonComponent } from './global/home-login-button/home-login-button.component';
+import { ResourceFormComponent } from './pages/resource-form/resource-form.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { StateTemplateComponent } from './pages/state-template/state-template.component';
 import { PlanetComponent } from './global/planet/planet.component';
@@ -64,8 +63,6 @@ const config: SocketIoConfig = { url: url, options: {} };
     ExploreComponent,
     ConnectComponent,
     TableComponent,
-    UserProfileComponent,
-    UserFormComponent,
     ResourceFormComponent,
     NavComponent,
     HomeLoginButtonComponent,
@@ -95,6 +92,7 @@ const config: SocketIoConfig = { url: url, options: {} };
     MatButtonToggleModule,
     MatSidenavModule,
     MatCheckboxModule,
+    MatTableResponsiveModule,
     SocketIoModule.forRoot(config)
   ],
   entryComponents: [],
