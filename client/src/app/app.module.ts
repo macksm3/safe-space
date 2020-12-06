@@ -36,9 +36,9 @@ import { TableComponent } from './global/table/table.component';
 
 // Adding Angular Material Module (also added to imports below)
 import { UserFormComponent } from './forms/userform/userform.component';
-import { ResourceFormComponent } from './forms/resource-form/resource-form.component';
 import { NavComponent } from './global/nav/nav.component';
 import { HomeLoginButtonComponent } from './global/home-login-button/home-login-button.component';
+import { ResourceFormComponent } from './pages/resource-form/resource-form.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { StateTemplateComponent } from './pages/state-template/state-template.component';
 import { PlanetComponent } from './global/planet/planet.component';

@@ -10,7 +10,7 @@ import { ConnectComponent } from './pages/connect/connect.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { TableComponent } from './global/table/table.component';
 import { UserFormComponent } from './forms/userform/userform.component';
-import { ResourceFormComponent } from './forms/resource-form/resource-form.component';
+import { ResourceFormComponent } from './pages/resource-form/resource-form.component';
 import { StateTemplateComponent } from './pages/state-template/state-template.component';
 
 
