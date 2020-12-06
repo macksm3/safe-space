@@ -9,7 +9,6 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { ConnectComponent } from './pages/connect/connect.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { TableComponent } from './global/table/table.component';
-import { UserFormComponent } from './forms/userform/userform.component';
 import { ResourceFormComponent } from './pages/resource-form/resource-form.component';
 import { StateTemplateComponent } from './pages/state-template/state-template.component';
 
@@ -72,7 +71,6 @@ const routes: Routes = [
 
   // Forms
   { path: 'addBusiness', component: ResourceFormComponent },
-  { path: 'userform', component: UserFormComponent },
   { path: 'resourceform', component: ResourceFormComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
