@@ -18,11 +18,12 @@
         <!-- preferred pronoun entry with dropdown menu -->
         <mat-form-field appearance="fill" class="flex-item">
             <mat-label>Preferred Pronoun</mat-label>
-            <mat-select formControlName="pronouns" [(value)]="pronounSelection">
+            <!-- <mat-select formControlName="pronouns" [(value)]="pronounSelection">
                 <mat-option placeholder="Select One" value="she/her/hers">she/her/hers</mat-option>
                 <mat-option placeholder="Select One" value="he/him/his">he/him/his</mat-option>
                 <mat-option placeholder="Select One" value="they/them/theirs">they/them/theirs</mat-option>
-            </mat-select>
+            </mat-select> -->
+            <input matNativeControl placeholder="pronouns" formControlName="pronouns" matInput>
         </mat-form-field>
         <br>
         <!-- location entry -->
