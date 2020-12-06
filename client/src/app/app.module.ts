@@ -35,7 +35,6 @@ import { MatTableResponsiveModule } from './global/mat-table-responsive/mat-tabl
 import { TableComponent } from './global/table/table.component';
 
 // Adding Angular Material Module (also added to imports below)
-import { UserProfileComponent } from './forms/user-profile/user-profile.component';
 import { UserFormComponent } from './forms/userform/userform.component';
 import { ResourceFormComponent } from './forms/resource-form/resource-form.component';
 import { NavComponent } from './global/nav/nav.component';
@@ -62,7 +61,6 @@ const config: SocketIoConfig = { url: url, options: {} };
     ExploreComponent,
     ConnectComponent,
     TableComponent,
-    UserProfileComponent,
     UserFormComponent,
     ResourceFormComponent,
     NavComponent,

@@ -17,6 +17,7 @@ export class ProfileComponent implements OnInit {
       console.log(data);
       this.user = data;
   })
+  
   }
 
 }
