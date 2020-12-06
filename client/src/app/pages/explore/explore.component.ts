@@ -16,9 +16,8 @@ export class ExploreComponent implements OnInit {
 
   ngOnInit(): void {
     this.auth.userProfile$.subscribe(data => {
-      console.log("I'm your user data")
-      console.log(data);
       this.user = data;
+      localStorage.setItem('userData', data.given_name);
       this.welcomeTitle = "Welcome " + data.given_name + "!";
     })
   }

@@ -1,5 +1,15 @@
 <app-header title="Profile"></app-header>
-<div class="edit-profile" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="50px" fxLayout.sm="row wrap" fxLayout.xs="row wrap">
-    <app-user-profile></app-user-profile>
+<div class="edit-profile" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="50px" fxLayout.sm="row wrap"
+    fxLayout.xs="row wrap">
+    
+    <div class="profile-style">
+        <mat-card fxLayout="column" fxLayoutAlign="space-around center">
+            <mat-card-title *ngIf="user" class="text">{{ user.name }}</mat-card-title>
+            <img mat-card-image *ngIf="user" [src]="user.picture" alt="Profile Picture">
+            <mat-card-subtitle *ngIf="user" class="text">{{ user.email }}</mat-card-subtitle>
+        </mat-card>
+    </div>
+
     <app-userform></app-userform>
+
 </div>
