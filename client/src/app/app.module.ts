@@ -31,6 +31,7 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { HeaderComponent } from './global/header/header.component';
 import { ExploreComponent } from './pages/explore/explore.component';
 import { ConnectComponent } from './pages/connect/connect.component';
+import { MatTableResponsiveModule } from './global/mat-table-responsive/mat-table-responsive.module';
 import { TableComponent } from './global/table/table.component';
 
 // Adding Angular Material Module (also added to imports below)
@@ -92,6 +93,7 @@ const config: SocketIoConfig = { url: url, options: {} };
     MatButtonToggleModule,
     MatSidenavModule,
     MatCheckboxModule,
+    MatTableResponsiveModule,
     SocketIoModule.forRoot(config)
   ],
   entryComponents: [],
