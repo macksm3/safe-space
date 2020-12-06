@@ -20,7 +20,7 @@ export class ExploreComponent implements OnInit {
     ngOnInit(): void {
         this.auth.userProfile$.subscribe(async data => {
             await this.storage.setupLocalStorage(data);
-            const userData = await this.storage.getDataFromLocal();
+            const userData = this.storage.getDataFromLocal();
             console.log("I'm your user data === ", userData);
             this.user = userData;
             this.welcomeTitle = "Welcome " + this.user.username + "!";
