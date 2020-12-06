@@ -25,7 +25,7 @@ export class UsersService {
 
     async getUserByAuthSub(userSub: string) {
         const userData = await this.userModel.find().where({ subId: userSub }).exec();
-        if (userData.length > 0) {
+        if (userData) {
             return userData;
         }
     }

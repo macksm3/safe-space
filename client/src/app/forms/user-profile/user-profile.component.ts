@@ -11,7 +11,16 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class UserProfileComponent implements OnInit {
     public authData;
     public databaseData;
-    public user;
+    public user = {
+        firstName: '',
+        lastName: '',
+        username: '',
+        pronouns: '',
+        location: '',
+        favoriteBusinesses: '',
+        reviewedBusinesses: '',
+        moreInfo: ''
+    };
     constructor(public auth: AuthService, private http: HttpClient) { }
 
     async ngOnInit(): Promise<void> {
@@ -23,8 +32,10 @@ export class UserProfileComponent implements OnInit {
     async getDatabaseData(authSub) {
         const apiURL = `/api/user/sub/${authSub}`;
 
-        this.databaseData = await this.http.get(apiURL);
-        console.log('databaseData from initial get === ', this.databaseData);
+        await this.http.get(apiURL).subscribe(data => {
+
+            console.log('data from initial get === ', data[0]);
+        });
     }
 
     async getAuthData() {
@@ -36,9 +47,11 @@ export class UserProfileComponent implements OnInit {
 
     compileUserData() {
         var result = Object.entries(this.authData);
+        console.log('auth result', result);
+
         var result2 = Object.entries(this.databaseData)
         console.log(`\nauthData === \n${result}\n\n databaseData === \n${result2}\n`);
-        
+
     }
 
 }
