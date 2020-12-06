@@ -3,9 +3,10 @@
     fxLayout.xs="row wrap">
 
     <mat-card fxLayout="column" fxLayoutAlign="space-around center">
-        <mat-card-title *ngIf="user" class="text">{{ user.username}}</mat-card-title>
+        <mat-card-title *ngIf="user" class="text">Hi <span>{{ user.username}}</span>!</mat-card-title>
         <img mat-card-image *ngIf="user" [src]="user.photo" alt="Profile Picture">
-        <mat-card-subtitle *ngIf="user" class="text">{{ user.email }}</mat-card-subtitle>
+        <mat-card-subtitle *ngIf="user.pronouns" class="text">prnouns: <span>{{ user.pronouns }}</span></mat-card-subtitle>
+        <mat-card-subtitle *ngIf="user" class="text">email: <span>{{ user.email }}</span></mat-card-subtitle>
     </mat-card>
     
     <form [formGroup]="userProfileForm" (ngSubmit)="onProfileUpdate(userProfileForm.value)" fxLayout="column"
