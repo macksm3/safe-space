@@ -62,7 +62,7 @@ export class UsersController {
         return this.usersService.getUserIdByFindingAuthSub(userSub);
     }
 
-    @Get("sub/test/:authSub")
+    @Get("sub/all/:authSub")
     getUserDataBySub(@Param("authSub") userSub: string) {
         return this.usersService.getUserDataBySub(userSub);
     }
