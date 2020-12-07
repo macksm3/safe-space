@@ -6,10 +6,12 @@
         <mat-card-title *ngIf="user" class="text">Hi <span>{{ user.username}}</span>!</mat-card-title>
         <img mat-card-image *ngIf="user" [src]="user.photo" alt="Profile Picture">
         <mat-card-subtitle *ngIf="user.pronouns" class="text">pronouns: <span>{{ user.pronouns }}</span></mat-card-subtitle>
-        <mat-card-subtitle *ngIf="user" class="text">email: <span>{{ user.email }}</span></mat-card-subtitle>
+        <!-- <mat-card-subtitle *ngIf="user" class="text">email: <span>{{ user.email }}</span></mat-card-subtitle> -->
+        <mat-card-content *ngIf="user.moreInfo" class="text">Bio: <p>{{ user.moreInfo }}</p></mat-card-content>
     </mat-card>
     
-    <form [formGroup]="userProfileForm" (ngSubmit)="onProfileUpdate(userProfileForm.value)" fxLayout="column"
+    <form [formGroup]="userProfileForm" (ngSubmit)="onProfileUpdate(userProfileForm.value)"
+    fxLayout="column"
         fxLayoutAlign="center center" flxLayout="flex-container">
     
         <!-- username entry -->

@@ -37,8 +37,9 @@ export class UserSessionStorageService {
 
         if (!dbData) {
             console.log('\nNO DB DATA\n');
-            
+
             dbData = await this.configureAuthData(authData);
+
             this.saveDataToDb(dbData);
         }
 
@@ -50,7 +51,7 @@ export class UserSessionStorageService {
 
     }
 
-    public getDataFromLocal(): Object {
+    public getDataFromLocal(): any {
         console.log('start: getDataFromLocal');
 
         const localStorage = this.storage.get(STORAGE_KEY) || {};
@@ -79,7 +80,7 @@ export class UserSessionStorageService {
             email: authData.email,
             username: authData.nickname,
             subId: subArray[1],
-            picture: authData.picture
+            photo: authData.picture
         }
     }
 
@@ -97,7 +98,7 @@ export class UserSessionStorageService {
 
     }
 
-    private saveDataLocally(data) {
+    public saveDataLocally(data) {
         console.log('start: saveDataLocally');
 
         console.log('what is being saved', data);
@@ -107,7 +108,7 @@ export class UserSessionStorageService {
         console.log('end: saveDataLocally');
     }
 
-    private async saveDataToDb(data) {
+    public async saveDataToDb(data) {
         const newUserId = await this.http.post('api/user', data).toPromise();
         return newUserId;
     }
