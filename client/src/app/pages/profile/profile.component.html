@@ -1,5 +1,45 @@
 <app-header title="Profile"></app-header>
-<div class="edit-profile" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="50px" fxLayout.sm="row wrap" fxLayout.xs="row wrap">
-    <app-user-profile></app-user-profile>
-    <app-userform></app-userform>
+<div class="edit-profile" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="50px" fxLayout.sm="row wrap"
+    fxLayout.xs="row wrap">
+
+    <mat-card fxLayout="column" fxLayoutAlign="space-around center">
+        <mat-card-title *ngIf="user" class="text">Hi <span>{{ user.username}}</span>!</mat-card-title>
+        <img mat-card-image *ngIf="user" [src]="user.photo" alt="Profile Picture">
+        <mat-card-subtitle *ngIf="user.pronouns" class="text">pronouns: <span>{{ user.pronouns }}</span></mat-card-subtitle>
+        <mat-card-subtitle *ngIf="user" class="text">email: <span>{{ user.email }}</span></mat-card-subtitle>
+    </mat-card>
+    
+    <form [formGroup]="userProfileForm" (ngSubmit)="onProfileUpdate(userProfileForm.value)" fxLayout="column"
+        fxLayoutAlign="center center" flxLayout="flex-container">
+    
+        <!-- username entry -->
+        <mat-form-field appearance="fill" class="flex-item">
+            <mat-label>Username</mat-label>
+            <input matNativeControl placeholder="username" formControlName="username" matInput>
+        </mat-form-field>
+    
+        <!-- email entry - autofilled from login? -->
+        <mat-form-field appearance="fill" class="flex-item">
+            <mat-label>Email</mat-label>
+            <input matNativeControl placeholder="email" formControlName="email" matInput>
+            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+    
+        <!-- preferred pronoun entry with dropdown menu -->
+        <mat-form-field appearance="fill" class="flex-item">
+            <mat-label>Preferred Pronoun</mat-label>
+            <input matNativeControl placeholder="pronouns" formControlName="pronouns" matInput>
+        </mat-form-field>
+    
+        <!-- location entry -->
+        <mat-form-field appearance="fill" class="flex-item">
+            <mat-label>Location</mat-label>
+            <input matNativeControl placeholder="location" formControlName="location" matInput>
+        </mat-form-field>
+    
+        <div fxLayout="row" fxLayoutAlign="center center">
+            <!-- submit button -->
+            <button mat-raised-button type="submit" [disabled]="!userProfileForm.valid">Submit</button>
+        </div>
+    </form>
 </div>

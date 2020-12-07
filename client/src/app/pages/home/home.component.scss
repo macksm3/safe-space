@@ -2,57 +2,52 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
 
 div.background {
-  min-height: 100vh;
-}
+  min-height: 80vh;
 
-.intro-card {
-  text-align: center;
-  background: transparent;
-  background: url("/assets/images/white-circle.png") no-repeat;
-  background-size: 100%;
-  padding: 80px;
-  width: 260px;
-  color: #1E344B;
-  font-weight: 800;
-}
+  mat-card {
+    text-align: center;
+    background: transparent;
+    background: url("/assets/images/white-circle.png") no-repeat;
+    background-size: 100%;
+    padding: 80px;
+    width: 260px;
+    color: #1E344B;
+    font-weight: 800;
 
-div.alien {
-  background: transparent;
-  background-image: url('https://i.ibb.co/vc6kVxY/5.png');
-  background-size: 100%;
-  height: 50px;
-}
+    @media screen and (max-width: 400px) {
+      width: 300px;
+      padding: 40px 20px;
+      background-size: 100%;
+    }
 
-mat-card-title {
-  font-family: 'Open Sans', sans-serif;
-}
+    mat-card-title {
+      font-family: 'Open Sans', sans-serif;
+    }
 
-mat-card-actions {
-  padding: 10px;
-}
+    mat-card-actions {
+      padding: 10px;
+    }
 
-h1.safe-space {
-  font-size: 3rem;
-  line-height: normal;
-  font-family: 'Audiowide', cursive;
-  color: #1E344B;
-  margin: 0;
-}
+    h1 {
+      font-size: 3rem;
+      line-height: normal;
+      font-family: 'Audiowide', cursive;
+      color: #1E344B;
+      margin: 0;
+    }
 
-p {
-  color: white;
-  margin: 20px;
-}
+    button {
+      background-color: #ADFFE3;
+      color: #1E344B;
+      margin-top: 10px;
 
-mat-icon {
-  font-size: 48px;
-  height: 48px;
-  width: 48px;
-  margin-top: 8px;
-  margin-left: -4px;
-}
-
-.btnColor {
-  background-color: #ADFFE3;
-  color: #1E344B;
+      mat-icon {
+        font-size: 48px;
+        height: 48px;
+        width: 48px;
+        margin-top: 8px;
+        margin-left: -4px;
+      }
+    }
+  }
 }

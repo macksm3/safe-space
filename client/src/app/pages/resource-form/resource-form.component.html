@@ -97,14 +97,6 @@
     </form>
 </div>
 
-<!-- <ng-template #forminfo>
-    <div class="formContainer">
-        {{ post | json }}
-    </div>
-
-</ng-template> -->
-
-<!-- Put note here saying "thank you" w/ buttons to explore, add another, maybe display form info? Would be great if people could view/edit before posting -->
 <ng-template #formInfo>
     <div fxLayout="column" fxLayoutAlign="center center">
         <div class="showDetails">
@@ -119,8 +111,7 @@
             <h4>Description: {{post.description}}</h4>
             <h4>Website: {{post.website}}</h4>
             <div class="btnRow" fxLayout="row" fxLayoutAlign="center">
-                <!-- <button mat-raised-button color="accent">website</button> -->
-                <!-- <app-button path="{{post.website}}" label="website"></app-button> -->
+                
                 <app-button path="addBusiness" label="add another"></app-button>
             </div>
         </div>
