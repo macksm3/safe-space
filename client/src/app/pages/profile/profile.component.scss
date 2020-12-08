@@ -42,3 +42,9 @@ mat-card {
 app-userform {
     margin: 15px 30px 0px!important;
 }
+
+form {
+    @media screen and (max-width: 530px) {
+        margin: 20px 0px;
+    }
+}
