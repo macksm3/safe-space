@@ -26,6 +26,7 @@ export class ProfileComponent implements OnInit {
     public pronounSelection: string;
     public email = new FormControl('', [Validators.required, Validators.email]);
     static onProfileUpdate: any;
+    public posted: boolean = false;
     public user = {
         username: '',
         pronouns: '',
@@ -67,7 +68,9 @@ export class ProfileComponent implements OnInit {
             'username': [null],
             'pronouns': [null],
             'location': [null],
-            'email': [null, [Validators.pattern(EMAIL_REGEXP)]]
+            'email': [null, [Validators.pattern(EMAIL_REGEXP)]],
+            'moreInfo': [null],
+            'photo': [null]
         });
     }
 
@@ -82,37 +85,12 @@ export class ProfileComponent implements OnInit {
         return this.userProfileForm.get('email').hasError('pattern') ? 'Not a valid email address.' : '';
     }
 
-    // checkProfileData(profileData) {
-
-    //     const {
-    //         username,
-    //         email
-    //     } = profileData;
-
-    //     const data = [username, email];
-
-    //     data.forEach(category => {
-    //         if (category) {
-    //             switch (category) {
-    //                 case username:
-    //                     this.user.username = username;
-    //                     break;
-    //                 case email:
-    //                     this.user.email = email;
-    //                     break;
-    //                 default:
-    //                     break;
-    //             }
-    //         }
-    //     })
-    // }
-
     //  EVENT where user submits new data to update their profile
     async onProfileUpdate(profileData) {
         console.log('profileData === ', profileData);
 
         //  IF no data was submitted we alert the user that they didn't enter anything
-        if (!profileData.username && !profileData.pronouns && !profileData.location && !profileData.email) {
+        if (!profileData.username && !profileData.pronouns && !profileData.location && !profileData.email && !profileData.moreInfo && !profileData.photo) {
             return alert("You must enter data into one of the fields in order to update your profile.")
         } else {
             //  SAVE submitted data to Local Storage
@@ -123,6 +101,7 @@ export class ProfileComponent implements OnInit {
             this.loadProfileDataFromLocalStorage();
         }
         this.createForm();
+        this.posted = true;
     }
 
     //  SAVE data to Local Storage after checking the new data against the currently saved data in Local Storage
@@ -152,6 +131,7 @@ export class ProfileComponent implements OnInit {
 
         this.user.photo = localStorageData.photo;
         this.user.username = localStorageData.username;
+        this.user.moreInfo = localStorageData.moreInfo;
     }
 
     //  UPDATE user's data in the database by grabbing the current data in Local Storage
@@ -180,7 +160,9 @@ export class ProfileComponent implements OnInit {
             "username",
             "moreInfo",
             "pronouns",
-            "location"
+            "location",
+            "moreInfo",
+            "photo"
         ];
 
         //  Creating an object to hold the data from Local Storage that isn't getting updated

@@ -1,6 +1,6 @@
 <app-header class="title" title='Help Expand Our Orbit'></app-header>
 
-<div class="formContainer" *ngIf="!post; else formInfo" fxLayout="column" fxLayoutAlign="center center" novalidate>
+<div class="formContainer" *ngIf="post; else formInfo" fxLayout="column" fxLayoutAlign="center center" novalidate>
     <!-- fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign.xs="center" fxLayoutAlign.sm="center" novalidate> -->
     <form [formGroup]="businessForm" (ngSubmit)="onSubmit(businessForm.value)" class="form">
 
