@@ -7,7 +7,7 @@
         <img mat-card-image *ngIf="user" [src]="user.photo" alt="Profile Picture">
         <mat-card-subtitle *ngIf="user.pronouns" class="text">pronouns: <span>{{ user.pronouns }}</span></mat-card-subtitle>
         <!-- <mat-card-subtitle *ngIf="user" class="text">email: <span>{{ user.email }}</span></mat-card-subtitle> -->
-        <mat-card-content *ngIf="user.moreInfo" class="text">Bio: <p>{{ user.moreInfo }}</p></mat-card-content>
+        <mat-card-content *ngIf="user.moreInfo" class="text">Bio: <span><p>{{ user.moreInfo }}</p></span></mat-card-content>
     </mat-card>
     
     <form [formGroup]="userProfileForm" (ngSubmit)="onProfileUpdate(userProfileForm.value)"
@@ -37,6 +37,18 @@
         <mat-form-field appearance="fill" class="flex-item">
             <mat-label>Location</mat-label>
             <input matNativeControl placeholder="location" formControlName="location" matInput>
+        </mat-form-field>
+
+        <!-- Photo entry -->
+        <mat-form-field appearance="fill" class="flex-item">
+            <mat-label>Photo</mat-label>
+            <input matNativeControl placeholder="Paste a link to a photo" formControlName="photo" matInput>
+        </mat-form-field>
+
+        <!-- Bio/moreInfo entry -->
+        <mat-form-field appearance="fill" class="flex-item">
+            <mat-label>Bio</mat-label>
+            <textarea matNativeControl placeholder="Tell us about you!" formControlName="moreInfo" matInput></textarea>
         </mat-form-field>
     
         <div fxLayout="row" fxLayoutAlign="center center">
