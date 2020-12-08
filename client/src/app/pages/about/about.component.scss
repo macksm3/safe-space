@@ -10,21 +10,26 @@ mat-card {
   text-align: center;
   background: rgb(255, 255, 255, 0.7);
   border-radius: 25px;
-  padding: 20px;
+  padding: 2rem 3rem;
   margin: 30px 20px 10px 20px;
   color: #1E344B;
   font-weight: 800;
-  max-width: 600px;
+  max-width: 500px;
 
   @media screen and (max-width: 400px) {
-    margin-top: 0;
+    margin: 20px;
+    padding: 20px;
   }
 
   mat-card-title {
-    font-family: 'Open Sans', sans-serif;
-    padding: 10px;
-    font-style: italic;
-    font-weight: 600;
+    font-size: 3rem;
+    line-height: normal;
+    font-family: 'Audiowide', cursive;
+    color: #1E344B;
+    margin: 0;
+    @media screen and (max-width: 400px) {
+      font-size: 2rem;
+    }
   }
 
   p {
