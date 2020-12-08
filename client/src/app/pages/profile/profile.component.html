@@ -10,12 +10,12 @@
         <img mat-card-image *ngIf="user.photo" [src]="user.photo" alt="Profile Picture">
         <!-- pronouns -->
         <mat-card-subtitle *ngIf="user.pronouns" class="text">pronouns: <span>{{ user.pronouns }}</span></mat-card-subtitle>
-        <!-- email -->
-        <mat-card-subtitle *ngIf="user" class="text email">email: <span>{{ user.email }}</span></mat-card-subtitle>
+        <!-- <mat-card-subtitle *ngIf="user" class="text">email: <span>{{ user.email }}</span></mat-card-subtitle> -->
+        <mat-card-content *ngIf="user.moreInfo" class="text">Bio: <span><p>{{ user.moreInfo }}</p></span></mat-card-content>
     </mat-card>
     
-    <!-- User Form -->
-    <form [formGroup]="userProfileForm" (ngSubmit)="onProfileUpdate(userProfileForm.value)" fxLayout="column"
+    <form [formGroup]="userProfileForm" (ngSubmit)="onProfileUpdate(userProfileForm.value)"
+    fxLayout="column"
         fxLayoutAlign="center center" flxLayout="flex-container">
     
         <!-- username entry -->
@@ -27,7 +27,7 @@
         <!-- email entry -->
         <mat-form-field appearance="fill" class="flex-item">
             <mat-label>Email</mat-label>
-            <input matNativeControl *ngIf="user.email" placeholder="{{user.email}}" formControlName="email" matInput>
+            <input matNativeControl *ngIf="user" placeholder="email" formControlName="email" matInput>
 
             <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
         </mat-form-field>
@@ -42,6 +42,18 @@
         <mat-form-field appearance="fill" class="flex-item">
             <mat-label>Location</mat-label>
             <input matNativeControl placeholder="location" formControlName="location" matInput>
+        </mat-form-field>
+
+        <!-- Photo entry -->
+        <mat-form-field appearance="fill" class="flex-item">
+            <mat-label>Photo</mat-label>
+            <input matNativeControl placeholder="Paste a link to a photo" formControlName="photo" matInput>
+        </mat-form-field>
+
+        <!-- Bio/moreInfo entry -->
+        <mat-form-field appearance="fill" class="flex-item">
+            <mat-label>Bio</mat-label>
+            <textarea matNativeControl placeholder="Tell us about you!" formControlName="moreInfo" matInput></textarea>
         </mat-form-field>
     
         <div fxLayout="row" fxLayoutAlign="center center">

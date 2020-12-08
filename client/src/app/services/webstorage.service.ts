@@ -37,10 +37,10 @@ export class UserSessionStorageService {
 
         if (!dbData) {
             console.log('\nNO DB DATA\n');
-            
-            dbData = await this.configureAuthData(authData);
-            this.saveDataToDb(dbData);
 
+            dbData = await this.configureAuthData(authData);
+
+            this.saveDataToDb(dbData);
         }
 
         console.log('dbData returned to setupLocalStorage', dbData);
@@ -51,7 +51,7 @@ export class UserSessionStorageService {
 
     }
 
-    public getDataFromLocal(): Object {
+    public getDataFromLocal(): any {
         console.log('start: getDataFromLocal');
 
         const localStorage = this.storage.get(STORAGE_KEY) || {};
@@ -80,25 +80,25 @@ export class UserSessionStorageService {
             email: authData.email,
             username: authData.nickname,
             subId: subArray[1],
-            picture: authData.picture
+            photo: authData.picture
         }
     }
 
     private async getDataFromDb(sub) {
         console.log('start: getDataFromDb');
 
+        const parsedSub = sub.split('|');
 
-        const dbData = await this.http.get(`/api/user/sub/test/${sub}`).toPromise();
+        const dbData = await this.http.get(`/api/user/sub/all/${parsedSub[1]}`).toPromise();
         console.log('\nresponse from DB using sub - should be all user data === ', dbData);
 
         console.log('end: getDataFromDb');
 
         return dbData[0];
 
-
     }
 
-    private saveDataLocally(data) {
+    public saveDataLocally(data) {
         console.log('start: saveDataLocally');
 
         console.log('what is being saved', data);
@@ -108,7 +108,8 @@ export class UserSessionStorageService {
         console.log('end: saveDataLocally');
     }
 
-    private saveDataToDb(data) {
-        this.http.post('api/user', data);
+    public async saveDataToDb(data) {
+        const newUserId = await this.http.post('api/user', data).toPromise();
+        return newUserId;
     }
 }
