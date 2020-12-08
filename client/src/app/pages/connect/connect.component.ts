@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../auth.service';
 import { ChatService } from '../../services/chat.service';
+import { UserSessionStorageService } from "../../services/webstorage.service";
+
 
 @Component({
   selector: 'app-connect',
@@ -15,14 +17,19 @@ export class ConnectComponent implements OnInit {
   public message: string;
   public dataArr: object[] = [];
 
-  constructor(private chatService: ChatService, public auth: AuthService) { }
+  constructor(
+    private chatService: ChatService, 
+    public auth: AuthService,
+    public storage: UserSessionStorageService
+    ) { }
 
   ngOnInit(){
 
-    // currently using username from Auth0
-    this.auth.userProfile$.subscribe((data) => {
-      console.log(data)
-      this.userName = data.nickname;
+    // using Auth0 to grab username from DB
+    this.auth.userProfile$.subscribe(async (data) => {
+      await this.storage.setupLocalStorage(data);
+      const userData = this.storage.getDataFromLocal();
+      this.userName = userData.username;
     })
 
     // receives an object with nickname and message
