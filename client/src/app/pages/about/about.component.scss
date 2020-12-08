@@ -33,7 +33,7 @@ mat-card {
   }
 
   p {
-    text-align: left;
+    text-align: center;
     font-weight: 500;
     font-size: 2.2vh;
 
@@ -44,7 +44,6 @@ mat-card {
 
     // centering last sentences
     &:nth-child(n+3) {
-      text-align: center;
       font-weight: 600;
       font-size: 2.4vh;
     }
