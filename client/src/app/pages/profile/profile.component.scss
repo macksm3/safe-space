@@ -1,5 +1,5 @@
 mat-card {
-    margin: 15px 30px!important;
+    margin: 0 30px!important;
     background-color: #35485e;
 
     .text {
@@ -7,6 +7,10 @@ mat-card {
         text-align: center;
         font-family: 'Audiowide', cursive;
         color: #fff;
+
+        &.email {
+            font-size: 18px;
+        }
     }
 
     img {
@@ -14,16 +18,22 @@ mat-card {
         max-width: 150px;
         border-radius: 50%;
     }
+
     mat-card-title {
         padding: 10px 20px;
     }
+
     span {
         color: #ADFFE3;
+    }
+
+    .flex-item {
+        min-width: 250px;
     }
 }
 
 .edit-profile {
-    margin-top: 80px;
+    margin-top: 50px;
     @media screen and (max-width: 573px) {
         margin-top: 30px;
     }
