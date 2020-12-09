@@ -27,6 +27,8 @@ Once in the app, users can:
 
 Due to the nature of this application, the platform was designed with mobile responsiveness in mind. Users can expect an enjoyable experience on their mobile devices while traveling amongst various safe spaces.
 
+<img width="492" alt="Mobile" src="https://user-images.githubusercontent.com/66090689/101649100-832f5a00-3a08-11eb-9b64-19f5af55e8d7.png">
+
 
 #### Deployed Application: [Check out Safe Space today!](https://safe-space-ne.herokuapp.com/)
 
