@@ -9,9 +9,8 @@
         <!-- photo -->
         <img mat-card-image *ngIf="user.photo" [src]="user.photo" alt="Profile Picture">
         <!-- pronouns -->
-        <mat-card-subtitle *ngIf="user.pronouns" class="text">pronouns: <span>{{ user.pronouns }}</span>
-        </mat-card-subtitle>
-        <!-- <mat-card-subtitle *ngIf="user" class="text">email: <span>{{ user.email }}</span></mat-card-subtitle> -->
+        <mat-card-subtitle *ngIf="user.pronouns" class="text">pronouns: <span>{{ user.pronouns }}</span></mat-card-subtitle>
+        <mat-card-subtitle *ngIf="user.email" class="text">email: <span>{{ user.email }}</span></mat-card-subtitle>
         <mat-card-content *ngIf="user.moreInfo" class="text">Bio: <span>
                 <p>{{ user.moreInfo }}</p>
             </span></mat-card-content>

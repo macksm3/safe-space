@@ -38,6 +38,7 @@ export class ProfileComponent implements OnInit {
     public user = {
         username: '',
         pronouns: '',
+        email: '',
         moreInfo: '',
         photo: '',
         location: ''
@@ -103,7 +104,15 @@ export class ProfileComponent implements OnInit {
     }
 
     //  SAVEs data to Local Storage after checking the new data against the currently saved data in Local Storage
-    async saveToLocalStorage(data: any) {
+    async saveToLocalStorage(
+        data: { 
+            username: string; 
+            pronouns: string; 
+            location: string; 
+            email: string; 
+            moreInfo: string; 
+            photo: string; 
+        }) {
 
         const newData = await this.checkNewDataForUpdates(data);
 

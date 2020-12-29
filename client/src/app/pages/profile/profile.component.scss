@@ -1,6 +1,8 @@
 mat-card {
   margin: 0 30px !important;
   background-color: #35485e;
+  max-width: 300px;
+  overflow-wrap: break-word;
 
   .text {
     font-size: 20px;
